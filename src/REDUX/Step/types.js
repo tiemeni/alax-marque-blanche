@@ -1,0 +1,5 @@
+export const CREATE_STEP = "CREATE_STEP"
+export const EDITE_STEP = "EDITE_STEP"
+export const ACTIVATE_STEP = "ACTIVATE_STEP"
+export const MOVE_TO_NEXT_STEP = "MOVE_TO_NEXT_STEP"
+export const MOVE_TO_PREVIEW_STEP = "MOVE_TO_PREVIEW_STEP"

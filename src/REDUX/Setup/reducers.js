@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
-import {CommonReducer} from "../Common/reducer"
+import { CommonReducer } from "../Common/reducer"
+import { StepReducer } from "../Step/reducer"
 /**
  * @description combine reducers
  */
 const rootReducer = combineReducers({
-    CommonReducer
+    CommonReducer,
+    StepReducer
 });
 
 export default rootReducer;
