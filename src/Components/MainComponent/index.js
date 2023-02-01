@@ -18,7 +18,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: '70%',
-  height: '80%',
+  height: '85%',
   bgcolor: 'background.paper',
   border: '1px solid #DDD',
   boxShadow: 10,
@@ -61,16 +61,16 @@ export default function MainComponent() {
                 </Step>
               ))}
             </Stepper>
-            <Grid class="box_centre" container spacing={0.5}>
+            <Grid mt={1} class="box_centre" container spacing={0.5}>
               <Grid xs={12}>
                 <Auth />
               </Grid>
             </Grid>
-            <Grid container spacing={12}>
+            {/* <Grid container spacing={12}>
               <Grid class="box_btn_next" xs={12}>
                 <Button class="btn_next" variant="contained">SUIVANT</Button>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
         </Fade>
       </Modal>

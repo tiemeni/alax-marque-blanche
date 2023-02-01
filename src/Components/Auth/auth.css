@@ -13,7 +13,7 @@
 .container-title_text,
 .container-menu-item.login,
 .container-menu-item.register {
-  font-size: 18px;
+  font-size: 16px;
   color: var(--grey-color);
 }
 
@@ -55,8 +55,67 @@
   border-radius: 50px;
 }
 
-.cgu {
+.cgu,
+.forget-password {
   color: var(--secondary-color);
   text-decoration: underline;
   cursor: pointer;
+}
+
+.container-login_input {
+  display: flex;
+  justify-content: center;
+}
+
+.container-box_input_box {
+  width: 50%;
+}
+
+.input-box_button {
+  background-color: var(--primary-color) !important;
+  color: var(--white-color);
+}
+
+.input-box_button,
+.input-box_button_back-btn {
+  height: 50px;
+  width: 250px;
+  text-transform: uppercase;
+  border-radius: 50px !important;
+  box-shadow: none !important;
+}
+
+.input-box_button_back-btn {
+  border: 2px solid var(--primary-color) !important;
+}
+
+.container-box_input_box.button {
+  display: flex;
+  justify-content: center;
+}
+
+.login-text {
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  color: var(--white-color);
+}
+
+.login-text.back-btn {
+  color: var(--primary-color);
+}
+
+.input-box-left {
+  display: flex;
+  justify-content: end;
+}
+
+.container-box_input_box.reset-password {
+  display: flex;
+  justify-content: center;
+}
+
+.container-box_input_box.reset-password p {
+  color: var(--primary-color);
 }
