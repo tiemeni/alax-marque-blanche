@@ -9,6 +9,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Grid from '@mui/system/Unstable_Grid';
+import ChoixPraticien from '../ChoixPraticien';
 
 const style = {
   position: 'absolute',
@@ -33,7 +34,7 @@ const steps = [
     'Récapitulatif',
   ];
 
-export default function TransitionsModal() {
+export default function MainComponent() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -41,6 +42,7 @@ export default function TransitionsModal() {
   return (
     <div>
       <Button onClick={handleOpen}>Ouvrir la modale</Button>
+      
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -63,10 +65,10 @@ export default function TransitionsModal() {
           </Stepper>
           <Grid class="box_centre" container spacing={0.5}>
             <Grid  xs={12}>
-            
+            <ChoixPraticien />
             </Grid>
          </Grid>
-            
+         
          <Grid container spacing={0.5}>
 
             <Grid class="box_btn_next" xs={12}>
