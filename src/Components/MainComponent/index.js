@@ -9,7 +9,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Grid from '@mui/system/Unstable_Grid';
-import ChoixPraticien from '../ChoixPraticien';
+import DateRdv from '../DateRdv';
 
 const style = {
   position: 'absolute',
@@ -65,13 +65,18 @@ export default function MainComponent() {
           </Stepper>
           <Grid class="box_centre" container spacing={0.5}>
             <Grid  xs={12}>
-            <ChoixPraticien />
+            <DateRdv />
             </Grid>
          </Grid>
          
          <Grid container spacing={0.5}>
 
-            <Grid class="box_btn_next" xs={12}>
+            <Grid class="box_btn_retour" xs={6}>
+                
+                <Button class="btn_retour" variant="contained">RETOUR</Button>
+                
+            </Grid>
+            <Grid class="box_btn_next" xs={6}>
                 
                 <Button class="btn_next" variant="contained">SUIVANT</Button>
                 

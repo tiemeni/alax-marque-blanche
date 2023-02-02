@@ -1,0 +1,24 @@
+.boxClinique
+{
+   margin-bottom: 15px;
+   
+   
+    
+}
+
+.boxlist
+{
+    /*background-color: #ddd;*/
+}
+
+.texteClinique
+{
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.list :hover
+{
+    /*background-color: yellow;*/
+}
