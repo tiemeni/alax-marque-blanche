@@ -1,0 +1,36 @@
+.payment-option-card {
+  height: "fit-content";
+  text-align: center;
+}
+
+.payment-card {
+  display: inline-block;
+  height: 140px;
+  width: 75%;
+  background-color: var(--white-color);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.payment-card:hover {
+  opacity: 0.7;
+}
+
+.payment-card-title {
+  margin: 0;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.image.master {
+  width: 65%;
+}
+
+@media screen and (max-width: 815px) {
+  .payment-card {
+    width: 100%;
+  }
+}

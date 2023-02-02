@@ -1,0 +1,156 @@
+import { Alert, Button, Collapse, Fade, Grid, TextField } from '@mui/material';
+import { Box } from '@mui/system';
+import * as React from 'react';
+import { messages } from '../../../Helpers/defaultData';
+import { customStyles } from '../styles';
+
+const Login = ({ checkEmail, checkPass }) => {
+    const [formData, setFormData] = React.useState({
+        email: '',
+        password: ''
+    });
+    const [errors, setErrors] = React.useState({
+        emailError: null,
+        passwordMsg: null
+    });
+    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(false);
+    const [isReset, setIsReset] = React.useState({ isIt: false, value: '' });
+
+    const checkEmptyField = () => {
+        if (formData.email === '' && formData.password === '') {
+            setErrors({
+                passwordMsg: messages.emptyPass,
+                emailError: messages.emptyMail
+            })
+            return false;
+        } else if (formData.email === '') {
+            setErrors({
+                ...errors,
+                emailError: messages.emptyMail
+            })
+            return false;
+        } else if (formData.password === '') {
+            setErrors({
+                ...errors,
+                passwordMsg: messages.emptyPass,
+            })
+            return false;
+        }
+        return true;
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (canBeSubmitted && checkEmptyField()) {
+            console.log("Envoie du formulaire en cours...")
+        }
+    }
+
+
+    const handleChange = (e) => {
+        const val = e.target.value;
+        e.preventDefault();
+        switch (e.target.name) {
+            case 'email':
+                setFormData({ ...formData, email: val })
+                setErrors({ ...errors, emailError: checkEmail(val) ? null : messages.mailMsg })
+                break;
+            case 'password':
+                setFormData({ ...formData, password: val })
+                setErrors({ ...errors, passwordMsg: checkPass(val) ? null : messages.passMsg })
+                break;
+            default:
+                break;
+        }
+    }
+
+    const handleReset = (e) => {
+        e.preventDefault();
+        setIsReset({
+            isIt: true,
+            msg: messages.newPass
+        })
+    }
+
+    React.useEffect(() => {
+        if (errors.emailError !== null || errors.passwordMsg !== null) {
+            SetCanBeSubmitted(false);
+            return;
+        }
+        SetCanBeSubmitted(true)
+
+        if (isReset.isIt) {
+            setTimeout(() => {
+                setIsReset({ isIt: false, msg: '' })
+            }, 10000);
+        }
+    }, [errors, isReset])
+
+
+    return (
+        <Collapse in={true}>
+            <Box mb={1} className='container-login'>
+                <Grid mb={3} className='container-login_input'>
+                    <Grid xs={12} className='container-box_input_box'>
+                        <TextField
+                            className='text-field-input'
+                            name='email'
+                            type='email'
+                            value={formData.email}
+                            onChange={handleChange}
+                            variant='outlined'
+                            placeholder='Adresse mail'
+                            sx={customStyles.customFieldStyle}
+                            fullWidth
+                            helperText={errors.emailError}
+                            error={errors.emailError !== null}
+                        />
+                    </Grid>
+                </Grid>
+                <Grid className='container-login_input'>
+                    <Grid className='container-box_input_box'>
+                        <TextField
+                            className='text-field-input'
+                            name='password'
+                            type={'password'}
+                            value={formData.password}
+                            onChange={handleChange}
+                            variant='outlined'
+                            placeholder='Mot de passe'
+                            sx={customStyles.customFieldStyle}
+                            fullWidth
+                            helperText={errors.passwordMsg}
+                            error={errors.passwordMsg !== null}
+                        />
+                    </Grid>
+                </Grid>
+                <Grid className='container-login_input'>
+                    <Box className='container-box_input_box'>
+                        <p onClick={handleReset} className='forget-password'>Réinitialiser mon mot de passe</p>
+                    </Box>
+                </Grid>
+                {isReset.isIt && (
+                    <Grid className='container-login_input'>
+                        <Fade in={isReset.isIt}>
+                            <Grid className='container-box_input_box reset-password'>
+                                <Alert color='info' severity="success" onClose={() => { setIsReset({ isIt: false, msg: '' }) }}>
+                                    {isReset.msg}
+                                </Alert>
+                            </Grid>
+                        </Fade>
+                    </Grid>
+                )}
+                <Grid mt={3} className='container-login_input'>
+                    <Box className='container-box_input_box button'>
+                        <Button onClick={handleSubmit} className='input-box_button' variant='contained'>
+                            <p className='login-text'>Connexion</p>
+                        </Button>
+                    </Box>
+                </Grid>
+
+            </Box>
+        </Collapse>
+    )
+}
+
+export default Login;
