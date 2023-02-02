@@ -134,8 +134,8 @@ const Register = ({ checkEmail }) => {
 
 
     return (
-        <>
-            <Box mb={1} className='container-radio'>
+        <Collapse in={true}>
+            <Grid spacing={2} className='container-radio'>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
                     defaultValue="M."
@@ -145,9 +145,9 @@ const Register = ({ checkEmail }) => {
                     <FormControlLabel value="M." control={<Radio sx={customStyles.customRadioStyle} />} label="M." />
                     <FormControlLabel value="Mme" control={<Radio sx={customStyles.customRadioStyle} />} label="Mme" />
                 </RadioGroup>
-            </Box>
-            <Grid mb={2} container spacing={10}>
-                <Grid item xs={6}>
+            </Grid>
+            <Grid mb={2} container spacing={2}>
+                <Grid item md={6} xs={12}>
                     <TextField
                         className='text-field-input'
                         name='name'
@@ -162,7 +162,7 @@ const Register = ({ checkEmail }) => {
                         error={errors.nameError !== null}
                     />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item md={6} xs={12}>
                     <TextField
                         type='text'
                         value={formData.surname}
@@ -178,8 +178,8 @@ const Register = ({ checkEmail }) => {
                     />
                 </Grid>
             </Grid>
-            <Grid mb={2} container spacing={10}>
-                <Grid item xs={6}>
+            <Grid mb={2} container spacing={2}>
+                <Grid item md={6} xs={12}>
                     <TextField
                         className='text-field-input'
                         type='date'
@@ -194,7 +194,7 @@ const Register = ({ checkEmail }) => {
                         error={errors.birthdateError !== null}
                     />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item md={6} xs={12}>
                     <InputMask
                         mask='+237 6\ 99 99 99 99'
                         value={formData.phone}
@@ -214,8 +214,8 @@ const Register = ({ checkEmail }) => {
                     </InputMask>
                 </Grid>
             </Grid>
-            <Grid mb={3} container spacing={10}>
-                <Grid item xs={6}>
+            <Grid mb={3} container spacing={2}>
+                <Grid item md={6} xs={12}>
                     <TextField
                         type='email'
                         value={formData.email}
@@ -230,7 +230,7 @@ const Register = ({ checkEmail }) => {
                         error={errors.emailError !== null}
                     />
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item md={6} xs={12}>
                     <TextField
                         type='email'
                         onChange={handleChange}
@@ -257,19 +257,19 @@ const Register = ({ checkEmail }) => {
                 </Grid>
                 <Grid>J'accepte les <span className='cgu'>conditions générales</span></Grid>
             </Grid>
-            <Grid mb={3} container spacing={10}>
-                <Grid item xs={6}>
+            <Grid mb={3} container spacing={2}>
+                <Grid item md={6} xs={12}>
                     <Button variant='outlined' className='input-box_button_back-btn'>
                         <p className='login-text back-btn'>Retour</p>
                     </Button>
                 </Grid>
-                <Grid className='input-box-left' item xs={6}>
+                <Grid className='input-box-left' item md={6} xs={12}>
                     <Button className='input-box_button' onClick={handleSubmit}>
                         <p className='login-text'>Créer</p>
                     </Button>
                 </Grid>
             </Grid>
-        </>
+        </Collapse>
     )
 }
 
@@ -361,7 +361,7 @@ const Login = ({ checkEmail, checkPass }) => {
         <Collapse in={true}>
             <Box mb={1} className='container-login'>
                 <Grid mb={3} className='container-login_input'>
-                    <Box className='container-box_input_box'>
+                    <Grid xs={12} className='container-box_input_box'>
                         <TextField
                             className='text-field-input'
                             name='email'
@@ -375,10 +375,10 @@ const Login = ({ checkEmail, checkPass }) => {
                             helperText={errors.emailError}
                             error={errors.emailError !== null}
                         />
-                    </Box>
+                    </Grid>
                 </Grid>
                 <Grid className='container-login_input'>
-                    <Box className='container-box_input_box'>
+                    <Grid className='container-box_input_box'>
                         <TextField
                             className='text-field-input'
                             name='password'
@@ -392,7 +392,7 @@ const Login = ({ checkEmail, checkPass }) => {
                             helperText={errors.passwordMsg}
                             error={errors.passwordMsg !== null}
                         />
-                    </Box>
+                    </Grid>
                 </Grid>
                 <Grid className='container-login_input'>
                     <Box className='container-box_input_box'>
@@ -402,11 +402,11 @@ const Login = ({ checkEmail, checkPass }) => {
                 {isReset.isIt && (
                     <Grid className='container-login_input'>
                         <Fade in={isReset.isIt}>
-                            <Box className='container-box_input_box reset-password'>
+                            <Grid className='container-box_input_box reset-password'>
                                 <Alert color='info' severity="success" onClose={() => { setIsReset({ isIt: false, msg: '' }) }}>
                                     {isReset.msg}
                                 </Alert>
-                            </Box>
+                            </Grid>
                         </Fade>
                     </Grid>
                 )}
@@ -460,7 +460,7 @@ const Auth = () => {
                     Se connecter
                 </Grid>
             </Box>
-            <FormControl style={{ justifyContent: 'center', height: 450 }} fullWidth>
+            <FormControl style={{ justifyContent: 'center', height: 400 }} fullWidth>
                 {selected.id === 1 ?
                     <Register checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
                     :

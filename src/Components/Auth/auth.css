@@ -20,8 +20,6 @@
 .container-menu {
   display: flex;
   height: 38px;
-  left: 90px;
-  top: 262px;
   margin-bottom: 20px;
 }
 
@@ -118,4 +116,30 @@
 
 .container-box_input_box.reset-password p {
   color: var(--primary-color);
+}
+
+@media only screen and (max-width: 899px) {
+  .input-box_button,
+  .input-box_button_back-btn {
+    width: 100%;
+  }
+
+  .container-box_input_box {
+    width: 100%;
+  }
+
+  .container-title_text{
+    font-size: 14px;
+  }
+
+  .container-menu-item.login,
+  .container-menu-item.register {
+    text-overflow: ellipsis !important;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* .container-menu {
+    flex-direction: column;
+  } */
 }
