@@ -5,8 +5,10 @@ import './payment.css';
 import PaymentGroupCard from './PaymentGroupCard';
 import { mobilePayment, creditCard } from '../../Helpers/defaultData';
 import InfosRdv from './InfosRdv';
+import CreditCard from './CreditCard';
 
 const Payment = () => {
+    const [goNext, setGoNext] = React.useState(true);
     return (
         <Container>
             <Grid class="container-title">
@@ -29,8 +31,11 @@ const Payment = () => {
                     </Grid>
                 </Grid>
                 <Grid style={{ padding: 0 }} item md={8} xs={12}>
-                    <PaymentGroupCard paymentMethods={mobilePayment} />
-                    <PaymentGroupCard paymentMethods={creditCard} />
+                    {goNext ?
+                        <CreditCard /> : <>
+                            <PaymentGroupCard paymentMethods={mobilePayment} />
+                            <PaymentGroupCard paymentMethods={creditCard} />
+                        </>}
                 </Grid>
             </Grid >
         </Container >

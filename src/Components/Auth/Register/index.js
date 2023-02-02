@@ -2,7 +2,7 @@ import { Button, Checkbox, Collapse, FormControlLabel, Grid, Radio, RadioGroup, 
 import * as React from 'react';
 import InputMask from 'react-input-mask';
 import { messages } from '../../../Helpers/defaultData';
-import { customStyles } from '../styles';
+import { customStyles } from '../../../Constants/customsStyles';
 
 const Register = ({ checkEmail }) => {
     const [formData, setFormData] = React.useState({

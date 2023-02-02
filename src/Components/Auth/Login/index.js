@@ -1,8 +1,9 @@
-import { Alert, Button, Collapse, Fade, Grid, TextField } from '@mui/material';
+import { Alert, Button, Collapse, Fade, Grid, IconButton, InputAdornment, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import * as React from 'react';
 import { messages } from '../../../Helpers/defaultData';
-import { customStyles } from '../styles';
+import { customStyles } from '../../../Constants/customsStyles';
+import { Visibility, VisibilityOff } from '@mui/icons-material'
 
 const Login = ({ checkEmail, checkPass }) => {
     const [formData, setFormData] = React.useState({
@@ -15,6 +16,7 @@ const Login = ({ checkEmail, checkPass }) => {
     });
     const [canBeSubmitted, SetCanBeSubmitted] = React.useState(false);
     const [isReset, setIsReset] = React.useState({ isIt: false, value: '' });
+    const [showPassword, setShowPassword] = React.useState(false);
 
     const checkEmptyField = () => {
         if (formData.email === '' && formData.password === '') {
@@ -112,7 +114,7 @@ const Login = ({ checkEmail, checkPass }) => {
                         <TextField
                             className='text-field-input'
                             name='password'
-                            type={'password'}
+                            type={showPassword ? 'text' : 'password'}
                             value={formData.password}
                             onChange={handleChange}
                             variant='outlined'
@@ -121,6 +123,13 @@ const Login = ({ checkEmail, checkPass }) => {
                             fullWidth
                             helperText={errors.passwordMsg}
                             error={errors.passwordMsg !== null}
+                            InputProps={{
+                                endAdornment: <InputAdornment position="end">
+                                    <IconButton onClick={() => setShowPassword(!showPassword)}>
+                                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton>
+                                </InputAdornment>,
+                            }}
                         />
                     </Grid>
                 </Grid>
