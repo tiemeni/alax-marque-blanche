@@ -1,0 +1,26 @@
+.boxClinique
+{
+   margin-bottom: 15px;
+   overflow-y: visible blue;
+   
+    
+}
+
+.boxlist
+{
+    /*background-color: #ddd;*/
+    overflow-y: visible blue;
+}
+
+.texteClinique
+{
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+
+.list :hover
+{
+    /*background-color: yellow;*/
+}

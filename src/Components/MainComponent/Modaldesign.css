@@ -19,23 +19,45 @@
     height: 250px;
 }
 
+.box_btn_retour
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+   
+}
+
 .box_btn_next
 {
     margin-top: 50px;
     margin-bottom: 50px;
-    width: 100%;
+    width: 50%;
    
 }
 
- .btn_next
+ .btn_retour
+{
+    border-radius: 50px;
+    border: 1px    solid #04B7C9;
+    background-color: #fff;
+    color: #04B7C9;
+    padding: 10px;
+    width: 40%;
+    /*margin-left: 40%;*/
+    height: 40px;
+    font-size: 120%;
+}
+
+.btn_next
 {
     border-radius: 50px;
     border: 0px #04B7C9;
     background-color: #04B7C9;
     color: #fff;
     padding: 10px;
-    width: 20%;
-    margin-left: 40%;
+    width: 40%;
+    float: right;
+    /*margin-left: 40%;*/
     height: 40px;
     font-size: 120%;
 }
