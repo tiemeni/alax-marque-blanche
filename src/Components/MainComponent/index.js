@@ -9,7 +9,6 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Grid from '@mui/system/Unstable_Grid';
-import Motif from '../Motif';
 
 const style = {
   position: 'absolute',
@@ -64,7 +63,6 @@ export default function TransitionsModal() {
           </Stepper>
           <Grid class="box_centre" container spacing={0.5}>
             <Grid  xs={12}>
-              <Motif/>  
             </Grid>
          </Grid>
             
