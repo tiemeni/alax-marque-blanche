@@ -1,0 +1,51 @@
+:root {
+  --primary-color: #04b7c9;
+  --secondary-color: #fdb305;
+  --white-color: white;
+}
+
+.input-label {
+  margin: 0px 0px 10px 0px;
+  font-weight: 500;
+}
+
+.payment-method-logo {
+  height: 75px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-cont {
+  height: 100%;
+  width: 18%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-submit {
+  height: 50px;
+  width: 250px;
+  border-radius: 50px !important;
+  background-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+.flex-container-center {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+}
+
+.login-text {
+  font-weight: 700;
+  line-height: 27px;
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  color: var(--white-color);
+}

@@ -1,0 +1,15 @@
+.info-container_bottom {
+  height: "fit-content";
+  background-color: var(--grey-color);
+  padding: 10px;
+}
+
+.info-container_bottom-label {
+  color: var(--grey-dark-color);
+}
+
+.info-container_bottom-label,
+.info-container_bottom-item {
+  font-size: 14px;
+  margin: 0px;
+}

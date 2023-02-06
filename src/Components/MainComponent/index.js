@@ -10,13 +10,16 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Grid from '@mui/system/Unstable_Grid';
 
+import Auth from '../Auth';
+import Payment from '../Payment';
+
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: '800px',
-  height: '400px',
+  width: '70%',
+  height: '85%',
   bgcolor: 'background.paper',
   border: '1px solid #DDD',
   boxShadow: 10,
@@ -31,7 +34,7 @@ const steps = [
   'Récapitulatif',
 ];
 
-export default function TransitionsModal() {
+export default function MainComponent() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -59,18 +62,9 @@ export default function TransitionsModal() {
                 </Step>
               ))}
             </Stepper>
-            <Grid class="box_centre" container spacing={0.5}>
+            <Grid mt={1} class="box_centre" container spacing={0.5}>
               <Grid xs={12}>
-
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={0.5}>
-
-              <Grid class="box_btn_next" xs={12}>
-
-                <Button class="btn_next" variant="contained">SUIVANT</Button>
-
+                <Payment />
               </Grid>
             </Grid>
           </Box>
