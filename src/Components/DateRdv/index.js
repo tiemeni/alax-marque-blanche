@@ -8,6 +8,7 @@ import { Typography } from '@mui/material';
 import Grid from '@mui/system/Unstable_Grid';
 import './designDate.css';
 import { createTheme } from '@mui/material/styles';
+import Button from '@mui/material/Button';
 
 
 
@@ -61,6 +62,20 @@ export default function ChoixClinique() {
             {renderRow}
           </FixedSizeList>
         </Grid>
+
+      </Grid>
+      <Grid container spacing={0.5}>
+
+            <Grid class="box_btn_retour" xs={6}>
+                
+                <Button class="btn_retour" variant="contained">RETOUR</Button>
+                
+            </Grid>
+            <Grid class="box_btn_next" xs={6}>
+                
+                <Button class="btn_next" variant="contained">SUIVANT</Button>
+                
+            </Grid>
       </Grid>
     </Box>
   );
