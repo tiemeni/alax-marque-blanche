@@ -1,16 +1,17 @@
 import React from 'react'
 import './style.css'
-import { useState} from 'react'
+import { useState } from 'react'
+import { Button } from '@mui/material';
 
-const Motif = ()=>{
+const Motif = () => {
 
-    const [motif, setMotif]= useState();
-    const [region, setRegion]= useState();
+    const [motif, setMotif] = useState();
+    const [region, setRegion] = useState();
 
-    const row=[]
-    const regionLi=[]
-    
-    const motifRowessai=[
+    const row = []
+    const regionLi = []
+
+    const motifRowessai = [
         {
             "motif": "Motif de rendez-vous N°1",
         },
@@ -40,7 +41,7 @@ const Motif = ()=>{
             "motif": "Motif de rendez-vous N°2",
         }
     ]
-    const regionRowessai=[
+    const regionRowessai = [
         {
             "region": "Centre",
         },
@@ -74,70 +75,77 @@ const Motif = ()=>{
         }
     ]
 
-    motifRowessai.map(motifL=>{
-        if(motifL.motif===motif){
-            row.push(<li onClick={(e)=>{setMotif(e.target.outerText)}} style={{backgroundColor:'#FDB305', color: "#fff"}}>{motifL.motif}</li>)
-        }else{
-        row.push(<li onClick={(e)=>{setMotif(e.target.outerText)}} onChange={()=>{colorMotif()}}>{motifL.motif}</li>)
+    motifRowessai.map(motifL => {
+        if (motifL.motif === motif) {
+            row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} style={{ backgroundColor: '#FDB305', color: "#fff" }}>{motifL.motif}</li>)
+        } else {
+            row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} onChange={() => { colorMotif() }}>{motifL.motif}</li>)
         }
     }
     )
 
-    const colorMotif=()=>{
-        motifRowessai.map(motifL=>{
-            if(motifL.motif===motif){
-                row.push(<li onClick={(e)=>{setMotif(e.target.outerText)}} style={{backgroundColor:'#FDB305'}}>{motifL.motif}</li>)
-            }else{
-            row.push(<li onClick={(e)=>{setMotif(e.target.outerText)}} onChange={()=>{colorMotif()}}>{motifL.motif}</li>)
-            }
-        }
-    )
-    }
-
-    regionRowessai.map(regionL=>{
-        if(regionL.region===region){
-            regionLi.push(<li onClick={(e)=>{setRegion(e.target.outerText)}} style={{backgroundColor:'#FDB305', color: "#fff"}}>{regionL.region}</li>)
-        }else{
-            regionLi.push(<li onClick={(e)=>{setRegion(e.target.outerText)}} onChange={()=>{colorRegion()}}>{regionL.region}</li>)
-        }
-    }
-    )
-    const colorRegion=()=>{
-        regionRowessai.map(regionL=>{
-            if(regionL.region===region){
-                regionLi.push(<li onClick={(e)=>{setRegion(e.target.outerText)}} style={{backgroundColor:'#FDB305', color: "#fff"}}>{regionL.region}</li>)
-            }else{
-                regionLi.push(<li onClick={(e)=>{setRegion(e.target.outerText)}} onChange={()=>{colorRegion()}}>{regionL.region}</li>)
+    const colorMotif = () => {
+        motifRowessai.map(motifL => {
+            if (motifL.motif === motif) {
+                row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} style={{ backgroundColor: '#FDB305' }}>{motifL.motif}</li>)
+            } else {
+                row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} onChange={() => { colorMotif() }}>{motifL.motif}</li>)
             }
         }
         )
     }
 
-    return(
-        <div className='centerLayout'>
-            <div className='LeftLayout'>
-                {JSON.stringify(motif)}
-                <h2 className='title-h2 center-text'>Motif du rendez-vous</h2>
-                <div className='box '>
-                    {row}
-                </div>
+    regionRowessai.map(regionL => {
+        if (regionL.region === region) {
+            regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} style={{ backgroundColor: '#FDB305', color: "#fff" }}>{regionL.region}</li>)
+        } else {
+            regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} onChange={() => { colorRegion() }}>{regionL.region}</li>)
+        }
+    }
+    )
+    const colorRegion = () => {
+        regionRowessai.map(regionL => {
+            if (regionL.region === region) {
+                regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} style={{ backgroundColor: '#FDB305', color: "#fff" }}>{regionL.region}</li>)
+            } else {
+                regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} onChange={() => { colorRegion() }}>{regionL.region}</li>)
+            }
+        }
+        )
+    }
 
-            </div>
-            <div className='RightLayout'>
-                {JSON.stringify(region)}
-                <h2 className='title-h3 center-text'>Lieu  du rendez-vous</h2>
-                <h3 className='title-h3'>Région</h3>
-                <div className='box'>
-                    {regionLi}
+    return (
+        <div>
+            <div className='centerLayout' style={{ paddingTop: 50 }}>
+                <div className='LeftLayout'>
+                    {/* {JSON.stringify(motif)} */}
+                    <h2 className='title-h2 center-text'>Motif du rendez-vous</h2>
+                    <div className='box '>
+                        {row}
+                    </div>
+
                 </div>
-                <h3 className='title-h3'>Ville</h3>
-                <div className='box '>
-                    <div className='region'>
-                        <p>Veuillez sélectionnez une région</p>
+                <div className='RightLayout'>
+                    {/* {JSON.stringify(region)} */}
+                    <h2 className='title-h3 center-text'>Lieu  du rendez-vous</h2>
+                    <h3 className='title-h3'>Région</h3>
+                    <div className='box'>
+                        {regionLi}
+                    </div>
+                    <h3 className='title-h3'>Ville</h3>
+                    <div className='box '>
+                        <div className='region'>
+                            <p>Veuillez sélectionnez une région</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>  
+            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+                <Button className='btn-submit' variant='contained'>
+                    <p className='login-text'>Suivant</p>
+                </Button>
+            </div>
+        </div>
     )
 }
 export default Motif;

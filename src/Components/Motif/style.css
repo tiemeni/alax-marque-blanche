@@ -42,11 +42,11 @@
     width: 50%; 
 }
 .LeftLayout .box {
-    max-height: 220px;
+    max-height: 300px;
     overflow-y: auto;
 }
 .RightLayout .box{
-    max-height: 100px;
+    max-height: 180px;
     overflow-y: auto; 
 }
 .title-h2{
@@ -148,3 +148,11 @@ li:active{
     background-color: #FDB305;
     color: white;
 }
+
+.btn-submit {
+    height: 50px;
+    width: 250px;
+    border-radius: 50px !important;
+    background-color: var(--primary-color) !important;
+    box-shadow: none !important;
+  }
