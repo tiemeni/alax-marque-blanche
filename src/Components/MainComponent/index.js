@@ -9,6 +9,7 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import Grid from '@mui/system/Unstable_Grid';
+import DateRdv from '../DateRdv';
 
 import Auth from '../Auth';
 import Payment from '../Payment';
@@ -42,6 +43,7 @@ export default function MainComponent() {
   return (
     <div>
       <Button onClick={handleOpen}>Ouvrir la modale</Button>
+
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
@@ -62,9 +64,9 @@ export default function MainComponent() {
                 </Step>
               ))}
             </Stepper>
-            <Grid mt={1} class="box_centre" container spacing={0.5}>
+            <Grid class="box_centre" container spacing={0.5}>
               <Grid xs={12}>
-                <Payment />
+                <DateRdv />
               </Grid>
             </Grid>
           </Box>
