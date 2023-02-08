@@ -1,4 +1,11 @@
-import { ACTIVATE_STEP, CREATE_STEP, EDITE_STEP, MOVE_TO_NEXT_STEP, MOVE_TO_PREVIEW_STEP } from "./types"
+import {
+    ACTIVATE_STEP,
+    CREATE_STEP,
+    EDITE_STEP,
+    MOVE_TO_NEXT_STEP,
+    MOVE_TO_PREVIEW_STEP
+} from "./types";
+
 
 const INITIAL_STATE = {
     steps: {
@@ -29,7 +36,10 @@ export const StepReducer = (state = INITIAL_STATE, action) => {
         case EDITE_STEP:
             let actualStepsToUpdate = state.steps
             actualStepsToUpdate["step" + action.payload.key].inputs =
-                { ...actualStepsToUpdate["step" + action.payload.key].inputs, ...action.payload.inputs }
+            {
+                ...actualStepsToUpdate["step" + action.payload.key].inputs,
+                ...action.payload.inputs
+            }
             return {
                 ...state,
                 steps: { ...actualStepsToUpdate }
