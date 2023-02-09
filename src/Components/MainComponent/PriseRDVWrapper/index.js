@@ -11,7 +11,7 @@ export default function PriseRDVWrapper({ open }) {
     const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
     const RenderBody = () => {
         let result;
-        switch (1) {
+        switch (0) {
             case 0:
                 result = <Motif />; break;
             case 1:
