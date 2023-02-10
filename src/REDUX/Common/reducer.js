@@ -1,15 +1,16 @@
-import { RESET_APP, SAY_HELLO } from "./types"
+import { RESET_APP, SELECT_CARD_TO_SHOW } from "./types"
 
 const INITIAL_STATE = {
+    displayedCardTitle: null
 }
 
 
 export const CommonReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SAY_HELLO:
+        case SELECT_CARD_TO_SHOW:
             return {
                 ...state,
-                hello: action.payload
+                displayedCardTitle: action.payload
             }
         case RESET_APP:
             return {

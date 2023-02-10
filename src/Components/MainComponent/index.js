@@ -29,7 +29,7 @@ export default function MainComponent() {
           timeout: 500,
         }}
       >
-        {0 ? <PriseRDVWrapper open={open} /> :
+        {1 ? <PriseRDVWrapper open={open} /> :
           <ComptePatientWrapper open={open} />}
       </Modal>
     </div>

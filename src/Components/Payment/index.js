@@ -6,9 +6,16 @@ import PaymentGroupCard from './PaymentGroupCard';
 import { mobilePayment, creditCard } from '../../Helpers/defaultData';
 import InfosRdv from './InfosRdv';
 import CreditCard from './CreditCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { MASTER_CARD, VISA } from '../../Constants/typePayments';
+import { changeStep } from '../../REDUX/Step/actions';
+import { STEP0, STEP2 } from '../../Constants/steps';
+import MobilePaymentForm from './MobilePayments';
 
 const Payment = () => {
-    const [goNext, setGoNext] = React.useState(true);
+    const selectedCard = useSelector(state => state.CommonReducer.displayedCardTitle);
+    const dispatcher = useDispatch()
+
     return (
         <Container>
             <Grid class="container-title">
@@ -24,18 +31,23 @@ const Payment = () => {
                     <InfosRdv />
                     <Grid container>
                         <Grid style={{ display: 'flex', justifyContent: 'center' }} item xs={12}>
-                            <Button variant='outlined' className='input-box_button' >
+                            <Button variant='outlined' onClick={() => {
+                                dispatcher(changeStep({ step: STEP2, subStep: STEP0 }))
+                            }} className='input-box_button' >
                                 <p className='info-btn_back'>Retour</p>
                             </Button>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid style={{ padding: 0 }} item md={8} xs={12}>
-                    {goNext ?
-                        <CreditCard /> : <>
-                            <PaymentGroupCard paymentMethods={mobilePayment} />
-                            <PaymentGroupCard paymentMethods={creditCard} />
-                        </>}
+                    {(selectedCard === VISA || selectedCard === MASTER_CARD) ?
+                        <CreditCard selectedCard={selectedCard} /> : !selectedCard ?
+                            <>
+                                <PaymentGroupCard paymentMethods={mobilePayment} />
+                                <PaymentGroupCard paymentMethods={creditCard} />
+                            </> :
+                            <MobilePaymentForm />
+                    }
                 </Grid>
             </Grid >
         </Container >

@@ -4,8 +4,12 @@ import * as React from 'react';
 import { messages } from '../../../Helpers/defaultData';
 import { customStyles } from '../../../Constants/customsStyles';
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { useDispatch } from 'react-redux';
+import { changeStep, createStep } from '../../../REDUX/Step/actions';
+import { STEP0, STEP1, STEP3 } from '../../../Constants/steps';
 
 const Login = ({ checkEmail, checkPass }) => {
+    const dispatcher = useDispatch()
     const [formData, setFormData] = React.useState({
         email: '',
         password: ''
@@ -46,6 +50,19 @@ const Login = ({ checkEmail, checkPass }) => {
         if (canBeSubmitted && checkEmptyField()) {
             console.log("Envoie du formulaire en cours...")
         }
+        let step = {
+            subStep: STEP0,
+            outputs: {
+                firstTitle: "Selectionnez le creaneau qui vous convient",
+            },
+            inputs: {
+                selectedMotif: null,
+                selectedRegion: null,
+                selectedVille: null,
+            }
+        }
+        dispatcher(createStep({ key: STEP3, step }))
+        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
     }
 
 
@@ -93,7 +110,7 @@ const Login = ({ checkEmail, checkPass }) => {
         <Collapse in={true}>
             <Box mb={1} className='container-login'>
                 <Grid mb={3} className='container-login_input'>
-                    <Grid xs={12} className='container-box_input_box'>
+                    <Grid className='container-box_input_box'>
                         <TextField
                             className='text-field-input'
                             name='email'

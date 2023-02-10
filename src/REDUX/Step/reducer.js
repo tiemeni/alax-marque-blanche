@@ -1,5 +1,7 @@
+import { STEP, STEP0 } from "../../Constants/steps";
 import {
     ACTIVATE_STEP,
+    CHANGE_STEP,
     CREATE_STEP,
     EDITE_STEP,
     MOVE_TO_NEXT_STEP,
@@ -9,7 +11,8 @@ import {
 
 const INITIAL_STATE = {
     steps: {
-        step1: {
+        [STEP0]: {
+            subStep: STEP0,
             outputs: {
                 firstTitle: "Motif du Rendez-vous",
                 secondTitle: "Lieu du Rendez-vous",
@@ -18,26 +21,28 @@ const INITIAL_STATE = {
                 selectedMotif: null,
                 selectedRegion: null,
                 selectedVille: null,
+                selectedClinique: null,
+                selectedPraticien: null
             }
         }
     },
-    activeStepIndex: 0,
+    activeStepIndex: STEP0,
 }
 
 export const StepReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case CREATE_STEP:
             let actualSteps = state.steps
-            actualSteps["step" + action.payload?.key] = action.payload.step
+            actualSteps[action.payload?.key] = action.payload.step
             return {
                 ...state,
                 steps: { ...actualSteps }
             }
         case EDITE_STEP:
             let actualStepsToUpdate = state.steps
-            actualStepsToUpdate["step" + action.payload.key].inputs =
+            actualStepsToUpdate[STEP + action.payload.key].inputs =
             {
-                ...actualStepsToUpdate["step" + action.payload.key].inputs,
+                ...actualStepsToUpdate[STEP + action.payload.key].inputs,
                 ...action.payload.inputs
             }
             return {
@@ -64,6 +69,17 @@ export const StepReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 actualStepIndexToPreview
+            }
+        case CHANGE_STEP:
+            const { step, subStep } = action.payload;
+            const allSteps = state.steps
+            const concernedStep = allSteps[step]
+            concernedStep.subStep = subStep
+            allSteps[step] = concernedStep;
+            return {
+                ...state,
+                steps: { ...allSteps },
+                activeStepIndex: step
             }
         default:
             return {

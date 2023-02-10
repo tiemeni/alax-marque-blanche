@@ -3,8 +3,12 @@ import * as React from 'react';
 import InputMask from 'react-input-mask';
 import { messages } from '../../../Helpers/defaultData';
 import { customStyles } from '../../../Constants/customsStyles';
+import { STEP0, STEP1, STEP2, STEP3 } from '../../../Constants/steps';
+import { changeStep, createStep } from '../../../REDUX/Step/actions';
+import { useDispatch } from 'react-redux';
 
 const Register = ({ checkEmail }) => {
+    const dispatcher = useDispatch()
     const [formData, setFormData] = React.useState({
         name: '',
         surname: '',
@@ -22,7 +26,7 @@ const Register = ({ checkEmail }) => {
         emailError: null,
         confirmError: null
     })
-    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(false);
+    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(true);
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -80,9 +84,20 @@ const Register = ({ checkEmail }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (checkValidity() && canBeSubmitted) {
-            console.log("Envoie du formulaire en cours...")
+        let step = {
+            subStep: STEP0,
+            outputs: {
+                firstTitle: "Sélectionnez un moyen de paiement",
+            },
+            inputs: {
+                selectedMotif: null,
+                selectedRegion: null,
+                selectedVille: null,
+            }
         }
+        console.log("Envoie du formulaire en cours...")
+        dispatcher(createStep({ key: STEP3, step }))
+        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
     }
 
     React.useEffect(() => {
@@ -220,7 +235,9 @@ const Register = ({ checkEmail }) => {
             </Grid>
             <Grid mb={3} container spacing={2}>
                 <Grid item md={6} xs={12}>
-                    <Button variant='outlined' className='input-box_button_back-btn'>
+                    <Button variant='outlined' onClick={() => {
+                        dispatcher(changeStep({ step: STEP1, subStep: STEP2 }))
+                    }} className='input-box_button_back-btn'>
                         <p className='login-text back-btn'>Retour</p>
                     </Button>
                 </Grid>

@@ -10,7 +10,7 @@ const PaymentGroupCard = ({ paymentMethods }) => {
                 <h4 className='mobile-payment-title'>{paymentMethods.title}</h4>
             </Grid>
             <Grid className='payment-method' item xs={12}>
-                {paymentMethods.data.map((mp) => <PaymentCard key={mp.title} paymentMethod={mp} />)}
+                {paymentMethods.data.map((mp) => <PaymentCard key={mp?.title} paymentMethod={mp} />)}
             </Grid>
         </Grid>
     )

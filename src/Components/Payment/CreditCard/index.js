@@ -1,9 +1,15 @@
 import { Button, Collapse, Grid, InputAdornment, TextField } from '@mui/material';
 import * as React from 'react';
 import './creditCard.css';
+import arrowRight from '../../../Assets/Images/next.png'
+import arrowLeft from '../../../Assets/Images/left-arrow.png'
 import VisaLogo from '../../../Assets/Images/visa_logo.jpg';
+import mastercard from '../../../Assets/Images/Mastercard_logo.jpg'
 import { customStyles } from '../../../Constants/customsStyles';
 import InputMask from 'react-input-mask';
+import { VISA } from '../../../Constants/typePayments';
+import { useDispatch } from 'react-redux';
+import { setWitchCardToOpen } from '../../../REDUX/Common/actions';
 
 const fieldStyles = {
     ...customStyles.customFieldStyle,
@@ -13,7 +19,8 @@ const fieldStyles = {
 }
 
 
-const CreditCard = () => {
+const CreditCard = ({ selectedCard }) => {
+    const dispatcher = useDispatch()
     const [formData, setFormData] = React.useState({
         cardNumber: '',
         expiration: {
@@ -51,10 +58,15 @@ const CreditCard = () => {
         <Collapse in={true}>
             <Grid container>
                 <Grid item xs={12}>
-                    <h4 className='mobile-payment-title'>Cartes bancaires>Visa</h4>
+                    <h4 className='mobile-payment-title' style={{ flexDirection: "row", display: 'flex', alignItems: 'center' }}>
+                        <img src={arrowLeft} onClick={() => dispatcher(setWitchCardToOpen(null))} style={{ height: 25, width: 25, marginRight: 10, cursor: 'pointer' }} alt={"arrow back"} />
+                        <p>Cartes bancaires</p>
+                        <img src={arrowRight} style={{ height: 20, width: 20 }} alt={"arrow right"} />
+                        <p>Visa</p>
+                    </h4>
                 </Grid>
                 <Grid className='payment-method-logo' item xs={12}>
-                    <img className='image-cont' src={VisaLogo} alt='Visa' />
+                    <img src={selectedCard === VISA ? VisaLogo : mastercard} alt={selectedCard === VISA ? 'Visa' : 'Master card'} />
                 </Grid>
                 <Grid pl={2} pr={2} mb={2} item xs={12}>
                     <Grid item xs={12}>

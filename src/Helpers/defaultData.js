@@ -15,8 +15,73 @@ export const mobilePayment = {
     },]
 }
 
+export const regionRowessai = [
+    {
+        "region": "Centre",
+    },
+    {
+        "region": "Ouest",
+
+    },
+    {
+        "region": "Nord",
+    },
+    {
+        "region": "Sud",
+    },
+    {
+        "region": "Est",
+    },
+    {
+        "region": "Adamaoua",
+    },
+    {
+        "region": "Extreme-nord",
+    },
+    {
+        "region": "Littoral",
+    },
+    {
+        "region": "Sud-ouest",
+    },
+    {
+        "region": "Nord-ouest",
+    }
+]
+
+export const motifRowessai = [
+    {
+        "motif": "Motif de rendez-vous N°1",
+    },
+    {
+        "motif": "Motif de rendez-vous N°2",
+
+    },
+    {
+        "motif": "Motif de rendez-vous N°3",
+    },
+    {
+        "motif": "Motif de rendez-vous N°4",
+    },
+    {
+        "motif": "Motif de rendez-vous N°5",
+    },
+    {
+        "motif": "Motif de rendez-vous N°6",
+    },
+    {
+        "motif": "Motif de rendez-vous N°7",
+    },
+    {
+        "motif": "Motif de rendez-vous N°8",
+    },
+    {
+        "motif": "Motif de rendez-vous N°2",
+    }
+]
+
 export const creditCard = {
-    title: 'Paiements mobiles',
+    title: 'CARTES DE CREDIT',
     data: [{
         title: 'Visa',
         logo: VisaLogo
