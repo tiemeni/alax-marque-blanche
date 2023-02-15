@@ -18,6 +18,11 @@ stepper .boxprincipale {
 .box_centre {
   height: 500px;
 }
+
+.box_patient
+{
+  height: 300px;
+}
 /* 
 .box_btn_next {
   width: 100%;
