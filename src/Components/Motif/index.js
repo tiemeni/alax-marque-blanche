@@ -1,101 +1,84 @@
-import React from 'react'
-import './style.css'
-import { useState } from 'react'
 import { Button } from '@mui/material';
-import { useDispatch } from 'react-redux';
-import { changeStep } from '../../REDUX/Step/actions';
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { STEP0, STEP1 } from '../../Constants/steps';
-import { motifRowessai, regionRowessai } from '../../Helpers/defaultData';
+import { getActuelStepById } from '../../Helpers';
+import { changeStep, editeStep } from '../../REDUX/Step/actions';
+import ItemListView from '../Globals/ItemListView';
 
 const Motif = () => {
+    const steps = useSelector(state => state.StepReducer.steps);
+    const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
     const dispatcher = useDispatch();
     const [motif, setMotif] = useState();
+    const [ville, setVille] = useState();
     const [region, setRegion] = useState();
-    const row = []
-    const regionLi = []
-
-    motifRowessai.forEach(motifL => {
-        if (motifL.motif === motif) {
-            row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} style={{ backgroundColor: '#FDB305', color: "#fff" }}>{motifL.motif}</li>)
-        } else {
-            row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} onChange={() => { colorMotif() }}>{motifL.motif}</li>)
-        }
-    })
-
-    const colorMotif = () => {
-        motifRowessai.forEach(motifL => {
-            if (motifL.motif === motif) {
-                row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} style={{ backgroundColor: '#FDB305' }}>{motifL.motif}</li>)
-            } else {
-                row.push(<li onClick={(e) => { setMotif(e.target.outerText) }} onChange={() => { colorMotif() }}>{motifL.motif}</li>)
-            }
-        })
+    const handlePostMotif = (motif) => {
+        console.log(motif)
+        setMotif(motif)
     }
-
-    regionRowessai.forEach(regionL => {
-        if (regionL.region === region) {
-            regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} style={{ backgroundColor: '#FDB305', color: "#fff" }}>{regionL.region}</li>)
-        } else {
-            regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} onChange={() => { colorRegion() }}>{regionL.region}</li>)
+    const handlePostVille = (ville) => {
+        console.log(ville)
+        setVille(ville)
+    }
+    const handlePostRegion = (region) => {
+        console.log(region)
+        setRegion(region)
+    }
+    const onGoNext = () => {
+        const data = {
+            selectedMotif: motif,
+            selectedRegion: region,
+            selectedVille: ville
         }
-    })
-
-    const colorRegion = () => {
-        regionRowessai.forEach(regionL => {
-            if (regionL.region === region) {
-                regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} style={{ backgroundColor: '#FDB305', color: "#fff" }}>{regionL.region}</li>)
-            } else {
-                regionLi.push(<li onClick={(e) => { setRegion(e.target.outerText) }} onChange={() => { colorRegion() }}>{regionL.region}</li>)
-            }
-        })
+        dispatcher(editeStep({ key: STEP0, inputs: data }));
     }
 
     return (
         <div>
-            <div className='centerLayout' style={{ paddingTop: 50 }}>
-                <div className='LeftLayout'>
-                    {/* {JSON.stringify(motif)} */}
-                    <h2 className='title-h2 center-text'>Motif du rendez-vous</h2>
-                    <div className='box '>
-                        {row}
-                    </div>
-
-                </div>
-                <div className='RightLayout'>
-                    {/* {JSON.stringify(region)} */}
-                    <h2 className='title-h3 center-text'>Lieu  du rendez-vous</h2>
-                    <h3 className='title-h3'>Région</h3>
-                    <div className='box'>
-                        {regionLi}
-                    </div>
-                    <h3 className='title-h3'>Ville</h3>
-                    <div className='box '>
-                        <div className='region'>
-                            <p>Veuillez sélectionnez une région</p>
-                        </div>
-                    </div>
+            <div style={{ width: "100%", display: "flex", flexDirection: 'row' }}>
+                <div style={{ width: "50%", marginTop: 8 }}>
+                    <ItemListView
+                        label={getActuelStepById(steps, STEP0)?.outputs?.firstTitle}
+                        handlePostMotif={handlePostMotif} forMotif={true} />
+                </div >
+                <div style={{ width: "50%" }}>
+                    <ItemListView
+                        label={getActuelStepById(steps, STEP0)?.outputs?.secondTitle}
+                        handlePostVille={handlePostVille} forRegion={true} />
+                    <ItemListView handlePostRegion={handlePostRegion} forCity={true} />
                 </div>
             </div>
-            <div style={{ display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
-                <Button className='btn-submit' variant='contained' onClick={() => {
-                    // let step = {
-                    //     subStep: "sub-step-0",
-                    //     outputs: {
-                    //         firstTitle: "Selectionnez le creaneau qui vous convient",
-                    //     },
-                    //     inputs: {
-                    //         selectedMotif: null,
-                    //         selectedRegion: null,
-                    //         selectedVille: null,
-                    //     }
-                    // }
-                    // dispatcher(createStep({ key: "step-2", step }))
-                    dispatcher(changeStep({ step: STEP0, subStep: STEP1 }))
-                }}>
+            <div style={{
+                display: "flex",
+                marginTop: "30px",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
+                <Button
+                    className='btn-submit'
+                    variant='contained'
+                    onClick={() => {
+                        // let step = {
+                        //     subStep: STEP0,
+                        //     outputs: {
+                        //         firstTitle: "Selectionnez le creaneau qui vous convient",
+                        //     },
+                        //     inputs: {
+                        //         selectedMotif: null,
+                        //         selectedRegion: null,
+                        //         selectedVille: null,
+                        //     }
+                        // }
+                        // dispatcher(createStep({ key: STEP1, step }))
+                        dispatcher(changeStep({ step: STEP0, subStep: STEP1 }))
+                        onGoNext()
+                    }}>
                     <p className='login-text'>Suivant</p>
                 </Button>
             </div>
-        </div >
+        </div>
     )
 }
 export default Motif;

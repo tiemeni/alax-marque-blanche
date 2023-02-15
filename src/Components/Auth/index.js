@@ -1,10 +1,17 @@
 import * as React from 'react';
-import {  Box, Container, FormControl, Grid} from '@mui/material'
+import { Box, Container, FormControl, Grid } from '@mui/material'
 import './auth.css';
 import Register from './Register';
 import Login from './Login';
+import { useDispatch, useSelector } from 'react-redux';
+import { getActuelStepById } from '../../Helpers';
+import { editeStep } from '../../REDUX/Step/actions';
+import { STEP2 } from '../../Constants/steps';
 
 const Auth = () => {
+    const steps = useSelector(state => state.StepReducer.steps);
+    const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
+    const dispatcher = useDispatch()
     const [selected, setSelected] = React.useState({
         id: 1,
         value: 'selected'
@@ -28,10 +35,24 @@ const Auth = () => {
         return pass.length > 8
     }
 
+    const onGoNext = (form) => {
+        console.log(form);
+        const data = {
+            firstConnexion: true,
+            email: form?.email,
+            nom: form?.name,
+            birthday: form?.birthdate,
+            phone: form?.phone,
+            conditionAccepted: form?.isAccept,
+            civilite: 1
+        }
+        dispatcher(editeStep({ key: STEP2, inputs: data }))
+    }
+
     return (
         <Container>
             <Grid class="container-title">
-                <p className='container-title_text'>Vous devez confirmer votre identité</p>
+                <p className='container-title_text'>{getActuelStepById(steps, activeStep)?.outputs?.sixthTitle}</p>
             </Grid>
             <Box className='container-menu'>
                 <Grid id='register' onClick={handleClick} className={`container-menu-item register ${selected.id === 1 && selected.value}`} >
@@ -43,9 +64,9 @@ const Auth = () => {
             </Box>
             <FormControl style={{ justifyContent: 'center', height: 400 }} fullWidth>
                 {selected.id === 1 ?
-                    <Register checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
+                    <Register onGoNext={onGoNext} checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
                     :
-                    <Login checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
+                    <Login onGoNext={onGoNext} checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
                 }
             </FormControl>
         </Container >

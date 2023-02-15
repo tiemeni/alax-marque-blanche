@@ -74,8 +74,8 @@ export default function PriseRDVWrapper({ open }) {
         <Fade in={open}>
             <Box sx={style}>
                 <Stepper activeStep={0} alternativeLabel>
-                    {steps.map((label) => (
-                        <Step key={label}>
+                    {steps.map((label, i) => (
+                        <Step active={i === 0 || i === 1 || i === 2 || i === 3} key={label}>
                             <StepLabel>{label}</StepLabel>
                         </Step>
                     ))}

@@ -5,8 +5,8 @@ import { messages } from '../../../Helpers/defaultData';
 import { customStyles } from '../../../Constants/customsStyles';
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { useDispatch } from 'react-redux';
-import { changeStep, createStep } from '../../../REDUX/Step/actions';
-import { STEP0, STEP1, STEP3 } from '../../../Constants/steps';
+import { changeStep, createStep, editeStep } from '../../../REDUX/Step/actions';
+import { STEP0, STEP1, STEP2, STEP3 } from '../../../Constants/steps';
 
 const Login = ({ checkEmail, checkPass }) => {
     const dispatcher = useDispatch()
@@ -46,7 +46,6 @@ const Login = ({ checkEmail, checkPass }) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
         if (canBeSubmitted && checkEmptyField()) {
             console.log("Envoie du formulaire en cours...")
         }
@@ -61,8 +60,13 @@ const Login = ({ checkEmail, checkPass }) => {
                 selectedVille: null,
             }
         }
-        dispatcher(createStep({ key: STEP3, step }))
-        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
+        const data = {
+            email: formData?.email,
+            password: formData?.password,
+        }
+        dispatcher(editeStep({ key: STEP2, inputs: data }));
+        dispatcher(createStep({ key: STEP3, step }));
+        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }));
     }
 
 

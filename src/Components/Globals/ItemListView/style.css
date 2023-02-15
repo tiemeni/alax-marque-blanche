@@ -38,15 +38,24 @@
     flex: 1;
 }
 .RightLayout{
+    width: 50%;
+    flex: 1;
+}
+.RightLayoutBottom{
     flex: 1;
     width: 50%; 
+    margin-top: -85px;
 }
 .LeftLayout .box {
-    max-height: 300px;
+    max-height: 298px;
     overflow-y: auto;
 }
-.RightLayout .box{
-    max-height: 180px;
+.RightLayout .box {
+    max-height: 120px;
+    overflow-y: auto;
+}
+.RightLayoutBottom .box{
+    max-height: 113px;
     overflow-y: auto; 
 }
 .title-h2{

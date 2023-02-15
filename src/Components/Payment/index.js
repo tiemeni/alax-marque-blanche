@@ -22,7 +22,7 @@ const Payment = () => {
                 <p className='container-title_text'>Sélectionnez un moyen de paiement</p>
             </Grid>
             <Grid className='container-flex' container>
-                <Grid item style={{ padding: 0, paddingRight: 10 }} md={4} xs={12}>
+                <Grid item style={{ padding: 0, paddingRight: 10, marginTop: 15 }} md={4} xs={12}>
                     <Box className='info-container'>
                         <h5 id='title'>Important:</h5>
                         <p className='paragraph'>Votre compte sera débité d’un montant de <strong>5000 Fcfa</strong>. Le dit montant fait office de frais de rendez-vous et est non-remboursable.</p>
@@ -43,10 +43,10 @@ const Payment = () => {
                     {(selectedCard === VISA || selectedCard === MASTER_CARD) ?
                         <CreditCard selectedCard={selectedCard} /> : !selectedCard ?
                             <>
-                                <PaymentGroupCard paymentMethods={mobilePayment} />
-                                <PaymentGroupCard paymentMethods={creditCard} />
+                                <PaymentGroupCard selectedCard={selectedCard} paymentMethods={mobilePayment} />
+                                <PaymentGroupCard selectedCard={selectedCard} paymentMethods={creditCard} />
                             </> :
-                            <MobilePaymentForm />
+                            <MobilePaymentForm selectedCard={selectedCard} />
                     }
                 </Grid>
             </Grid >

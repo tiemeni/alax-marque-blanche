@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask';
 import { messages } from '../../../Helpers/defaultData';
 import { customStyles } from '../../../Constants/customsStyles';
 import { STEP0, STEP1, STEP2, STEP3 } from '../../../Constants/steps';
-import { changeStep, createStep } from '../../../REDUX/Step/actions';
+import { changeStep, createStep, editeStep } from '../../../REDUX/Step/actions';
 import { useDispatch } from 'react-redux';
 
 const Register = ({ checkEmail }) => {
@@ -27,6 +27,19 @@ const Register = ({ checkEmail }) => {
         confirmError: null
     })
     const [canBeSubmitted, SetCanBeSubmitted] = React.useState(true);
+
+    const onGoNext = (form) => {
+        const data = {
+            firstConnexion: true,
+            email: form?.email,
+            nom: form?.name,
+            birthday: form?.birthdate,
+            phone: form?.phone,
+            conditionAccepted: form?.isAccept,
+            civilite: 1
+        }
+        dispatcher(editeStep({ key: STEP2, inputs: data }))
+    }
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -83,17 +96,13 @@ const Register = ({ checkEmail }) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        onGoNext && onGoNext(formData)
         let step = {
             subStep: STEP0,
             outputs: {
                 firstTitle: "Sélectionnez un moyen de paiement",
             },
-            inputs: {
-                selectedMotif: null,
-                selectedRegion: null,
-                selectedVille: null,
-            }
+            inputs: {}
         }
         console.log("Envoie du formulaire en cours...")
         dispatcher(createStep({ key: STEP3, step }))
