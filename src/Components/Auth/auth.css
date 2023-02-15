@@ -63,6 +63,7 @@
 .container-login_input {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .container-box_input_box {

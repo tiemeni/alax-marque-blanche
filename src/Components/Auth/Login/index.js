@@ -52,7 +52,7 @@ const Login = ({ checkEmail, checkPass }) => {
         let step = {
             subStep: STEP0,
             outputs: {
-                firstTitle: "Selectionnez le creaneau qui vous convient",
+                firstTitle: "Selectionnez le créneau qui vous convient",
             },
             inputs: {
                 selectedMotif: null,
@@ -122,7 +122,7 @@ const Login = ({ checkEmail, checkPass }) => {
                             value={formData.email}
                             onChange={handleChange}
                             variant='outlined'
-                            placeholder='Adresse mail'
+                            placeholder='Adresse e-mail'
                             sx={customStyles.customFieldStyle}
                             fullWidth
                             helperText={errors.emailError}
