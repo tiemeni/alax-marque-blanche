@@ -105,7 +105,7 @@ const CreditCard = ({ selectedCard }) => {
                     <img src={selectedCard === VISA ? VisaLogo : mastercard}
                         alt={selectedCard === VISA ? 'Visa' : 'Master card'} />
                 </Grid>
-                <Grid pl={2} pr={2} mb={2} item xs={12}>
+                <Grid pl={2} pr={2} mb={0} item xs={12}>
                     <Grid item xs={12}>
                         <InputMask
                             mask='9999 9999 9999 9999'

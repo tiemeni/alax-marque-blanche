@@ -1,13 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList } from 'react-window';
-import { Typography } from '@mui/material';
-import Grid from '@mui/system/Unstable_Grid';
 import './designPraticien.css';
-import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { STEP0, STEP1 } from '../../Constants/steps';
@@ -18,8 +11,8 @@ import { outputs } from '../../Constants/outputsLabelForFirstStep';
 
 
 export default function ChoixPraticien() {
-  const [praticien, setPraticien] = React.useState()
   const steps = useSelector(state => state.StepReducer.steps);
+  const [praticien, setPraticien] = React.useState(getActuelStepById(steps, STEP0)?.inputs?.selectedPraticien)
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
   const onPostPraticien = praticien => {
@@ -39,6 +32,7 @@ export default function ChoixPraticien() {
     >
       <ItemListView
         onPostPraticien={onPostPraticien}
+        preSelectedPraticien={getActuelStepById(steps, STEP0)?.inputs?.selectedPraticien}
         label={getActuelStepById(steps, activeStep)?.outputs?.fourthTitle} forMotif={true} />
       <Button
         className='btn_retour'
@@ -73,7 +67,7 @@ export default function ChoixPraticien() {
             subStep: STEP0,
             outputs: outputs,
             inputs: {
-              selectedCreneau: null
+              selectedCreneau: getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau
             }
           }
           onGoNext();

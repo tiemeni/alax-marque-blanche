@@ -1,13 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList } from 'react-window';
-import { Typography } from '@mui/material';
-import Grid from '@mui/system/Unstable_Grid';
 import './designDate.css';
-import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeStep, createStep, editeStep } from '../../REDUX/Step/actions';
@@ -17,39 +10,9 @@ import { getActuelStepById } from '../../Helpers';
 import { outputs } from '../../Constants/outputsLabelForFirstStep';
 
 
-
-function renderRow(props) {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: '#757ce8',
-        main: '#3f50b5',
-        dark: '#002884',
-        contrastText: '#fff',
-      },
-      secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
-      },
-    },
-  });
-
-  const { index, style } = props;
-
-  return (
-    <ListItem className='list' style={style} key={index} component="div" disablePadding>
-      <ListItemButton >
-        <ListItemText primary={`Date de RDV N°`} />
-      </ListItemButton>
-    </ListItem>
-  );
-}
-
 export default function ChoixDate() {
-  const [creneau, setCreneau] = React.useState()
   const steps = useSelector(state => state.StepReducer.steps);
+  const [creneau, setCreneau] = React.useState(getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau)
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
   const onPostCreneau = creneau => {
@@ -68,6 +31,7 @@ export default function ChoixDate() {
     >
       <ItemListView
         onPostCreneau={onPostCreneau}
+        preSelectedCreneau={getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau}
         label={getActuelStepById(steps, activeStep)?.outputs?.fifthTitle} forMotif={true} />
       <Button className='btn_retour'
         style={{

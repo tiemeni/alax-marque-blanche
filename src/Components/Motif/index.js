@@ -8,21 +8,17 @@ import ItemListView from '../Globals/ItemListView';
 
 const Motif = () => {
     const steps = useSelector(state => state.StepReducer.steps);
-    const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
     const dispatcher = useDispatch();
-    const [motif, setMotif] = useState();
-    const [ville, setVille] = useState();
-    const [region, setRegion] = useState();
+    const [motif, setMotif] = useState(getActuelStepById(steps, STEP0)?.inputs?.selectedMotif);
+    const [ville, setVille] = useState(getActuelStepById(steps, STEP0)?.inputs?.selectedVille);
+    const [region, setRegion] = useState(getActuelStepById(steps, STEP0)?.inputs?.selectedRegion);
     const handlePostMotif = (motif) => {
-        console.log(motif)
         setMotif(motif)
     }
     const handlePostVille = (ville) => {
-        console.log(ville)
         setVille(ville)
     }
     const handlePostRegion = (region) => {
-        console.log(region)
         setRegion(region)
     }
     const onGoNext = () => {
@@ -39,14 +35,18 @@ const Motif = () => {
             <div style={{ width: "100%", display: "flex", flexDirection: 'row' }}>
                 <div style={{ width: "50%", marginTop: 8 }}>
                     <ItemListView
+                        preSelectedMotif={getActuelStepById(steps, STEP0)?.inputs?.selectedMotif}
                         label={getActuelStepById(steps, STEP0)?.outputs?.firstTitle}
                         handlePostMotif={handlePostMotif} forMotif={true} />
                 </div >
                 <div style={{ width: "50%" }}>
                     <ItemListView
+                        preSelectedRegion={getActuelStepById(steps, STEP0)?.inputs?.selectedRegion}
                         label={getActuelStepById(steps, STEP0)?.outputs?.secondTitle}
                         handlePostVille={handlePostVille} forRegion={true} />
-                    <ItemListView handlePostRegion={handlePostRegion} forCity={true} />
+                    <ItemListView
+                        preSelectedVille={getActuelStepById(steps, STEP0)?.inputs?.selectedVille}
+                        handlePostRegion={handlePostRegion} forCity={true} />
                 </div>
             </div>
             <div style={{
@@ -60,18 +60,6 @@ const Motif = () => {
                     className='btn-submit'
                     variant='contained'
                     onClick={() => {
-                        // let step = {
-                        //     subStep: STEP0,
-                        //     outputs: {
-                        //         firstTitle: "Selectionnez le creaneau qui vous convient",
-                        //     },
-                        //     inputs: {
-                        //         selectedMotif: null,
-                        //         selectedRegion: null,
-                        //         selectedVille: null,
-                        //     }
-                        // }
-                        // dispatcher(createStep({ key: STEP1, step }))
                         dispatcher(changeStep({ step: STEP0, subStep: STEP1 }))
                         onGoNext()
                     }}>

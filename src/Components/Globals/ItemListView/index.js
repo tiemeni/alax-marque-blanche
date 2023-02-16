@@ -13,10 +13,22 @@ export default function ItemListView({
     handlePostRegion,
     onPostClinique,
     onPostPraticien,
-    onPostCreneau
+    onPostCreneau,
+    preSelectedMotif,
+    preSelectedRegion,
+    preSelectedVille,
+    preSelectedClinique,
+    preSelectedPraticien,
+    preSelectedCreneau
 }) {
-    console.log(label)
-    const [motif, setMotif] = useState();
+    const [motif, setMotif] = useState(
+        preSelectedMotif ? preSelectedMotif :
+            preSelectedRegion ? preSelectedRegion :
+                preSelectedVille ? preSelectedVille :
+                    preSelectedClinique ? preSelectedClinique :
+                        preSelectedPraticien ? preSelectedPraticien :
+                            preSelectedCreneau ? preSelectedCreneau : ""
+    );
     const [region, setRegion] = useState();
     const row = []
     const regionLi = [];

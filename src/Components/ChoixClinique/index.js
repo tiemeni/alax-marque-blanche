@@ -1,11 +1,4 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList } from 'react-window';
-import { Typography } from '@mui/material';
-import Grid from '@mui/system/Unstable_Grid';
 import './designClinique.css';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,8 +9,8 @@ import { getActuelStepById } from '../../Helpers';
 
 
 export default function ChoixClinique() {
-  const [clinique, setClinique] = React.useState();
   const steps = useSelector(state => state.StepReducer.steps);
+  const [clinique, setClinique] = React.useState(getActuelStepById(steps, STEP0)?.inputs?.selectedClinique);
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
   const onPostClinique = clinique => {
@@ -36,6 +29,7 @@ export default function ChoixClinique() {
     <>
       <ItemListView
         onPostClinique={onPostClinique}
+        preSelectedClinique={getActuelStepById(steps, STEP0)?.inputs?.selectedClinique}
         label={getActuelStepById(steps, activeStep)?.outputs?.thirdTitle} forMotif={true} />
       <Button className='btn_retour'
         style={{

@@ -39,6 +39,9 @@
 
 .paragraph.info {
   color: var(--grey-dark-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .info-container_bottom-item {

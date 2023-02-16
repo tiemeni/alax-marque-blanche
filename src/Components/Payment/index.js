@@ -4,6 +4,7 @@ import * as React from 'react';
 import './payment.css';
 import PaymentGroupCard from './PaymentGroupCard';
 import { mobilePayment, creditCard } from '../../Helpers/defaultData';
+import aboutIcon from "../../Assets/Images/about.png"
 import InfosRdv from './InfosRdv';
 import CreditCard from './CreditCard';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,7 +27,10 @@ const Payment = () => {
                     <Box className='info-container'>
                         <h5 id='title'>Important:</h5>
                         <p className='paragraph'>Votre compte sera débité d’un montant de <strong>5000 Fcfa</strong>. Le dit montant fait office de frais de rendez-vous et est non-remboursable.</p>
-                        <p className='paragraph info'>Vous recevrez un message de confirmation à la fin de l'opération.</p>
+                        <p className='paragraph info'>
+                            <img src={aboutIcon} alt='' style={{ height: 15, width: 15 }} />
+                            <span style={{marginLeft: 10}}>Vous recevrez un message de confirmation à la fin de l'opération.</span>
+                        </p>
                     </Box>
                     <InfosRdv />
                     <Grid container>
@@ -46,7 +50,7 @@ const Payment = () => {
                                 <PaymentGroupCard selectedCard={selectedCard} paymentMethods={mobilePayment} />
                                 <PaymentGroupCard selectedCard={selectedCard} paymentMethods={creditCard} />
                             </> :
-                            <MobilePaymentForm selectedCard={selectedCard} />
+                            <MobilePaymentForm selectedCard={selectedCard} paymentMethods={mobilePayment} />
                     }
                 </Grid>
             </Grid >

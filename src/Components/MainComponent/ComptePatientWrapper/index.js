@@ -5,7 +5,7 @@ import '../Modaldesign.css';
 import Login from '../../Auth/Login';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import background from './images/img711.jpg';
+import background from './images/img4.jpg';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
 import IconButton from '@mui/material/IconButton';

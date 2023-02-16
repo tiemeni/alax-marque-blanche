@@ -2,13 +2,10 @@
 {
    margin-bottom: 15px;
    overflow-y: visible;
-   
-    
 }
 
 .boxlist
 {
-    /*background-color: #ddd;*/
     overflow-y: visible blue;
 }
 
@@ -19,12 +16,6 @@
     margin-right: 25%;
     
 }
-
-.list :hover
-{
-    /*background-color: yellow;*/
-}
-
 
 .box_btn_retour
 {

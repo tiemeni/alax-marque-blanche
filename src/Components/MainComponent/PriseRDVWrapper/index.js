@@ -7,11 +7,8 @@ import ChoixClinique from '../../ChoixClinique';
 import ChoixPraticien from '../../ChoixPraticien';
 import ChoixDate from '../../DateRdv';
 import { STEP0, STEP1, STEP2, STEP3, STEP4 } from '../../../Constants/steps';
-import { getActuelStepById } from '../../../Helpers';
-import Login from '../../Auth/Login';
-import Register from '../../Auth/Register';
+import { getActuelStepById, transformStepIntoTab } from '../../../Helpers';
 import Auth from '../../Auth';
-import PaymentGroupCard from '../../Payment/PaymentGroupCard';
 
 export default function PriseRDVWrapper({ open }) {
     const allSteps = useSelector(state => state.StepReducer.steps)
@@ -69,14 +66,13 @@ export default function PriseRDVWrapper({ open }) {
         'Paiement',
         'Récapitulatif',
     ];
-
     return (
         <Fade in={open}>
             <Box sx={style}>
                 <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
-                        <Step active={i === 0 || i === 1 || i === 2 || i === 3} key={label}>
-                            <StepLabel>{label}</StepLabel>
+                        <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
+                            <StepLabel color='#04b7c9'>{label}</StepLabel>
                         </Step>
                     ))}
                 </Stepper>
@@ -86,6 +82,6 @@ export default function PriseRDVWrapper({ open }) {
                     </Grid>
                 </Grid>
             </Box>
-        </Fade>
+        </Fade >
     )
 }
