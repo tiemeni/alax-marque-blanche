@@ -14,7 +14,6 @@ export default function ChoixClinique() {
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
   const onPostClinique = clinique => {
-    console.log(clinique)
     setClinique(clinique)
   }
 

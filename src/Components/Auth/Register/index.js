@@ -104,7 +104,6 @@ const Register = ({ checkEmail }) => {
             },
             inputs: {}
         }
-        console.log("Envoie du formulaire en cours...")
         dispatcher(createStep({ key: STEP3, step }))
         dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
     }

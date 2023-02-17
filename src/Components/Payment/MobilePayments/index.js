@@ -18,7 +18,6 @@ const fieldStyles = {
 }
 
 export default function MobilePaymentForm({ selectedCard, paymentMethods }) {
-    console.log(selectedCard)
     const dispatcher = useDispatch();
     return (
         <div>

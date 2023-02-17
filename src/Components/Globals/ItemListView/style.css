@@ -165,3 +165,11 @@ li:active{
     background-color: var(--primary-color) !important;
     box-shadow: none !important;
   }
+
+  .btn-submit-disabled {
+    height: 50px;
+    width: 250px;
+    border-radius: 50px !important;
+    background-color: gray !important;
+    box-shadow: none !important;
+  }

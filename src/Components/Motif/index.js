@@ -21,6 +21,15 @@ const Motif = () => {
     const handlePostRegion = (region) => {
         setRegion(region)
     }
+
+    const allFieldsSet = (tab) => {
+        let count = 0;
+        for (let el of tab) {
+            el && count++;
+        }
+        return tab.length === count;
+    }
+
     const onGoNext = () => {
         const data = {
             selectedMotif: motif,
@@ -57,7 +66,8 @@ const Motif = () => {
                 alignItems: "center"
             }}>
                 <Button
-                    className='btn-submit'
+                    className={!allFieldsSet([motif, ville, region]) ? "btn-submit-disabled" : 'btn-submit'}
+                    disabled={!allFieldsSet([motif, ville, region])}
                     variant='contained'
                     onClick={() => {
                         dispatcher(changeStep({ step: STEP0, subStep: STEP1 }))

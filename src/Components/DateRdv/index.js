@@ -16,7 +16,6 @@ export default function ChoixDate() {
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
   const onPostCreneau = creneau => {
-    console.log(creneau);
     setCreneau(creneau);
   }
   const onGoNext = () => {

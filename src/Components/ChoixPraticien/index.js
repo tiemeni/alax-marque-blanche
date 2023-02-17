@@ -16,7 +16,6 @@ export default function ChoixPraticien() {
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
   const onPostPraticien = praticien => {
-    console.log(praticien);
     setPraticien(praticien);
   }
   const onGoNext = () => {

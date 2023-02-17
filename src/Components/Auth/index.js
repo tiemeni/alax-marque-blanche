@@ -36,7 +36,6 @@ const Auth = () => {
     }
 
     const onGoNext = (form) => {
-        console.log(form);
         const data = {
             firstConnexion: true,
             email: form?.email,

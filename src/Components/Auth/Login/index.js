@@ -47,7 +47,7 @@ const Login = ({ checkEmail, checkPass }) => {
 
     const handleSubmit = (e) => {
         if (canBeSubmitted && checkEmptyField()) {
-            console.log("Envoie du formulaire en cours...")
+            //-----
         }
         let step = {
             subStep: STEP0,
