@@ -2,7 +2,7 @@ import { Button } from '@mui/material';
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { STEP0, STEP1 } from '../../Constants/steps';
-import { getActuelStepById } from '../../Helpers';
+import { allFieldsSet, getActuelStepById } from '../../Helpers';
 import { changeStep, editeStep } from '../../REDUX/Step/actions';
 import ItemListView from '../Globals/ItemListView';
 
@@ -20,14 +20,6 @@ const Motif = () => {
     }
     const handlePostRegion = (region) => {
         setRegion(region)
-    }
-
-    const allFieldsSet = (tab) => {
-        let count = 0;
-        for (let el of tab) {
-            el && count++;
-        }
-        return tab.length === count;
     }
 
     const onGoNext = () => {
@@ -67,11 +59,12 @@ const Motif = () => {
             }}>
                 <Button
                     className={!allFieldsSet([motif, ville, region]) ? "btn-submit-disabled" : 'btn-submit'}
-                    disabled={!allFieldsSet([motif, ville, region])}
                     variant='contained'
                     onClick={() => {
-                        dispatcher(changeStep({ step: STEP0, subStep: STEP1 }))
-                        onGoNext()
+                        if (allFieldsSet([motif, ville, region])) {
+                            dispatcher(changeStep({ step: STEP0, subStep: STEP1 }))
+                            onGoNext()
+                        }
                     }}>
                     <p className='login-text'>Suivant</p>
                 </Button>

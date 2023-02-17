@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeStep, createStep, editeStep } from '../../REDUX/Step/actions';
 import { STEP0, STEP1, STEP2 } from '../../Constants/steps';
 import ItemListView from '../Globals/ItemListView';
-import { getActuelStepById } from '../../Helpers';
+import { allFieldsSet, getActuelStepById } from '../../Helpers';
 import { outputs } from '../../Constants/outputsLabelForFirstStep';
 
 
@@ -55,7 +55,7 @@ export default function ChoixDate() {
           fontWeight: "700",
           height: 50,
           fontSize: 18,
-          backgroundColor: "#04b7c9"
+          backgroundColor: allFieldsSet([creneau]) ? "#04b7c9" : "gray"
         }}
         variant="contained"
         onClick={() => {
@@ -72,9 +72,11 @@ export default function ChoixDate() {
               civilite: 1
             }
           }
-          onGoNext()
-          dispatcher(createStep({ key: STEP2, step }))
-          dispatcher(changeStep({ step: STEP2, subStep: STEP0 }))
+          if (allFieldsSet([creneau])) {
+            onGoNext()
+            dispatcher(createStep({ key: STEP2, step }))
+            dispatcher(changeStep({ step: STEP2, subStep: STEP0 }))
+          }
         }}>SUIVANT</Button>
     </Box>
   );

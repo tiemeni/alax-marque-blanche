@@ -22,3 +22,11 @@ export const transformStepIntoTab = step => {
     }
     return result;
 }
+
+export const allFieldsSet = (tab) => {
+    let count = 0;
+    for (let el of tab) {
+        el && count++;
+    }
+    return tab.length === count;
+}

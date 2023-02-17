@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { STEP0, STEP1 } from '../../Constants/steps';
 import { changeStep, createStep, editeStep } from '../../REDUX/Step/actions';
 import ItemListView from '../Globals/ItemListView';
-import { getActuelStepById } from '../../Helpers';
+import { allFieldsSet, getActuelStepById } from '../../Helpers';
 import { outputs } from '../../Constants/outputsLabelForFirstStep';
 
 
@@ -58,7 +58,7 @@ export default function ChoixPraticien() {
           fontSize: 18,
           fontWeight: "700",
           height: 50,
-          backgroundColor: "#04b7c9"
+          backgroundColor: allFieldsSet([praticien]) ? "#04b7c9" : "gray"
         }}
         variant="contained"
         onClick={() => {
@@ -69,9 +69,11 @@ export default function ChoixPraticien() {
               selectedCreneau: getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau
             }
           }
-          onGoNext();
-          dispatcher(createStep({ key: STEP1, step }))
-          dispatcher(changeStep({ step: STEP1, subStep: STEP0 }))
+          if (allFieldsSet([praticien])) {
+            onGoNext();
+            dispatcher(createStep({ key: STEP1, step }))
+            dispatcher(changeStep({ step: STEP1, subStep: STEP0 }))
+          }
         }}>SUIVANT</Button>
     </Box>
   );

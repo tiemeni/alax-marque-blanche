@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeStep, editeStep } from '../../REDUX/Step/actions';
 import { STEP0, STEP2 } from '../../Constants/steps';
 import ItemListView from '../Globals/ItemListView';
-import { getActuelStepById } from '../../Helpers';
+import { allFieldsSet, getActuelStepById } from '../../Helpers';
 
 
 export default function ChoixClinique() {
@@ -54,12 +54,14 @@ export default function ChoixClinique() {
           height: 50,
           fontSize: 18,
           fontWeight: "700",
-          backgroundColor: "#04b7c9"
+          backgroundColor: !allFieldsSet([clinique]) ? "gray" : "#04b7c9"
         }}
         variant="contained"
         onClick={() => {
-          onGoNext();
-          dispatcher(changeStep({ step: STEP0, subStep: STEP2 }))
+          if (allFieldsSet([clinique])) {
+            onGoNext();
+            dispatcher(changeStep({ step: STEP0, subStep: STEP2 }))
+          }
         }}>SUIVANT</Button>
     </>
   );
