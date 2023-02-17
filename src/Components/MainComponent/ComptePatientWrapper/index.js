@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Login from '../../Auth/Login';
 import { styled } from '@mui/material/styles';
 import SvgIcon from '@mui/material/SvgIcon';
+import background from '../../../Assets/Images/fondpatient.png';
 
 function Copyright(props) {
   return (
@@ -57,7 +58,7 @@ export default function ComptePatientWrapper() {
     transform: 'translate(-50%, -50%)',
     width: '43.5%',
     height: '80%',
-    bgcolor: '#04b7c9',
+   bgcolor: '#04b7c9',
     /*backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
@@ -104,20 +105,21 @@ const Item = styled(Paper)(({ theme }) => ({
         <CssBaseline />
         <Grid
           item
-          xs={false}
+          xs={0}
           sm={3}
           md={3}
           sx={style1}
+          style={{backgroundImage: `url(${background})`, backgroundSize: '70%', backgroundRepeat: 'no-repeat'}}
         >
           <Typography style={{color: '#fff', fontWeight: 'lighter', fontFamily:'sans-serif' , marginTop: '30%'}}>
-           <h1><center>MON COMPTE</center></h1>
+          
            
           </Typography>
           <Typography style={{marginTop: '-10%', color: '#fff', fontSize: '200%'}}>
-           <h1><center>PATIENT</center></h1>
+           
            
           </Typography>
-          <HomeIcon />
+         
 
           
         </Grid>
