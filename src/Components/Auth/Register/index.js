@@ -6,7 +6,6 @@ import { customStyles } from '../../../Constants/customsStyles';
 import { STEP0, STEP1, STEP2, STEP3 } from '../../../Constants/steps';
 import { changeStep, createStep, editeStep } from '../../../REDUX/Step/actions';
 import { useDispatch } from 'react-redux';
-import { allFieldsSet } from '../../../Helpers';
 
 const Register = ({ checkEmail }) => {
     const dispatcher = useDispatch()
@@ -27,7 +26,6 @@ const Register = ({ checkEmail }) => {
         emailError: null,
         confirmError: null
     })
-    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(true);
 
     const onGoNext = (form) => {
         const data = {
@@ -112,15 +110,6 @@ const Register = ({ checkEmail }) => {
             dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
         }
     }
-
-    React.useEffect(() => {
-        if (errors.emailError !== null || errors.confirmError !== null) {
-            SetCanBeSubmitted(false);
-            return;
-        }
-        SetCanBeSubmitted(true);
-    }, [formData, errors])
-
 
     return (
         <Collapse in={true}>
