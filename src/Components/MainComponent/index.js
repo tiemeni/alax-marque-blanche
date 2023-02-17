@@ -27,9 +27,10 @@ export default function MainComponent() {
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
+          
         }}
       >
-        {0 ? <PriseRDVWrapper open={open} /> :
+        {1 ? <PriseRDVWrapper open={open} /> :
           <ComptePatientWrapper open={open} />}
       </Modal>
     </div>

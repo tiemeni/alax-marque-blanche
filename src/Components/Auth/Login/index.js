@@ -109,9 +109,10 @@ const Login = ({ checkEmail, checkPass }) => {
     return (
         <Collapse in={true}>
             <Box mb={1} className='container-login'>
-                <Grid mb={3} className='container-login_input'>
+                <Grid mb={3}  className='container-login_input'>
                     <Grid className='container-box_input_box'>
                         <TextField
+                        
                             className='text-field-input'
                             name='email'
                             type='email'
@@ -152,7 +153,7 @@ const Login = ({ checkEmail, checkPass }) => {
                 </Grid>
                 <Grid className='container-login_input'>
                     <Box className='container-box_input_box'>
-                        <p onClick={handleReset} className='forget-password'>Réinitialiser mon mot de passe</p>
+                       <center> <p onClick={handleReset} className='forget-password'>Réinitialiser mon mot de passe</p></center>
                     </Box>
                 </Grid>
                 {isReset.isIt && (

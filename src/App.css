@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+  
+  .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root
+  {
+    border-radius: 8px !important; /* Radius de l'input adresse e-mail*/
+  }
+
+  .css-1d3z3hw-MuiOutlinedInput-notchedOutline
+  {
+    border-radius: 8px !important; /* Radius de l'input mot de passe*/
+  }

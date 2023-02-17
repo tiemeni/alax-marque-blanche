@@ -1,91 +1,139 @@
-import { Fade, Grid, Stepper } from '@mui/material'
-import { Box } from '@mui/system'
-import React from 'react'
-import '../Modaldesign.css';
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Login from '../../Auth/Login';
 import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import background from './images/img711.jpg';
-import Dialog from '@mui/material/Dialog';
-import DialogTitle from '@mui/material/DialogTitle';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import PropTypes from 'prop-types';
+import SvgIcon from '@mui/material/SvgIcon';
 
-export default function ComptePatientWrapper({ open }) {
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
-    const style = {
-        position: 'absolute',
-        top: '40%',
-        bottom: '0%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '70%',
-        height: '55%',
-        bgcolor: '#ddd',
-        border: '0px solid #DDD',
-        boxShadow: '2px, 1px, 2px, red',
-        p: 4,
-        marginTop: '5%',
-        marginBottom: '5%',
-    };
+function HomeIcon(props) {
+  return (
+    <SvgIcon {...props}>
+      <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+    </SvgIcon>
+  );
+}
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-      }));
+const theme = createTheme();
 
-      function BootstrapDialogTitle(props) {
-        const { children, onClose, ...other } = props;
-      
-        return (
-          <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
-            {children}
-            {onClose ? (
-              <IconButton
-                aria-label="close"
-                onClick={onClose}
-                sx={{
-                  position: 'absolute',
-                  right: 8,
-                  top: 8,
-                  color: (theme) => theme.palette.grey[500],
-                }}
-              >
-                <CloseIcon />
-              </IconButton>
-            ) : null}
-          </DialogTitle>
-        );
-      }
-      
-      BootstrapDialogTitle.propTypes = {
-        children: PropTypes.node,
-        onClose: PropTypes.func.isRequired,
-      };
+export default function ComptePatientWrapper() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    console.log({
+      email: data.get('email'),
+      password: data.get('password'),
+    });
+  };
+
+  const style1 = {
+    position: 'absolute',
+    top: '50.5%',
+    bottom: '0%',
+    right: '45%',
+    transform: 'translate(-50%, -50%)',
+    width: '43.5%',
+    height: '80%',
+    bgcolor: '#04b7c9',
+    /*backgroundImage: 'url(https://source.unsplash.com/random)',
+            backgroundRepeat: 'no-repeat',
+            backgroundColor: (t) =>
+              t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',*/
+    border: '0px solid #DDD',
+    p: 4,
+    marginTop: '0%',
+    marginBottom: '0%',
+    marginLeft: '5%',
+};
+
+const style2 = {
+  position: 'absolute',
+  top: '50.5%',
+  bottom: '0%',
+  left: '61%',
+  transform: 'translate(-50%, -50%)',
+  width: '43.5%',
+  height: '80%',
+  bgcolor: '#fff',
+  border: '0px solid #DDD',
+  p: 4,
+  marginTop: '0%',
+  marginBottom: '0%',
+  marginRight: '5%',
+  paddingTop: '10%',
+};
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: 'white',
+    
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+
+  }));
+
+  return (
+    <ThemeProvider theme={theme}>
+      <Grid container component="main" sx={{ height: '80%', marginLeft: '5%', marginTop: '5%', marginBottom: '5%' }}>
+        <CssBaseline />
+        <Grid
+          item
+          xs={false}
+          sm={3}
+          md={3}
+          sx={style1}
+        >
+          <Typography style={{color: '#fff', fontWeight: 'lighter', fontFamily:'sans-serif' , marginTop: '30%'}}>
+           <h1><center>MON COMPTE</center></h1>
+           
+          </Typography>
+          <Typography style={{marginTop: '-10%', color: '#fff', fontSize: '200%'}}>
+           <h1><center>PATIENT</center></h1>
+           
+          </Typography>
+          <HomeIcon />
+
+          
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          sm={9}
+          md={9}
+          sx={style2}
+        >
+          <Login />
+        </Grid>
         
-
-    return (
-        <Fade in={open}>
-            
-            <Box sx={style} style={{ paddingTop: 300, backgroundImage: `url(${background})`, backgroundRepeat: "no-repeat", backgroundSize: "120%" }}>
-                <Grid container spacing={0.5}>
-                    <Grid item xs={3}>
-                    
-                    </Grid>
-                    <Grid item xs={6}>
-                    <Item><Login /></Item>
-                    </Grid>
-                    <Grid item xs={3}>
-                    
-                    </Grid>
-                </Grid>
-            </Box>
-        </Fade>
         
-        
-    )
+      </Grid>
+    </ThemeProvider>
+  );
 }

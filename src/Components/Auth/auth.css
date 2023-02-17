@@ -68,6 +68,7 @@
 
 .container-box_input_box {
   width: 50%;
+  border-radius: 500px !important;
 }
 
 .input-box_button {

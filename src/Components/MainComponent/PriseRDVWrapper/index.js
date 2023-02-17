@@ -12,6 +12,7 @@ import Login from '../../Auth/Login';
 import Register from '../../Auth/Register';
 import Auth from '../../Auth';
 import PaymentGroupCard from '../../Payment/PaymentGroupCard';
+import { VisibilityRounded } from '@mui/icons-material';
 
 export default function PriseRDVWrapper({ open }) {
     const allSteps = useSelector(state => state.StepReducer.steps)

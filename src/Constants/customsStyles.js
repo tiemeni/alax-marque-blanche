@@ -4,11 +4,13 @@ export const customStyles = {
     customRadioStyle: {
         '&.Mui-checked': {
             color: colors.primaryColor
+
         }
     },
     customFieldStyle: {
         '& label.Mui-focused': {
             color: colors.primaryColor,
+            borderRadius: '100px !important',
         },
         '& .MuiOutlinedInput-root': {
             '&:hover fieldset': {
