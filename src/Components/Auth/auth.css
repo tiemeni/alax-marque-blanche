@@ -80,6 +80,7 @@
 }
 
 .input-box_button,
+.input-box_button-disabled,
 .input-box_button_back-btn {
   height: 50px;
   width: 250px;

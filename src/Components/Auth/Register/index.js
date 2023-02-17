@@ -76,6 +76,8 @@ const Register = ({ checkEmail }) => {
         }
     }
 
+    const isInCorrectInputs = (obj) => obj.name === '' || obj.name.length < 5 || obj.surname.length < 5 || obj.surname === '' || obj.phone === '' || obj.email === '' || obj.confirmEmail === '' || obj.birthdate === ''
+
     const checkValidity = () => {
         const { name, surname, phone, email, confirmEmail, birthdate } = formData;
         const isReq = 'Veuillez remplir ce champ';
@@ -89,7 +91,7 @@ const Register = ({ checkEmail }) => {
             birthdateError: birthdate === '' ? isReq : null
         })
 
-        if (name === '' || name.length > 5 || surname.length > 5 || surname === '' || phone === '' || email === '' || confirmEmail === '' || birthdate === '') {
+        if (isInCorrectInputs(formData)) {
             return false
         };
 
@@ -97,16 +99,18 @@ const Register = ({ checkEmail }) => {
     }
 
     const handleSubmit = (e) => {
-        onGoNext && onGoNext(formData)
-        let step = {
-            subStep: STEP0,
-            outputs: {
-                firstTitle: "Sélectionnez un moyen de paiement",
-            },
-            inputs: {}
+        if (checkValidity()) {
+            onGoNext && onGoNext(formData)
+            let step = {
+                subStep: STEP0,
+                outputs: {
+                    firstTitle: "Sélectionnez un moyen de paiement",
+                },
+                inputs: {}
+            }
+            dispatcher(createStep({ key: STEP3, step }))
+            dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
         }
-        dispatcher(createStep({ key: STEP3, step }))
-        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
     }
 
     React.useEffect(() => {
@@ -143,7 +147,7 @@ const Register = ({ checkEmail }) => {
                         placeholder='Nom'
                         sx={customStyles.customFieldStyle}
                         fullWidth
-                        helperText={errors.nameError}
+                        // helperText={errors.nameError}
                         error={errors.nameError !== null}
                     />
                 </Grid>
@@ -157,7 +161,7 @@ const Register = ({ checkEmail }) => {
                         variant='outlined'
                         placeholder='Prénom'
                         fullWidth
-                        helperText={errors.surnameError}
+                        // helperText={errors.surnameError}
                         error={errors.surnameError !== null}
                         sx={customStyles.customFieldStyle}
                     />
@@ -175,7 +179,7 @@ const Register = ({ checkEmail }) => {
                         placeholder='Date de naissance'
                         sx={customStyles.customFieldStyle}
                         fullWidth
-                        helperText={errors.birthdateError}
+                        // helperText={errors.birthdateError}
                         error={errors.birthdateError !== null}
                     />
                 </Grid>
@@ -193,7 +197,7 @@ const Register = ({ checkEmail }) => {
                             variant='outlined'
                             placeholder='Téléphone'
                             fullWidth sx={customStyles.customFieldStyle}
-                            helperText={errors.phoneError}
+                            // helperText={errors.phoneError}
                             error={errors.phoneError !== null}
                         />}
                     </InputMask>
@@ -211,7 +215,7 @@ const Register = ({ checkEmail }) => {
                         placeholder='Adresse mail'
                         fullWidth
                         sx={customStyles.customFieldStyle}
-                        helperText={errors.emailError}
+                        // helperText={errors.emailError}
                         error={errors.emailError !== null}
                     />
                 </Grid>
@@ -225,7 +229,7 @@ const Register = ({ checkEmail }) => {
                         variant='outlined'
                         placeholder="Confirmer l'adresse mail"
                         fullWidth sx={customStyles.customFieldStyle}
-                        helperText={errors.confirmError}
+                        // helperText={errors.confirmError}
                         error={errors.confirmError !== null}
                     />
                 </Grid>
@@ -252,8 +256,7 @@ const Register = ({ checkEmail }) => {
                 </Grid>
                 <Grid className='input-box-left' item md={6} xs={12}>
                     <Button
-                        disabled={!canBeSubmitted}
-                        className={'input-box_button'}
+                        className={!isInCorrectInputs(formData) ? 'input-box_button' : "input-box_button-disabled"}
                         onClick={handleSubmit}>
                         <p className='login-text'>Créer</p>
                     </Button>
