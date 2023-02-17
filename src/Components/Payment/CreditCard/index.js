@@ -10,6 +10,7 @@ import InputMask from 'react-input-mask';
 import { VISA } from '../../../Constants/typePayments';
 import { useDispatch } from 'react-redux';
 import { setWitchCardToOpen } from '../../../REDUX/Common/actions';
+import '../payment.css'
 
 const fieldStyles = {
     ...customStyles.customFieldStyle,
@@ -187,7 +188,7 @@ const CreditCard = ({ selectedCard }) => {
                     pr={2}
                     item
                     xs={12}>
-                    <Button className='btn-submit'
+                    <Button className='btn-submit input-box_button-disabled'
                         variant='contained'>
                         <p className='login-text'>
                             Soumettre

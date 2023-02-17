@@ -57,6 +57,11 @@
   margin-bottom: 20px !important;
 }
 
+.input-box_button-disabled {
+  background-color: gray !important;
+  color: var(--white-color);
+}
+
 .info-btn_back {
   color: white;
   font-weight: 700;

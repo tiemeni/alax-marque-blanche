@@ -9,6 +9,7 @@ import { useDispatch } from 'react-redux'
 import { customStyles } from '../../../Constants/customsStyles'
 import { setWitchCardToOpen } from '../../../REDUX/Common/actions'
 import { ORANGE_MONEY } from '../../../Constants/typePayments'
+import '../payment.css';
 
 const fieldStyles = {
     ...customStyles.customFieldStyle,
@@ -81,7 +82,7 @@ export default function MobilePaymentForm({ selectedCard, paymentMethods }) {
                     </div>
                 </div>
                 <div style={{ width: "70%", marginTop: 50 }}>
-                    <Button className='btn-submit'
+                    <Button className='btn-submit input-box_button-disabled'
                         style={{ width: "100%" }}
                         variant='contained'>
                         <p className='login-text'>
