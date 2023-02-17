@@ -74,6 +74,10 @@
   background-color: var(--primary-color) !important;
   color: var(--white-color);
 }
+.input-box_button-disabled {
+  background-color: gray !important;
+  color: var(--white-color);
+}
 
 .input-box_button,
 .input-box_button_back-btn {

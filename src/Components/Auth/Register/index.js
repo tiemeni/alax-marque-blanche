@@ -6,6 +6,7 @@ import { customStyles } from '../../../Constants/customsStyles';
 import { STEP0, STEP1, STEP2, STEP3 } from '../../../Constants/steps';
 import { changeStep, createStep, editeStep } from '../../../REDUX/Step/actions';
 import { useDispatch } from 'react-redux';
+import { allFieldsSet } from '../../../Helpers';
 
 const Register = ({ checkEmail }) => {
     const dispatcher = useDispatch()
@@ -250,7 +251,10 @@ const Register = ({ checkEmail }) => {
                     </Button>
                 </Grid>
                 <Grid className='input-box-left' item md={6} xs={12}>
-                    <Button className='input-box_button' onClick={handleSubmit}>
+                    <Button
+                        disabled={!canBeSubmitted}
+                        className={'input-box_button'}
+                        onClick={handleSubmit}>
                         <p className='login-text'>Créer</p>
                     </Button>
                 </Grid>
