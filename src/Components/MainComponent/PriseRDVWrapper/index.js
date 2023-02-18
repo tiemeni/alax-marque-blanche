@@ -9,6 +9,8 @@ import ChoixDate from '../../DateRdv';
 import { STEP0, STEP1, STEP2, STEP3, STEP4 } from '../../../Constants/steps';
 import { getActuelStepById, transformStepIntoTab } from '../../../Helpers';
 import Auth from '../../Auth';
+import PaymentGroupCard from '../../Payment/PaymentGroupCard';
+import { VisibilityRounded } from '@mui/icons-material';
 
 export default function PriseRDVWrapper({ open }) {
     const allSteps = useSelector(state => state.StepReducer.steps)
@@ -52,7 +54,7 @@ export default function PriseRDVWrapper({ open }) {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: '70%',
-        height: '85%',
+        height: '610px',
         bgcolor: 'background.paper',
         border: '1px solid #DDD',
         boxShadow: 10,
