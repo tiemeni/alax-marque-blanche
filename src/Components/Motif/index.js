@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { STEP0, STEP1 } from '../../Constants/steps';
 import { allFieldsSet, getActuelStepById } from '../../Helpers';
+import { getWindowSize } from '../../Hooks/dimensions';
 import { changeStep, editeStep } from '../../REDUX/Step/actions';
 import ItemListView from '../Globals/ItemListView';
 
 const Motif = () => {
+    const { innerWidth } = getWindowSize()
     const steps = useSelector(state => state.StepReducer.steps);
     const dispatcher = useDispatch();
     const [motif, setMotif] = useState(getActuelStepById(steps, STEP0)?.inputs?.selectedMotif);
@@ -33,14 +35,14 @@ const Motif = () => {
 
     return (
         <div>
-            <div style={{ width: "100%", display: "flex", flexDirection: 'row' }}>
-                <div style={{ width: "50%", marginTop: 8 }}>
+            <div style={{ width: "100%", display: "flex", flexDirection: innerWidth > 500 ? 'row' : 'column' }}>
+                <div style={{ width: innerWidth > 500 ? "50%" : "100%", marginTop: 8 }}>
                     <ItemListView
                         preSelectedMotif={getActuelStepById(steps, STEP0)?.inputs?.selectedMotif}
                         label={getActuelStepById(steps, STEP0)?.outputs?.firstTitle}
                         handlePostMotif={handlePostMotif} forMotif={true} />
                 </div >
-                <div style={{ width: "50%" }}>
+                <div style={{ width: innerWidth > 500 ? "50%" : "100%" }}>
                     <ItemListView
                         preSelectedRegion={getActuelStepById(steps, STEP0)?.inputs?.selectedRegion}
                         label={getActuelStepById(steps, STEP0)?.outputs?.secondTitle}

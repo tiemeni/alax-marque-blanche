@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { motifRowessai, regionRowessai } from '../../../Helpers/defaultData'
+import { getWindowSize } from '../../../Hooks/dimensions';
 import './style.css'
 
 
@@ -29,6 +30,7 @@ export default function ItemListView({
                         preSelectedPraticien ? preSelectedPraticien :
                             preSelectedCreneau ? preSelectedCreneau : ""
     );
+    const { innerWidth } = getWindowSize()
     const [region, setRegion] = useState();
     const row = []
     const regionLi = [];
@@ -115,8 +117,14 @@ export default function ItemListView({
 
     return (
         <div>
-            <div className='centerLayout' style={{ paddingTop: 50 }}>
-                <div className={forMotif ? 'LeftLayout' : forCity ? "RightLayoutBottom" : "RightLayout"}>
+            <div className='centerLayout'
+                style={{
+                    paddingTop: 50,
+                    marginBottom: (innerWidth > 500) ? "5%" : "0%",
+                }}>
+                <div className={forMotif ? 'LeftLayout' : forCity ? "RightLayoutBottom" : "RightLayout"}
+                    style={{ marginTop: innerWidth < 500 && forCity && -75 }}
+                >
                     {/* {JSON.stringify(motif)} */}
                     {(!forCity || forMotif) && <h2 className='title-h2 center-text' style={{ marginTop: forRegion ? 10 : 0 }}>{label}</h2>}
                     {(forCity) && <div style={{ paddingLeft: 9, }}>

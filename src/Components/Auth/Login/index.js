@@ -18,7 +18,6 @@ const Login = ({ checkEmail, checkPass }) => {
         emailError: null,
         passwordMsg: null
     });
-    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(false);
     const [isReset, setIsReset] = React.useState({ isIt: false, value: '' });
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -96,19 +95,19 @@ const Login = ({ checkEmail, checkPass }) => {
         })
     }
 
-    React.useEffect(() => {
-        if (errors.emailError !== null || errors.passwordMsg !== null) {
-            SetCanBeSubmitted(false);
-            return;
-        }
-        SetCanBeSubmitted(true)
+    // React.useEffect(() => {
+    //     if (errors.emailError !== null || errors.passwordMsg !== null) {
+    //         SetCanBeSubmitted(false);
+    //         return;
+    //     }
+    //     SetCanBeSubmitted(true)
 
-        if (isReset.isIt) {
-            setTimeout(() => {
-                setIsReset({ isIt: false, msg: '' })
-            }, 10000);
-        }
-    }, [errors, isReset])
+    //     if (isReset.isIt) {
+    //         setTimeout(() => {
+    //             setIsReset({ isIt: false, msg: '' })
+    //         }, 10000);
+    //     }
+    // }, [errors, isReset])
 
 
     return (

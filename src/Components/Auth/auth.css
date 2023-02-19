@@ -127,6 +127,7 @@
 
 @media only screen and (max-width: 899px) {
   .input-box_button,
+  .input-box_button-disabled,
   .input-box_button_back-btn {
     width: 100%;
   }

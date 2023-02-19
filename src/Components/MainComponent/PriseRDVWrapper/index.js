@@ -9,10 +9,10 @@ import ChoixDate from '../../DateRdv';
 import { STEP0, STEP1, STEP2, STEP3, STEP4 } from '../../../Constants/steps';
 import { getActuelStepById, transformStepIntoTab } from '../../../Helpers';
 import Auth from '../../Auth';
-import PaymentGroupCard from '../../Payment/PaymentGroupCard';
-import { VisibilityRounded } from '@mui/icons-material';
+import { getWindowSize } from '../../../Hooks/dimensions';
 
 export default function PriseRDVWrapper({ open }) {
+    const { innerWidth } = getWindowSize()
     const allSteps = useSelector(state => state.StepReducer.steps)
     const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
     const RenderBody = () => {
@@ -53,11 +53,12 @@ export default function PriseRDVWrapper({ open }) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '70%',
+        width: innerWidth > 960 ? '70%' : "100%",
         height: '610px',
         bgcolor: 'background.paper',
         border: '1px solid #DDD',
         boxShadow: 10,
+        overflowY: "scroll",
         p: 4,
     };
 
@@ -71,13 +72,13 @@ export default function PriseRDVWrapper({ open }) {
     return (
         <Fade in={open}>
             <Box sx={style}>
-                <Stepper activeStep={0} alternativeLabel>
+                {innerWidth > 500 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
                             <StepLabel color='#04b7c9'>{label}</StepLabel>
                         </Step>
                     ))}
-                </Stepper>
+                </Stepper> : <></>}
                 <Grid class="box_centre" container spacing={0.5}>
                     <Grid xs={12} >
                         {RenderBody()}
