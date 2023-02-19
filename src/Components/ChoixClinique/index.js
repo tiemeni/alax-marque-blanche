@@ -33,7 +33,7 @@ export default function ChoixClinique() {
 
   return (
     <Box className='boxClinique'
-      sx={{ width: '100%', height: 200, bgcolor: 'background.paper' }}
+      sx={{ width: '100%', height: '450px', bgcolor: 'background.paper' }}
     >
       <Typography className='texteClinique' sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
         <b>Sélectionner une clinique</b>
@@ -41,7 +41,7 @@ export default function ChoixClinique() {
       <Grid className='boxlist' container spacing={0.5}>
         <Grid xs={12}>
           <FixedSizeList
-            height={200}
+            height={400}
             width={'100%'}
             marginLeft={'0%'}
             itemSize={46}

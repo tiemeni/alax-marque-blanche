@@ -19,6 +19,7 @@ stepper .boxprincipale {
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 500px;
+  height: 85%;
 }
 
 .box_patient
@@ -26,6 +27,7 @@ stepper .boxprincipale {
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 500px;
+  
 }
 
 

@@ -56,9 +56,10 @@ export default function ChoixDate() {
       <Grid className='boxlist' container spacing={0.5}>
         <Grid xs={12}>
           <FixedSizeList
-            height={200}
+            height={400}
             width={'100%'}
             marginLeft={'0%'}
+            padding={'100px'}
             itemSize={46}
             itemCount={10}
             overscanCount={5}

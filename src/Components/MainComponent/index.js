@@ -30,7 +30,7 @@ export default function MainComponent() {
           
         }}
       >
-        {0 ? <PriseRDVWrapper open={open} /> :
+        {1 ? <PriseRDVWrapper open={open} /> :
           <ComptePatientWrapper open={open} />}
       </Modal>
     </div>

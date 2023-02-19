@@ -30,16 +30,16 @@
 {
     margin-top: 35px;
     margin-bottom: 50px;
-    width: 50%;
-   
+    width: 48%;
+    margin-left: 10px;
 }
 
 .box_btn_next
 {
     margin-top: 35px;
     margin-bottom: 50px;
-    width: 50%;
-   
+    width: 46%;
+   margin-right: 10px;
 }
 
 .btn_retour
@@ -50,9 +50,9 @@
     color: #04B7C9;
     padding: 10px;
     width: 40%;
-    /*margin-left: 40%;*/
+   
     height: 40px;
-    font-size: 120%;
+    font-size: 100%;
 }
 
 .btn_next
@@ -66,5 +66,5 @@
     float: right;
     /*margin-left: 40%;*/
     height: 40px;
-    font-size: 120%;
+    font-size: 100%;
 }
