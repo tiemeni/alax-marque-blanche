@@ -72,7 +72,7 @@ export default function PriseRDVWrapper({ open }) {
     return (
         <Fade in={open}>
             <Box sx={style}>
-                {innerWidth > 500 ? <Stepper activeStep={0} alternativeLabel>
+                {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
                             <StepLabel color='#04b7c9'>{label}</StepLabel>
