@@ -32,7 +32,7 @@ export default function ChoixDate() {
         preSelectedCreneau={getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau}
         label={getActuelStepById(steps, activeStep)?.outputs?.fifthTitle} forMotif={true} />
       <div style={{ display: innerWidth < 500 && "flex", justifyContent: innerWidth < 500 && "center", width: "100%" }}>
-        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column-reverse", width: "90%" }}>
+        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column-reverse", width: innerWidth < 500 && "90%" }}>
           <Button className='btn_retour'
             style={{
               marginLeft: innerWidth > 500 && 10,
