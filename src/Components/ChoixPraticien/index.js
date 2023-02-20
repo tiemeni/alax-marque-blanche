@@ -7,11 +7,11 @@ import { changeStep, createStep, editeStep } from '../../REDUX/Step/actions';
 import ItemListView from '../Globals/ItemListView';
 import { allFieldsSet, getActuelStepById } from '../../Helpers';
 import { outputs } from '../../Constants/outputsLabelForFirstStep';
-import { getWindowSize } from '../../Hooks/dimensions';
+import { useDimension } from '../../Hooks/dimensions';
 
 
 export default function ChoixPraticien() {
-  const { innerWidth } = getWindowSize()
+  const { innerWidth } = useDimension()
   const steps = useSelector(state => state.StepReducer.steps);
   const [praticien, setPraticien] = React.useState(getActuelStepById(steps, STEP0)?.inputs?.selectedPraticien)
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);

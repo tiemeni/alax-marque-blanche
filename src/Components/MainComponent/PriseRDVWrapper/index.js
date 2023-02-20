@@ -9,10 +9,10 @@ import ChoixDate from '../../DateRdv';
 import { STEP0, STEP1, STEP2, STEP3, STEP4 } from '../../../Constants/steps';
 import { getActuelStepById, transformStepIntoNumber, transformStepIntoTab } from '../../../Helpers';
 import Auth from '../../Auth';
-import { getWindowSize } from '../../../Hooks/dimensions';
+import { useDimension } from '../../../Hooks/dimensions';
 
 export default function PriseRDVWrapper({ open }) {
-    const { innerWidth } = getWindowSize()
+    const { innerWidth } = useDimension()
     const allSteps = useSelector(state => state.StepReducer.steps)
     const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
     const RenderBody = () => {
@@ -53,7 +53,7 @@ export default function PriseRDVWrapper({ open }) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: innerWidth > 960 ? '70%' : "100%",
+        width: innerWidth > 500 ? '70%' : "100%",
         height: '610px',
         bgcolor: 'background.paper',
         border: '1px solid #DDD',

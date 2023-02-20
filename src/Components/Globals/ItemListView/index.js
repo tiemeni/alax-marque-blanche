@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motifRowessai, regionRowessai } from '../../../Helpers/defaultData'
-import { getWindowSize } from '../../../Hooks/dimensions';
+import { useDimension } from '../../../Hooks/dimensions';
 import './style.css'
 
 
@@ -30,7 +30,7 @@ export default function ItemListView({
                         preSelectedPraticien ? preSelectedPraticien :
                             preSelectedCreneau ? preSelectedCreneau : ""
     );
-    const { innerWidth } = getWindowSize()
+    const { innerWidth } = useDimension()
     const [region, setRegion] = useState();
     const row = []
     const regionLi = [];
