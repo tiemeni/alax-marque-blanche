@@ -33,11 +33,10 @@ export default function ChoixClinique() {
         preSelectedClinique={getActuelStepById(steps, STEP0)?.inputs?.selectedClinique}
         label={getActuelStepById(steps, activeStep)?.outputs?.thirdTitle} forMotif={true} />
       <div style={{display: innerWidth < 500 && "flex", justifyContent: innerWidth < 500 && "center", width: "100%"}}>
-        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column", width: "100%" }}>
+        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column-reverse", width: "90%" }}>
           <Button className='btn_retour'
             style={{
               marginLeft: innerWidth > 500 && 10,
-              marginBottom: innerWidth < 500 && 10,
               borderRadius: 25,
               width: innerWidth > 500 ? "250px" : "100%",
               border: "2px solid #04B7C9",
@@ -55,6 +54,7 @@ export default function ChoixClinique() {
           <Button className='btn_next'
             style={{
               borderRadius: 25,
+              marginBottom: innerWidth < 500 && 10,
               width: innerWidth > 500 ? "250px" : "100%",
               height: 50,
               fontSize: 18,

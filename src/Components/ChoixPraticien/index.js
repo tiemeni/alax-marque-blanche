@@ -33,12 +33,11 @@ export default function ChoixPraticien() {
         preSelectedPraticien={getActuelStepById(steps, STEP0)?.inputs?.selectedPraticien}
         label={getActuelStepById(steps, activeStep)?.outputs?.fourthTitle} forMotif={true} />
       <div style={{ display: innerWidth < 500 && "flex", justifyContent: innerWidth < 500 && "center", width: "100%" }}>
-        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column", width: "100%" }}>
+        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column-reverse", width: "90%" }}>
           <Button
             className='btn_retour'
             style={{
               marginLeft: innerWidth > 500 && 10,
-              marginBottom: innerWidth < 500 && 10,
               borderRadius: 25,
               border: "2px solid #04B7C9",
               fontSize: 18,
@@ -56,6 +55,7 @@ export default function ChoixPraticien() {
           <Button className='btn_next'
             style={{
               borderRadius: 25,
+              marginBottom: innerWidth < 500 && 10,
               width: innerWidth > 500 ? "250px" : "100%",
               fontSize: 18,
               fontWeight: "700",

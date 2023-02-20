@@ -7,7 +7,7 @@ import ChoixClinique from '../../ChoixClinique';
 import ChoixPraticien from '../../ChoixPraticien';
 import ChoixDate from '../../DateRdv';
 import { STEP0, STEP1, STEP2, STEP3, STEP4 } from '../../../Constants/steps';
-import { getActuelStepById, transformStepIntoTab } from '../../../Helpers';
+import { getActuelStepById, transformStepIntoNumber, transformStepIntoTab } from '../../../Helpers';
 import Auth from '../../Auth';
 import { getWindowSize } from '../../../Hooks/dimensions';
 
@@ -78,7 +78,21 @@ export default function PriseRDVWrapper({ open }) {
                             <StepLabel color='#04b7c9'>{label}</StepLabel>
                         </Step>
                     ))}
-                </Stepper> : <></>}
+                </Stepper> :
+                    <div style={{ display: 'flex', flexDirection: "row", alignItems: 'center', marginLeft: 20 }}>
+                        <div style={{
+                            color: 'white',
+                            backgroundColor: "#04b7c9",
+                            width: 30,
+                            height: 30,
+                            display: 'flex',
+                            alignItems: "center",
+                            borderRadius: 50,
+                            justifyContent: 'center'
+                        }}>{transformStepIntoNumber(actualStep)}</div>
+                        <div style={{ marginLeft: 15 }}>{steps[transformStepIntoNumber(actualStep) - 1]}</div>
+                    </div>
+                }
                 <Grid class="box_centre" container spacing={0.5}>
                     <Grid xs={12} >
                         {RenderBody()}
