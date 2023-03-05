@@ -12,7 +12,7 @@ import Auth from '../../Auth';
 import { useDimension } from '../../../Hooks/dimensions';
 
 export default function PriseRDVWrapper({ open }) {
-    const { innerWidth } = useDimension()
+    const { innerWidth, innerHeight } = useDimension()
     const allSteps = useSelector(state => state.StepReducer.steps)
     const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
     const RenderBody = () => {
@@ -48,13 +48,15 @@ export default function PriseRDVWrapper({ open }) {
         return result;
     };
 
+    console.log(innerHeight)
+
     const style = {
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: innerWidth > 500 ? '70%' : "100%",
-        height: '610px',
+        height: 80.05 * parseInt(innerHeight) / 100,
         bgcolor: 'background.paper',
         border: '1px solid #DDD',
         boxShadow: 10,
