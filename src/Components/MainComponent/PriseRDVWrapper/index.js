@@ -56,7 +56,7 @@ export default function PriseRDVWrapper({ open }) {
         left: '50%',
         transform: 'translate(-50%, -50%)',
         width: innerWidth > 500 ? '70%' : "100%",
-        height: innerWidth > 500? 80.05 * parseInt(innerHeight) / 100 : "100%",
+        height: innerWidth > 500 ? 80.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 90 / 100,
         bgcolor: 'background.paper',
         border: '1px solid #DDD',
         boxShadow: 10,
