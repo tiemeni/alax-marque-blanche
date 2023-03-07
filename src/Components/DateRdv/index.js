@@ -1,103 +1,87 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList } from 'react-window';
-import { Typography } from '@mui/material';
-import Grid from '@mui/system/Unstable_Grid';
 import './designDate.css';
-import { createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button';
-import { useDispatch } from 'react-redux';
-import { changeStep, createStep } from '../../REDUX/Step/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeStep, createStep, editeStep } from '../../REDUX/Step/actions';
 import { STEP0, STEP1, STEP2 } from '../../Constants/steps';
+import ItemListView from '../Globals/ItemListView';
+import { allFieldsSet, getActuelStepById } from '../../Helpers';
+import { outputs } from '../../Constants/outputsLabelForFirstStep';
+import { getWindowSize } from '../../Hooks/dimensions';
 
-
-
-function renderRow(props) {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: '#757ce8',
-        main: '#3f50b5',
-        dark: '#002884',
-        contrastText: '#fff',
-      },
-      secondary: {
-        light: '#ff7961',
-        main: '#f44336',
-        dark: '#ba000d',
-        contrastText: '#000',
-      },
-    },
-  });
-
-  const { index, style } = props;
-
-  return (
-    <ListItem className='list' style={style} key={index} component="div" disablePadding>
-      <ListItemButton >
-        <ListItemText primary={`Date de RDV N°`} />
-      </ListItemButton>
-    </ListItem>
-  );
-}
 
 export default function ChoixDate() {
+  const { innerWidth } = getWindowSize()
+  const steps = useSelector(state => state.StepReducer.steps);
+  const [creneau, setCreneau] = React.useState(getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau)
+  const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
   const dispatcher = useDispatch()
+  const onPostCreneau = creneau => {
+    setCreneau(creneau);
+  }
+  const onGoNext = () => {
+    const data = {
+      selectedCreneau: creneau
+    }
+    dispatcher(editeStep({ key: STEP1, inputs: data }))
+  }
   return (
-    <Box className='boxClinique'
-      sx={{ width: '100%', height: 200, bgcolor: 'background.paper' }}
-    >
-      <Typography className='texteClinique' sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-        <b>Sélectionnez une date de rendez-vous</b>
-      </Typography>
-      <Grid className='boxlist' container spacing={0.5}>
-        <Grid xs={12}>
-          <FixedSizeList
-            height={400}
-            width={'100%'}
-            marginLeft={'0%'}
-            padding={'100px'}
-            itemSize={46}
-            itemCount={10}
-            overscanCount={5}
-          >
-            {renderRow}
-          </FixedSizeList>
-        </Grid>
-
-      </Grid>
-      <Grid container spacing={0.5}>
-
-        <Grid class="box_btn_retour" xs={6}>
-
-          <Button class="btn_retour" variant="contained" onClick={() => {
-            dispatcher(changeStep({ step: STEP0, subStep: STEP2 }))
-          }}>RETOUR</Button>
-
-        </Grid>
-        <Grid class="box_btn_next" xs={6}>
-
-          <Button class="btn_next" variant="contained" onClick={() => {
-            let step = {
-              subStep: "sub-step-0",
-              outputs: {
-                firstTitle: "Vous devez confirmer votre identité",
-              },
-              inputs: {
-                selectedMotif: null,
-                selectedRegion: null,
-                selectedVille: null,
+    <>
+      <ItemListView
+        onPostCreneau={onPostCreneau}
+        preSelectedCreneau={getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau}
+        label={getActuelStepById(steps, activeStep)?.outputs?.fifthTitle} forMotif={true} />
+      <div style={{ display: innerWidth < 500 && "flex", justifyContent: innerWidth < 500 && "center", width: "100%" }}>
+        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column", width: "100%" }}>
+          <Button className='btn_retour'
+            style={{
+              marginLeft: innerWidth > 500 && 10,
+              marginBottom: innerWidth < 500 && 10,
+              borderRadius: 25,
+              border: "2px solid #04B7C9",
+              fontSize: 18,
+              fontWeight: "700",
+              width: innerWidth > 500 ? "250px" : "100%",
+              height: 50,
+              backgroundColor: "white",
+              borderColor: "#04b7c9",
+              color: "#04b7c9"
+            }} variant="outlined"
+            onClick={() => {
+              dispatcher(changeStep({ step: STEP0, subStep: STEP2 }))
+            }}>RETOUR</Button>
+          <Button className='btn_next'
+            style={{
+              borderRadius: 25,
+              width: innerWidth > 500 ? "250px" : "100%",
+              fontWeight: "700",
+              height: 50,
+              fontSize: 18,
+              backgroundColor: allFieldsSet([creneau]) ? "#04b7c9" : "gray"
+            }}
+            variant="contained"
+            onClick={() => {
+              let step = {
+                subStep: STEP0,
+                outputs: outputs,
+                inputs: {
+                  firstConnexion: true,
+                  email: null,
+                  nom: null,
+                  birthday: null,
+                  phone: null,
+                  conditionAccepted: false,
+                  civilite: 1
+                }
               }
-            }
-            dispatcher(createStep({ key: STEP2, step }))
-            dispatcher(changeStep({ step: STEP2, subStep: STEP0 }))
-          }}>SUIVANT</Button>
-
-        </Grid>
-      </Grid>
-    </Box>
+              if (allFieldsSet([creneau])) {
+                onGoNext()
+                dispatcher(createStep({ key: STEP2, step }))
+                dispatcher(changeStep({ step: STEP2, subStep: STEP0 }))
+              }
+            }}>SUIVANT</Button>
+        </div>
+      </div>
+    </>
   );
 }

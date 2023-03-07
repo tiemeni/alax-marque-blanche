@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask';
 import { messages } from '../../../Helpers/defaultData';
 import { customStyles } from '../../../Constants/customsStyles';
 import { STEP0, STEP1, STEP2, STEP3 } from '../../../Constants/steps';
-import { changeStep, createStep } from '../../../REDUX/Step/actions';
+import { changeStep, createStep, editeStep } from '../../../REDUX/Step/actions';
 import { useDispatch } from 'react-redux';
 
 const Register = ({ checkEmail }) => {
@@ -26,7 +26,19 @@ const Register = ({ checkEmail }) => {
         emailError: null,
         confirmError: null
     })
-    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(true);
+
+    const onGoNext = (form) => {
+        const data = {
+            firstConnexion: true,
+            email: form?.email,
+            nom: form?.name,
+            birthday: form?.birthdate,
+            phone: form?.phone,
+            conditionAccepted: form?.isAccept,
+            civilite: 1
+        }
+        dispatcher(editeStep({ key: STEP2, inputs: data }))
+    }
 
     const handleChange = (e) => {
         e.preventDefault();
@@ -62,6 +74,8 @@ const Register = ({ checkEmail }) => {
         }
     }
 
+    const isInCorrectInputs = (obj) => obj.name === '' || obj.name.length < 5 || obj.surname.length < 5 || obj.surname === '' || obj.phone === '' || obj.email === '' || obj.confirmEmail === '' || obj.birthdate === ''
+
     const checkValidity = () => {
         const { name, surname, phone, email, confirmEmail, birthdate } = formData;
         const isReq = 'Veuillez remplir ce champ';
@@ -75,7 +89,7 @@ const Register = ({ checkEmail }) => {
             birthdateError: birthdate === '' ? isReq : null
         })
 
-        if (name === '' || name.length > 5 || surname.length > 5 || surname === '' || phone === '' || email === '' || confirmEmail === '' || birthdate === '') {
+        if (isInCorrectInputs(formData)) {
             return false
         };
 
@@ -83,31 +97,19 @@ const Register = ({ checkEmail }) => {
     }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        let step = {
-            subStep: STEP0,
-            outputs: {
-                firstTitle: "Sélectionnez un moyen de paiement",
-            },
-            inputs: {
-                selectedMotif: null,
-                selectedRegion: null,
-                selectedVille: null,
+        if (checkValidity()) {
+            onGoNext && onGoNext(formData)
+            let step = {
+                subStep: STEP0,
+                outputs: {
+                    firstTitle: "Sélectionnez un moyen de paiement",
+                },
+                inputs: {}
             }
+            dispatcher(createStep({ key: STEP3, step }))
+            dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
         }
-        console.log("Envoie du formulaire en cours...")
-        dispatcher(createStep({ key: STEP3, step }))
-        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
     }
-
-    React.useEffect(() => {
-        if (errors.emailError !== null || errors.confirmError !== null) {
-            SetCanBeSubmitted(false);
-            return;
-        }
-        SetCanBeSubmitted(true);
-    }, [formData, errors])
-
 
     return (
         <Collapse in={true}>
@@ -134,7 +136,7 @@ const Register = ({ checkEmail }) => {
                         placeholder='Nom'
                         sx={customStyles.customFieldStyle}
                         fullWidth
-                        helperText={errors.nameError}
+                        // helperText={errors.nameError}
                         error={errors.nameError !== null}
                     />
                 </Grid>
@@ -148,7 +150,7 @@ const Register = ({ checkEmail }) => {
                         variant='outlined'
                         placeholder='Prénom'
                         fullWidth
-                        helperText={errors.surnameError}
+                        // helperText={errors.surnameError}
                         error={errors.surnameError !== null}
                         sx={customStyles.customFieldStyle}
                     />
@@ -166,7 +168,7 @@ const Register = ({ checkEmail }) => {
                         placeholder='Date de naissance'
                         sx={customStyles.customFieldStyle}
                         fullWidth
-                        helperText={errors.birthdateError}
+                        // helperText={errors.birthdateError}
                         error={errors.birthdateError !== null}
                     />
                 </Grid>
@@ -184,7 +186,7 @@ const Register = ({ checkEmail }) => {
                             variant='outlined'
                             placeholder='Téléphone'
                             fullWidth sx={customStyles.customFieldStyle}
-                            helperText={errors.phoneError}
+                            // helperText={errors.phoneError}
                             error={errors.phoneError !== null}
                         />}
                     </InputMask>
@@ -202,7 +204,7 @@ const Register = ({ checkEmail }) => {
                         placeholder='Adresse mail'
                         fullWidth
                         sx={customStyles.customFieldStyle}
-                        helperText={errors.emailError}
+                        // helperText={errors.emailError}
                         error={errors.emailError !== null}
                     />
                 </Grid>
@@ -216,7 +218,7 @@ const Register = ({ checkEmail }) => {
                         variant='outlined'
                         placeholder="Confirmer l'adresse mail"
                         fullWidth sx={customStyles.customFieldStyle}
-                        helperText={errors.confirmError}
+                        // helperText={errors.confirmError}
                         error={errors.confirmError !== null}
                     />
                 </Grid>
@@ -242,7 +244,9 @@ const Register = ({ checkEmail }) => {
                     </Button>
                 </Grid>
                 <Grid className='input-box-left' item md={6} xs={12}>
-                    <Button className='input-box_button' onClick={handleSubmit}>
+                    <Button
+                        className={!isInCorrectInputs(formData) ? 'input-box_button' : "input-box_button-disabled"}
+                        onClick={handleSubmit}>
                         <p className='login-text'>Créer</p>
                     </Button>
                 </Grid>

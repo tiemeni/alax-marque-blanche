@@ -19,7 +19,7 @@
 .info-container {
   background-color: rgba(4, 183, 201, 0.15);
   height: "fit-content";
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 10px;
 }
 
@@ -39,6 +39,9 @@
 
 .paragraph.info {
   color: var(--grey-dark-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .info-container_bottom-item {
@@ -52,6 +55,11 @@
   border-radius: 50px !important;
   text-transform: uppercase;
   margin-bottom: 20px !important;
+}
+
+.input-box_button-disabled {
+  background-color: gray !important;
+  color: var(--white-color);
 }
 
 .info-btn_back {

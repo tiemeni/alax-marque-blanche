@@ -75,8 +75,13 @@
   background-color: var(--primary-color) !important;
   color: var(--white-color);
 }
+.input-box_button-disabled {
+  background-color: gray !important;
+  color: var(--white-color);
+}
 
 .input-box_button,
+.input-box_button-disabled,
 .input-box_button_back-btn {
   height: 50px;
   width: 250px;
@@ -108,7 +113,7 @@
 
 .input-box-left {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .container-box_input_box.reset-password {
@@ -122,6 +127,7 @@
 
 @media only screen and (max-width: 899px) {
   .input-box_button,
+  .input-box_button-disabled,
   .input-box_button_back-btn {
     width: 100%;
   }

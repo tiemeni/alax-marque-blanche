@@ -5,8 +5,8 @@ import { messages } from '../../../Helpers/defaultData';
 import { customStyles } from '../../../Constants/customsStyles';
 import { Visibility, VisibilityOff } from '@mui/icons-material'
 import { useDispatch } from 'react-redux';
-import { changeStep, createStep } from '../../../REDUX/Step/actions';
-import { STEP0, STEP1, STEP3 } from '../../../Constants/steps';
+import { changeStep, createStep, editeStep } from '../../../REDUX/Step/actions';
+import { STEP0, STEP2, STEP3 } from '../../../Constants/steps';
 
 const Login = ({ checkEmail, checkPass }) => {
     const dispatcher = useDispatch()
@@ -18,7 +18,6 @@ const Login = ({ checkEmail, checkPass }) => {
         emailError: null,
         passwordMsg: null
     });
-    const [canBeSubmitted, SetCanBeSubmitted] = React.useState(false);
     const [isReset, setIsReset] = React.useState({ isIt: false, value: '' });
     const [showPassword, setShowPassword] = React.useState(false);
 
@@ -45,24 +44,29 @@ const Login = ({ checkEmail, checkPass }) => {
         return true;
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (canBeSubmitted && checkEmptyField()) {
-            console.log("Envoie du formulaire en cours...")
-        }
-        let step = {
-            subStep: STEP0,
-            outputs: {
-                firstTitle: "Selectionnez le créneau qui vous convient",
-            },
-            inputs: {
-                selectedMotif: null,
-                selectedRegion: null,
-                selectedVille: null,
+    const isCorrectInputs = (obj) => obj.email && checkEmail(obj.email) && obj.password && checkPass(obj.password)
+
+    const handleSubmit = () => {
+        if (isCorrectInputs(formData) && checkEmptyField()) {
+            let step = {
+                subStep: STEP0,
+                outputs: {
+                    firstTitle: "Selectionnez le créneau qui vous convient",
+                },
+                inputs: {
+                    selectedMotif: null,
+                    selectedRegion: null,
+                    selectedVille: null,
+                }
             }
+            const data = {
+                email: formData?.email,
+                password: formData?.password,
+            }
+            dispatcher(editeStep({ key: STEP2, inputs: data }));
+            dispatcher(createStep({ key: STEP3, step }));
+            dispatcher(changeStep({ step: STEP3, subStep: STEP0 }));
         }
-        dispatcher(createStep({ key: STEP3, step }))
-        dispatcher(changeStep({ step: STEP3, subStep: STEP0 }))
     }
 
 
@@ -91,19 +95,19 @@ const Login = ({ checkEmail, checkPass }) => {
         })
     }
 
-    React.useEffect(() => {
-        if (errors.emailError !== null || errors.passwordMsg !== null) {
-            SetCanBeSubmitted(false);
-            return;
-        }
-        SetCanBeSubmitted(true)
+    // React.useEffect(() => {
+    //     if (errors.emailError !== null || errors.passwordMsg !== null) {
+    //         SetCanBeSubmitted(false);
+    //         return;
+    //     }
+    //     SetCanBeSubmitted(true)
 
-        if (isReset.isIt) {
-            setTimeout(() => {
-                setIsReset({ isIt: false, msg: '' })
-            }, 10000);
-        }
-    }, [errors, isReset])
+    //     if (isReset.isIt) {
+    //         setTimeout(() => {
+    //             setIsReset({ isIt: false, msg: '' })
+    //         }, 10000);
+    //     }
+    // }, [errors, isReset])
 
 
     return (
@@ -122,7 +126,7 @@ const Login = ({ checkEmail, checkPass }) => {
                             placeholder='Adresse e-mail'
                             sx={customStyles.customFieldStyle}
                             fullWidth
-                            helperText={errors.emailError}
+                            // helperText={errors.emailError}
                             error={errors.emailError !== null}
                         />
                     </Grid>
@@ -139,7 +143,7 @@ const Login = ({ checkEmail, checkPass }) => {
                             placeholder='Mot de passe'
                             sx={customStyles.customFieldStyle}
                             fullWidth
-                            helperText={errors.passwordMsg}
+                            // helperText={errors.passwordMsg}
                             error={errors.passwordMsg !== null}
                             InputProps={{
                                 endAdornment: <InputAdornment position="end">
@@ -169,7 +173,7 @@ const Login = ({ checkEmail, checkPass }) => {
                 )}
                 <Grid mt={3} className='container-login_input'>
                     <Box className='container-box_input_box button'>
-                        <Button onClick={handleSubmit} className='input-box_button' variant='contained'>
+                        <Button onClick={handleSubmit} className={isCorrectInputs(formData) ? 'input-box_button' : 'input-box_button-disabled'} variant='contained'>
                             <p className='login-text'>Connexion</p>
                         </Button>
                     </Box>

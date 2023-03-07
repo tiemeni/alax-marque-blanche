@@ -1,3 +1,4 @@
+import { outputs } from "../../Constants/outputsLabelForFirstStep";
 import { STEP, STEP0 } from "../../Constants/steps";
 import {
     ACTIVATE_STEP,
@@ -13,10 +14,7 @@ const INITIAL_STATE = {
     steps: {
         [STEP0]: {
             subStep: STEP0,
-            outputs: {
-                firstTitle: "Motif du Rendez-vous",
-                secondTitle: "Lieu du Rendez-vous",
-            },
+            outputs: outputs,
             inputs: {
                 selectedMotif: null,
                 selectedRegion: null,
@@ -40,9 +38,9 @@ export const StepReducer = (state = INITIAL_STATE, action) => {
             }
         case EDITE_STEP:
             let actualStepsToUpdate = state.steps
-            actualStepsToUpdate[STEP + action.payload.key].inputs =
+            actualStepsToUpdate[action.payload.key].inputs =
             {
-                ...actualStepsToUpdate[STEP + action.payload.key].inputs,
+                ...actualStepsToUpdate[action.payload.key].inputs,
                 ...action.payload.inputs
             }
             return {
