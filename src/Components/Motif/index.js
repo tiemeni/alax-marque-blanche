@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { STEP0, STEP1 } from '../../Constants/steps';
 import { allFieldsSet, getActuelStepById } from '../../Helpers';
-import { getWindowSize } from '../../Hooks/dimensions';
+import { useDimension } from '../../Hooks/dimensions';
 import { changeStep, editeStep } from '../../REDUX/Step/actions';
 import ItemListView from '../Globals/ItemListView';
 
 const Motif = () => {
-    const { innerWidth } = getWindowSize()
+    const { innerWidth } = useDimension()
     const steps = useSelector(state => state.StepReducer.steps);
     const dispatcher = useDispatch();
     const [motif, setMotif] = useState(getActuelStepById(steps, STEP0)?.inputs?.selectedMotif);

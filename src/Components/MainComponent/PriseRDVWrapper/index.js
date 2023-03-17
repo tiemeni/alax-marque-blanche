@@ -9,10 +9,10 @@ import ChoixDate from '../../DateRdv';
 import { STEP0, STEP1, STEP2, STEP3, STEP4 } from '../../../Constants/steps';
 import { getActuelStepById, transformStepIntoNumber, transformStepIntoTab } from '../../../Helpers';
 import Auth from '../../Auth';
-import { getWindowSize } from '../../../Hooks/dimensions';
+import { useDimension } from '../../../Hooks/dimensions';
 
 export default function PriseRDVWrapper({ open }) {
-    const { innerWidth } = getWindowSize()
+    const { innerWidth, innerHeight } = useDimension()
     const allSteps = useSelector(state => state.StepReducer.steps)
     const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
     const RenderBody = () => {
@@ -48,13 +48,15 @@ export default function PriseRDVWrapper({ open }) {
         return result;
     };
 
+    console.log(innerHeight)
+
     const style = {
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: innerWidth > 960 ? '70%' : "100%",
-        height: '610px',
+        width: innerWidth > 500 ? '70%' : "100%",
+        height: innerWidth > 500 ? 80.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 90 / 100,
         bgcolor: 'background.paper',
         border: '1px solid #DDD',
         boxShadow: 10,
@@ -72,7 +74,7 @@ export default function PriseRDVWrapper({ open }) {
     return (
         <Fade in={open}>
             <Box sx={style}>
-                {innerWidth > 500 ? <Stepper activeStep={0} alternativeLabel>
+                {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
                             <StepLabel color='#04b7c9'>{label}</StepLabel>

@@ -7,11 +7,11 @@ import { STEP0, STEP1, STEP2 } from '../../Constants/steps';
 import ItemListView from '../Globals/ItemListView';
 import { allFieldsSet, getActuelStepById } from '../../Helpers';
 import { outputs } from '../../Constants/outputsLabelForFirstStep';
-import { getWindowSize } from '../../Hooks/dimensions';
+import { useDimension } from '../../Hooks/dimensions';
 
 
 export default function ChoixDate() {
-  const { innerWidth } = getWindowSize()
+  const { innerWidth } = useDimension()
   const steps = useSelector(state => state.StepReducer.steps);
   const [creneau, setCreneau] = React.useState(getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau)
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);

@@ -6,11 +6,11 @@ import { changeStep, editeStep } from '../../REDUX/Step/actions';
 import { STEP0, STEP2 } from '../../Constants/steps';
 import ItemListView from '../Globals/ItemListView';
 import { allFieldsSet, getActuelStepById } from '../../Helpers';
-import { getWindowSize } from '../../Hooks/dimensions';
+import { useDimension } from '../../Hooks/dimensions';
 
 
 export default function ChoixClinique() {
-  const { innerWidth } = getWindowSize()
+  const { innerWidth } = useDimension()
   const steps = useSelector(state => state.StepReducer.steps);
   const [clinique, setClinique] = React.useState(getActuelStepById(steps, STEP0)?.inputs?.selectedClinique);
   const activeStep = useSelector(state => state.StepReducer.activeStepIndex);

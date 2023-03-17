@@ -15,7 +15,7 @@ import '../payment.css'
 const fieldStyles = {
     ...customStyles.customFieldStyle,
     '& fieldset': {
-        borderRadius: 25,
+        borderRadius: 30,
     },
 }
 
@@ -106,7 +106,7 @@ const CreditCard = ({ selectedCard }) => {
                     <img src={selectedCard === VISA ? VisaLogo : mastercard}
                         alt={selectedCard === VISA ? 'Visa' : 'Master card'} />
                 </Grid>
-                <Grid pl={2} pr={2} mb={0} item xs={12}>
+                <Grid pl={2} pr={2} mb={3} item xs={12}>
                     <Grid item xs={12}>
                         <InputMask
                             mask='9999 9999 9999 9999'
@@ -170,7 +170,7 @@ const CreditCard = ({ selectedCard }) => {
                         </InputMask>
                     </Grid>
                 </Grid>
-                <Grid pl={2} pr={2} item xs={12} mb={0}>
+                <Grid pl={2} pr={2} item xs={12} mb={3}>
                     <Grid item xs={12}>
                         <TextField
                             type='tel'

@@ -10,6 +10,7 @@ import { customStyles } from '../../../Constants/customsStyles'
 import { setWitchCardToOpen } from '../../../REDUX/Common/actions'
 import { ORANGE_MONEY } from '../../../Constants/typePayments'
 import '../payment.css';
+import { useDimension } from '../../../Hooks/dimensions'
 
 const fieldStyles = {
     ...customStyles.customFieldStyle,
@@ -19,6 +20,7 @@ const fieldStyles = {
 }
 
 export default function MobilePaymentForm({ selectedCard, paymentMethods }) {
+    const { innerWidth } = useDimension()
     const dispatcher = useDispatch();
     return (
         <div>
@@ -37,7 +39,7 @@ export default function MobilePaymentForm({ selectedCard, paymentMethods }) {
                         cursor: 'pointer'
                     }}
                     alt={"arrow back"} />
-                <p>Paiements Mobiles</p>
+                <p>Paiements {innerWidth > 600 && "Mobiles"}</p>
                 <img src={arrowRight}
                     style={{ height: 20, width: 20 }}
                     alt={"arrow right"} />
