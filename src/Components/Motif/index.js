@@ -54,7 +54,7 @@ const Motif = () => {
             </div>
             <div style={{
                 display: "flex",
-                marginTop: "30px",
+                marginTop: "3%",
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center"

@@ -20,7 +20,7 @@
 .container-menu {
   display: flex;
   height: 38px;
-  margin-bottom: 20px;
+  margin-bottom: -4%;
 }
 
 .container-menu-item {
