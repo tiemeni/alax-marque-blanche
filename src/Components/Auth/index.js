@@ -8,6 +8,16 @@ import { getActuelStepById } from '../../Helpers';
 import { editeStep } from '../../REDUX/Step/actions';
 import { STEP2 } from '../../Constants/steps';
 
+
+export const checkEmailValidity = (email) => {
+    const emailFormat = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
+    return emailFormat.test(email);
+}
+
+export const checkPassValidity = (pass) => {
+    return pass.length > 8
+}
+
 const Auth = () => {
     const steps = useSelector(state => state.StepReducer.steps);
     const activeStep = useSelector(state => state.StepReducer.activeStepIndex);
@@ -24,15 +34,6 @@ const Auth = () => {
             return;
         }
         setSelected({ ...selected, id: 1 });
-    }
-
-    const checkEmailValidity = (email) => {
-        const emailFormat = new RegExp(/^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/, "gm");
-        return emailFormat.test(email);
-    }
-
-    const checkPassValidity = (pass) => {
-        return pass.length > 8
     }
 
     const onGoNext = (form) => {
@@ -61,7 +62,7 @@ const Auth = () => {
                     Se connecter
                 </Grid>
             </Box>
-            <FormControl style={{ justifyContent: 'center', height: "auto" ,marginTop: "9%"}} fullWidth>
+            <FormControl style={{ justifyContent: 'center', height: "auto", marginTop: "9%" }} fullWidth>
                 {selected.id === 1 ?
                     <Register onGoNext={onGoNext} checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
                     :

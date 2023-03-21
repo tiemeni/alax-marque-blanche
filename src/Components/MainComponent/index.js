@@ -26,7 +26,7 @@ export default function MainComponent() {
           
         }}
       >
-        {1 ? <PriseRDVWrapper open={open} /> :
+        {0 ? <PriseRDVWrapper open={open} /> :
           <ComptePatientWrapper open={open} />}
       </Modal>
     </div>

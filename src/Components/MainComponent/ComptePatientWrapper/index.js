@@ -5,6 +5,8 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Login from '../../Auth/Login';
 import background from '../../../Assets/Images/fondpatient.png';
+import { checkEmailValidity, checkPassValidity } from '../../Auth';
+import { useDimension } from '../../../Hooks/dimensions';
 
 // function Copyright(props) {
 //   return (
@@ -30,6 +32,7 @@ import background from '../../../Assets/Images/fondpatient.png';
 const theme = createTheme();
 
 export default function ComptePatientWrapper() {
+  const { innerWidth, innerHeight } = useDimension()
   // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   const data = new FormData(event.currentTarget);
@@ -45,8 +48,8 @@ export default function ComptePatientWrapper() {
     bottom: '0%',
     right: '45%',
     transform: 'translate(-50%, -50%)',
-    width: '43.5%',
-    height: '80%',
+    width: innerWidth > 500 ? '70%' : "100%",
+    height: innerWidth > 500 ? 80.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 90 / 100,
     bgcolor: '#04b7c9',
     /*backgroundImage: 'url(https://source.unsplash.com/random)',
             backgroundRepeat: 'no-repeat',
@@ -120,7 +123,7 @@ export default function ComptePatientWrapper() {
           md={9}
           sx={style2}
         >
-          <Login />
+          <Login checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
         </Grid>
 
 
