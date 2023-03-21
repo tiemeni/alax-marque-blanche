@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import PriseRDVWrapper from './PriseRDVWrapper';
 import ComptePatientWrapper from './ComptePatientWrapper';
+import AccueilPatient from './AccueilPatient';
 
 
 export default function MainComponent() {
@@ -26,8 +27,10 @@ export default function MainComponent() {
           
         }}
       >
-        {1 ? <PriseRDVWrapper open={open} /> :
-          <ComptePatientWrapper open={open} />}
+        {0 ? <PriseRDVWrapper open={open} /> :
+          <AccueilPatient open={open} />
+        
+        }
       </Modal>
     </div>
   );
