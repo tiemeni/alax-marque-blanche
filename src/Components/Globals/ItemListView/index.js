@@ -119,7 +119,6 @@ export default function ItemListView({
         <div>
             <div className='centerLayout'
                 style={{
-                    paddingTop: 50,
                     marginBottom: (innerWidth > 500) ? "5%" : "0%",
                 }}>
                 <div className={forMotif ? 'LeftLayout' : forCity ? "RightLayoutBottom" : "RightLayout"}

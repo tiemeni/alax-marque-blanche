@@ -1,4 +1,4 @@
-import { Box, Fade, Grid, Step, StepLabel, Stepper } from '@mui/material'
+import { Box, Fade, Grid, Step, StepLabel, Stepper, Modal} from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Payment from '../../Payment';
@@ -14,7 +14,7 @@ import { useDimension } from '../../../Hooks/dimensions';
 export default function PriseRDVWrapper({ open }) {
     const { innerWidth, innerHeight } = useDimension()
     const allSteps = useSelector(state => state.StepReducer.steps)
-    const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
+    const actualStep = useSelector(state => state.StepReducer.activeStepIndex); 
     const RenderBody = () => {
         let result;
         switch (actualStep) {
@@ -57,6 +57,7 @@ export default function PriseRDVWrapper({ open }) {
         transform: 'translate(-50%, -50%)',
         width: innerWidth > 500 ? '70%' : "100%",
         height: innerWidth > 500 ? 80.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 90 / 100,
+        // height: "auto",
         bgcolor: 'background.paper',
         border: '1px solid #DDD',
         boxShadow: 10,
@@ -72,8 +73,10 @@ export default function PriseRDVWrapper({ open }) {
         'Récapitulatif',
     ];
     return (
-        <Fade in={open}>
-            <Box sx={style}>
+        <Modal open ={open}>
+            <Box
+                sx={style}>
+                    
                 {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
@@ -101,6 +104,7 @@ export default function PriseRDVWrapper({ open }) {
                     </Grid>
                 </Grid>
             </Box>
-        </Fade >
+        </Modal>
+       
     )
 }

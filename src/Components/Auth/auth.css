@@ -37,6 +37,7 @@
 .container-menu-item.login,
 .container-menu-item.register {
   cursor: pointer;
+  
 }
 
 .container-menu-item.register.selected,
