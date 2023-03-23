@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Container, FormControl, Grid } from '@mui/material'
+import { Box, Container, FormControl, Grid, Button } from '@mui/material'
 import './auth.css';
 import Register from './Register';
 import Login from './Login';
@@ -55,14 +55,14 @@ const Auth = () => {
                 <p className='container-title_text'>{getActuelStepById(steps, activeStep)?.outputs?.sixthTitle}</p>
             </Grid>
             <Box className='container-menu'>
-                <Grid id='register' onClick={handleClick} className={`container-menu-item register ${selected.id === 1 && selected.value}`} >
+                <Button id='register' onClick={handleClick} className={`container-menu-item register ${selected.id === 1 && selected.value}`} >
                     Créer un compte
-                </Grid>
-                <Grid id='login' onClick={handleClick} className={`container-menu-item login ${selected.id === 2 && selected.value}`}>
+                </Button>
+                <Button id='login' onClick={handleClick} className={`container-menu-item login ${selected.id === 2 && selected.value}`}>
                     Se connecter
-                </Grid>
+                </Button>
             </Box>
-            <FormControl style={{ justifyContent: 'center', height: "auto", marginTop: "9%" }} fullWidth>
+            <FormControl style={{ justifyContent: 'center', height: "auto", marginTop: "5%" }} fullWidth>
                 {selected.id === 1 ?
                     <Register onGoNext={onGoNext} checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
                     :
