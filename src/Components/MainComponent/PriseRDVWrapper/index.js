@@ -55,7 +55,7 @@ export default function PriseRDVWrapper({ open }) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: innerWidth > 500 ? '70%' : "100%",
+        width: innerWidth > 678 ? '70%' : "100%",
         height: innerWidth > 500 ? 80.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 90 / 100,
         // height: "auto",
         bgcolor: 'background.paper',
@@ -77,7 +77,7 @@ export default function PriseRDVWrapper({ open }) {
             <Box
                 sx={style}>
                     
-                {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
+                {innerWidth > 678 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
                             <StepLabel color='#04b7c9'>{label}</StepLabel>

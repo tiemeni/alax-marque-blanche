@@ -20,6 +20,7 @@ stepper .boxprincipale {
   overflow-x: hidden;
   min-height: 88%;
   max-height: 100%;
+  margin-top: 0.5%;
 }
 
 .box_patient

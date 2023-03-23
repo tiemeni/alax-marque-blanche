@@ -119,10 +119,10 @@ export default function ItemListView({
         <div>
             <div className='centerLayout'
                 style={{
-                    marginBottom: (innerWidth > 500) ? "5%" : "0%",
+                    marginBottom: (innerWidth > 530) ? "5%" : "0%",
                 }}>
                 <div className={forMotif ? 'LeftLayout' : forCity ? "RightLayoutBottom" : "RightLayout"}
-                    style={{ marginTop: innerWidth < 500 && forCity && -75 }}
+                    style={{ marginTop: innerWidth < 530 && forCity && -75 }}
                 >
                     {/* {JSON.stringify(motif)} */}
                     {(!forCity || forMotif) && <h2 className='title-h2 center-text' style={{ marginTop: forRegion ? 10 : 0 }}>{label}</h2>}
