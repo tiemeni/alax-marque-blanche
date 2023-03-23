@@ -1,0 +1,13 @@
+@media screen and (max-width: 664px) {
+
+    .boxbleue
+    {
+       visibility: hidden;
+    }
+
+    .boxblanche
+    {
+        width: 80% !important;
+        left: 44.5% !important;
+    }
+}

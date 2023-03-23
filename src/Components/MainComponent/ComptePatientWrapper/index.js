@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Login from '../../Auth/Login';
 import background from '../../../Assets/Images/fondpatient.png';
+import './design.css';
 
 // function Copyright(props) {
 //   return (
@@ -73,7 +74,7 @@ export default function ComptePatientWrapper() {
     p: 4,
     marginTop: '0%',
     marginBottom: '0%',
-    paddingTop: '10%',
+    paddingTop: '3%',
   };
 
   const style3 = {
@@ -99,7 +100,7 @@ export default function ComptePatientWrapper() {
     <ThemeProvider theme={theme}>
       <Grid container component="main" sx={style3}>
         <CssBaseline />
-        <Grid
+        <Grid className='boxbleue'
           item
           xs={0}
           sm={3}
@@ -120,14 +121,14 @@ export default function ComptePatientWrapper() {
 
         </Grid>
 
-        <Grid
+        <Grid className='boxblanche'
           item
           xs={0}
           sm={9}
           md={9}
           sx={style2}
         >
-          <Login />
+          <Login className='login' />
         </Grid>
 
 
