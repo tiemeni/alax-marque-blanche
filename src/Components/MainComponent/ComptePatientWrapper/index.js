@@ -42,10 +42,10 @@ export default function ComptePatientWrapper() {
   const style1 = {
     position: 'absolute',
     top: '50.5%',
-    bottom: '0%',
-    right: '45%',
+    left: '25%',
     transform: 'translate(-50%, -50%)',
-    width: '43.5%',
+    width: '45.5%',
+    maxWidth: '0px',
     height: '80%',
     bgcolor: '#04b7c9',
     /*backgroundImage: 'url(https://source.unsplash.com/random)',
@@ -58,14 +58,13 @@ export default function ComptePatientWrapper() {
     p: 4,
     marginTop: '0%',
     marginBottom: '0%',
-    marginLeft: '5%',
   };
 
   const style2 = {
     position: 'absolute',
     top: '50.5%',
     bottom: '0%',
-    left: '61%',
+    right: '0.5%',
     transform: 'translate(-50%, -50%)',
     width: '43.5%',
     height: '80%',
@@ -74,9 +73,17 @@ export default function ComptePatientWrapper() {
     p: 4,
     marginTop: '0%',
     marginBottom: '0%',
-    marginRight: '5%',
     paddingTop: '10%',
   };
+
+  const style3 = {
+    height: '80%',
+    marginTop: '5%',
+    margin: '5%',
+    marginBottom: '5%',
+    position: 'absolute',
+
+  }
 
   // const Item = styled(Paper)(({ theme }) => ({
   //   backgroundColor: 'white',
@@ -90,7 +97,7 @@ export default function ComptePatientWrapper() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Grid container component="main" sx={{ height: '80%', marginLeft: '5%', marginTop: '5%', marginBottom: '5%' }}>
+      <Grid container component="main" sx={style3}>
         <CssBaseline />
         <Grid
           item
@@ -115,7 +122,7 @@ export default function ComptePatientWrapper() {
 
         <Grid
           item
-          xs={12}
+          xs={0}
           sm={9}
           md={9}
           sx={style2}

@@ -28,7 +28,7 @@ export default function MainComponent() {
         }}
       >
         {0 ? <PriseRDVWrapper open={open} /> :
-          <AccueilPatient open={open} />
+          <ComptePatientWrapper open={open} />
         
         }
       </Modal>
