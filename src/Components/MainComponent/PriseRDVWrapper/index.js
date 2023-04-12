@@ -73,10 +73,12 @@ export default function PriseRDVWrapper({ open }) {
         'Récapitulatif',
     ];
     return (
-        <Modal open ={open}>
-            <Box
-                sx={style}>
-                    
+        <Box width={"100%"}>  
+            <Box 
+            display={"flex"}
+            flexDirection={'column'}
+            justifyContent={"center"}
+             height={parseInt(innerHeight) * 15 / 100}>     
                 {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
@@ -98,13 +100,16 @@ export default function PriseRDVWrapper({ open }) {
                         <div style={{ marginLeft: 15 }}>{steps[transformStepIntoNumber(actualStep) - 1]}</div>
                     </div>
                 }
-                <Grid class="box_centre" container spacing={0.5}>
-                    <Grid xs={12} >
-                        {RenderBody()}
-                    </Grid>
-                </Grid>
             </Box>
-        </Modal>
-       
+            <Grid 
+            height={parseInt(innerHeight) * 70 / 100}
+            paddingLeft={4}
+            paddingRight={4}
+            class="box_centre" container spacing={0.5}>
+                 <Grid xs={12} >
+                        {RenderBody()}
+                </Grid>
+            </Grid>
+            </Box>       
     )
 }

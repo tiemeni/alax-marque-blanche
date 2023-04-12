@@ -26,7 +26,7 @@ const Payment = () => {
 
     return (
         <Container>
-            <Grid class="container-title">
+            <Grid class="container-title" textAlign={"center"} margin={"20px 0px"}>
                 <p className='container-title_text'>Sélectionnez un moyen de paiement</p>
             </Grid>
             <Grid className='container-flex' container>
