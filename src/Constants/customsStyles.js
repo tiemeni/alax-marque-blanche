@@ -1,10 +1,9 @@
-import colors from './Colors';
+import colors from './colors';
 
 export const customStyles = {
     customRadioStyle: {
         '&.Mui-checked': {
             color: colors.primaryColor
-
         }
     },
     customFieldStyle: {

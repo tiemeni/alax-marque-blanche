@@ -18,7 +18,8 @@ stepper .boxprincipale {
 .box_centre {
   overflow-y: auto;
   overflow-x: hidden;
-  min-height: 500px;
+  min-height: 88%;
+  max-height: 100%;
 }
 
 .box_patient

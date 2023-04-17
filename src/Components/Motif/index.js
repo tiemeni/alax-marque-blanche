@@ -35,9 +35,9 @@ const Motif = () => {
 
     return (
         <div>
-            <div style={{ width: "100%", display: "flex", flexDirection: innerWidth > 500 ? 'row' : 'column' }}>
+            <div style={{ width: "100%", display: "flex", flexDirection: innerWidth > 500 ? 'row' : 'column' , marginTop: "3%"}}>
                 <div style={{ width: innerWidth > 500 ? "50%" : "100%", marginTop: 8 }}>
-                    <ItemListView
+                    <ItemListView 
                         preSelectedMotif={getActuelStepById(steps, STEP0)?.inputs?.selectedMotif}
                         label={getActuelStepById(steps, STEP0)?.outputs?.firstTitle}
                         handlePostMotif={handlePostMotif} forMotif={true} />
@@ -54,7 +54,7 @@ const Motif = () => {
             </div>
             <div style={{
                 display: "flex",
-                marginTop: "30px",
+                marginTop: "2%",
                 flexDirection: "row",
                 justifyContent: "center",
                 alignItems: "center"

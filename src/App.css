@@ -28,11 +28,11 @@
   color: #61dafb;
 }
 
-.css-4ff9q7.Mui-active{
+.css-4ff9q7.Mui-active {
   color: #04b7c9 !important;
 }
 
-.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active{
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
   color: #04b7c9 !important;
 }
 
@@ -45,13 +45,22 @@
   }
 }
 
-  
-  .css-md26zr-MuiInputBase-root-MuiOutlinedInput-root
-  {
-    border-radius: 8px !important; /* Radius de l'input adresse e-mail*/
-  }
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 8px !important; /* Radius de l'input adresse e-mail*/
+}
 
-  .css-1d3z3hw-MuiOutlinedInput-notchedOutline
-  {
-    border-radius: 8px !important; /* Radius de l'input mot de passe*/
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-radius: 8px !important; /* Radius de l'input mot de passe*/
+}
+
+.css-pwcg7p-MuiCollapse-root {
+  width: 100%;
+}
+
+/* patient login */
+@media (max-width: 600px) {
+  .left-panel {
+    display: none !important;
   }
+  
+}

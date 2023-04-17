@@ -20,7 +20,7 @@
 .container-menu {
   display: flex;
   height: 38px;
-  margin-bottom: 20px;
+  margin-bottom: -4%;
 }
 
 .container-menu-item {
@@ -37,6 +37,7 @@
 .container-menu-item.login,
 .container-menu-item.register {
   cursor: pointer;
+  
 }
 
 .container-menu-item.register.selected,

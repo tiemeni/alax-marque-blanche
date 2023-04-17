@@ -124,7 +124,7 @@ const Register = ({ checkEmail }) => {
                     <FormControlLabel value="Mme" control={<Radio sx={customStyles.customRadioStyle} />} label="Mme" />
                 </RadioGroup>
             </Grid>
-            <Grid mb={2} container spacing={2}>
+            <Grid mb={1} container spacing={2}>
                 <Grid item md={6} xs={12}>
                     <TextField
                         className='text-field-input'
@@ -156,7 +156,7 @@ const Register = ({ checkEmail }) => {
                     />
                 </Grid>
             </Grid>
-            <Grid mb={2} container spacing={2}>
+            <Grid mb={1} container spacing={2}>
                 <Grid item md={6} xs={12}>
                     <TextField
                         className='text-field-input'
@@ -192,7 +192,7 @@ const Register = ({ checkEmail }) => {
                     </InputMask>
                 </Grid>
             </Grid>
-            <Grid mb={3} container spacing={2}>
+            <Grid container spacing={2}>
                 <Grid item md={6} xs={12}>
                     <TextField
                         type='email'
@@ -223,7 +223,7 @@ const Register = ({ checkEmail }) => {
                     />
                 </Grid>
             </Grid>
-            <Grid mb={2} container alignItems={'center'} spacing={2}>
+            <Grid container alignItems={'center'} spacing={2} mt={0.3} mb={0.2}>
                 <Grid>
                     <Checkbox
                         aria-label='cgu'
@@ -235,7 +235,7 @@ const Register = ({ checkEmail }) => {
                 </Grid>
                 <Grid>J'accepte les <span className='cgu'>conditions générales</span></Grid>
             </Grid>
-            <Grid mb={3} container spacing={2}>
+            <Grid  container spacing={2}>
                 <Grid item md={6} xs={12}>
                     <Button variant='outlined' onClick={() => {
                         dispatcher(changeStep({ step: STEP1, subStep: STEP2 }))

@@ -26,7 +26,7 @@ const Payment = () => {
 
     return (
         <Container>
-            <Grid class="container-title">
+            <Grid class="container-title" textAlign={"center"} margin={"20px 0px"}>
                 <p className='container-title_text'>Sélectionnez un moyen de paiement</p>
             </Grid>
             <Grid className='container-flex' container>
@@ -50,7 +50,7 @@ const Payment = () => {
                         </Grid>
                     </Grid>
                 </Grid> : <></>}
-                <Grid style={{ padding: 0 }} item md={8} xs={12}>
+                <Grid style={{ padding: 0, height: "fit-content" }} item md={8} xs={12}>
                     {(selectedCard === VISA || selectedCard === MASTER_CARD) ?
                         <CreditCard selectedCard={selectedCard} /> : !selectedCard ?
                             <>

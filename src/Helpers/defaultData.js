@@ -3,6 +3,13 @@ import MtnLogo from '../Assets/Images/logo_momo.jpg';
 import VisaLogo from '../Assets/Images/visa_logo.jpg';
 import MasterCardLogo from '../Assets/Images/Mastercard_logo.jpg';
 
+import { ReactComponent as HomeIcon } from '../Assets/svgs/Home_2.svg';
+import { ReactComponent as WalletIcon } from '../Assets/svgs/Wallet.svg';
+import { ReactComponent as ProfileIcon } from '../Assets/svgs/Profile.svg';
+import { ReactComponent as SettingsIcon } from '../Assets/svgs/Settings.svg';
+import { ReactComponent as LogoutIcon } from '../Assets/svgs/Logout.svg';
+import { ReactComponent as DocumentIcon } from '../Assets/svgs/Document.svg'
+
 export const mobilePayment = {
     title: 'Paiements mobiles',
     data: [{
@@ -100,3 +107,36 @@ export const messages = {
     confirmMsg: 'Les deux adresses ne sont pas identiques.',
     newPass: 'Votre nouveau mot de passe vous a été envoyé par email.'
 }
+
+export const navItems = [
+    {
+        id: 1,
+        icon: <HomeIcon />,
+        label: 'Accueil'
+    },
+    {
+        id: 2,
+        icon: <DocumentIcon />,
+        label: 'Rendez-vous'
+    },
+    {
+        id: 3,
+        icon: <WalletIcon />,
+        label: 'Transactions'
+    },
+    {
+        id: 4,
+        icon: <ProfileIcon />,
+        label: 'Profil'
+    },
+    {
+        id: 5,
+        icon: <SettingsIcon />,
+        label: 'Paramètres'
+    },
+    {
+        id: 6,
+        icon: <LogoutIcon />,
+        label: 'Déconnexion'
+    }
+]
