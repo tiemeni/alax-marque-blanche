@@ -101,16 +101,9 @@ export default function ComptePatientWrapper() {
           style={{ backgroundImage: `url(${background})`, backgroundSize: '70%', backgroundRepeat: 'no-repeat' }}
         >
           <Typography style={{ color: '#fff', fontWeight: 'lighter', fontFamily: 'sans-serif', marginTop: '30%' }}>
-
-
           </Typography>
           <Typography style={{ marginTop: '-10%', color: '#fff', fontSize: '200%' }}>
-
-
           </Typography>
-
-
-
         </Grid>
 
         <Grid
@@ -122,8 +115,6 @@ export default function ComptePatientWrapper() {
         >
           <Login />
         </Grid>
-
-
       </Grid>
     </ThemeProvider>
   );
