@@ -9,8 +9,8 @@ export default function ComptePatientWrapper() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <Login /> */}
-      <Wrapper />
+      <Login /> 
+      {/* <Wrapper /> */}
     </ThemeProvider >
   );
 }
