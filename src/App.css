@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+  width: 0.2em !important;
+}
+
 .App {
   text-align: center;
 }
@@ -57,10 +61,49 @@
   width: 100%;
 }
 
+.css-1eozgxv-MuiPaper-root-MuiTableContainer-root {
+  box-shadow: none !important;
+}
+
+.css-1ex1afd-MuiTableCell-root {
+  padding: 10px !important;
+}
+
+/* navBar */
+.nav-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-item-label,
+.patient-info {
+  font-size: 14px !important;
+}
+
 /* patient login */
 @media (max-width: 600px) {
   .left-panel {
     display: none !important;
   }
-  
+
+  .patient-avatar {
+    display: none !important;
+  }
+
+  .personal-info,
+  .contact-info {
+    display: block !important;
+  }
+
+  .patient-form-profil::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-item-label,
+  .patient-info {
+    display: none;
+  }
 }

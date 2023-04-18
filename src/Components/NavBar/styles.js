@@ -16,20 +16,23 @@ const styles = {
     navItem: {
         display: 'flex',
         alignItems: 'center',
-        gap: 3,
+        gap: 2,
         padding: 2,
-        borderRadius: 5,
-        marginLeft: 2,
-        marginRight: 2,
-        cursor: 'pointer'
+        borderRadius: 3,
+        marginLeft: 1,
+        marginRight: 1,
+        cursor: 'pointer',
+        height: 50
     },
 
     nomPatient: {
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 14
     },
 
     infoPatient: {
-        color: colors.grey
+        color: colors.grey,
+        fontSize: 14
     }
 }
 
