@@ -48,6 +48,7 @@ const Auth = () => {
         }
         dispatcher(editeStep({ key: STEP2, inputs: data }))
     }
+    
 
     return (
         <Container>
