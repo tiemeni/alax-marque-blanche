@@ -44,7 +44,7 @@ export default function MainComponent() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ComptePatientWrapper open={open} />
+          {1 ? <PriseRDVWrapper open={true} /> : <ComptePatientWrapper />}
         </Box>
       </Modal>
     </div>

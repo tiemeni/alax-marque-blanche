@@ -1,4 +1,4 @@
-import { Box, Fade, Grid, Step, StepLabel, Stepper, Modal} from '@mui/material'
+import { Box, Grid, Step, StepLabel, Stepper } from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Payment from '../../Payment';
@@ -14,7 +14,7 @@ import { useDimension } from '../../../Hooks/dimensions';
 export default function PriseRDVWrapper({ open }) {
     const { innerWidth, innerHeight } = useDimension()
     const allSteps = useSelector(state => state.StepReducer.steps)
-    const actualStep = useSelector(state => state.StepReducer.activeStepIndex); 
+    const actualStep = useSelector(state => state.StepReducer.activeStepIndex);
     const RenderBody = () => {
         let result;
         switch (actualStep) {
@@ -55,7 +55,7 @@ export default function PriseRDVWrapper({ open }) {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: innerWidth > 500 ? '70%' : "100%",
+        width: innerWidth > 678 ? '70%' : "100%",
         height: innerWidth > 500 ? 80.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 90 / 100,
         // height: "auto",
         bgcolor: 'background.paper',
@@ -73,12 +73,12 @@ export default function PriseRDVWrapper({ open }) {
         'Récapitulatif',
     ];
     return (
-        <Box width={"100%"}>  
-            <Box 
-            display={"flex"}
-            flexDirection={'column'}
-            justifyContent={"center"}
-             height={parseInt(innerHeight) * 15 / 100}>     
+        <Box width={"100%"}>
+            <Box
+                display={"flex"}
+                flexDirection={'column'}
+                justifyContent={"center"}
+                height={parseInt(innerHeight) * 15 / 100}>
                 {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
@@ -101,15 +101,15 @@ export default function PriseRDVWrapper({ open }) {
                     </div>
                 }
             </Box>
-            <Grid 
-            height={parseInt(innerHeight) * 70 / 100}
-            paddingLeft={4}
-            paddingRight={4}
-            class="box_centre" container spacing={0.5}>
-                 <Grid xs={12} >
-                        {RenderBody()}
+            <Grid
+                height={parseInt(innerHeight) * 70 / 100}
+                paddingLeft={7}
+                paddingRight={7}
+                class="box_centre" container spacing={0.5}>
+                <Grid xs={12} >
+                    {RenderBody()}
                 </Grid>
             </Grid>
-            </Box>       
+        </Box>
     )
 }

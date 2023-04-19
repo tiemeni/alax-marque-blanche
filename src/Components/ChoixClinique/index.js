@@ -32,16 +32,16 @@ export default function ChoixClinique() {
         onPostClinique={onPostClinique}
         preSelectedClinique={getActuelStepById(steps, STEP0)?.inputs?.selectedClinique}
         label={getActuelStepById(steps, activeStep)?.outputs?.thirdTitle} forMotif={true} />
-      <div style={{display: innerWidth < 500 && "flex", justifyContent: innerWidth < 500 && "center", width: "100%"}}>
-        <div style={{ display: innerWidth < 500 && "flex", flexDirection: innerWidth < 500 && "column-reverse", width: innerWidth < 500 && "90%" }}>
+     <div style={{ display: innerWidth < 525 && "flex", justifyContent: innerWidth < 525 && "center", width: "100%" }}>
+        <div style={{ display: innerWidth < 525 && "flex", flexDirection: innerWidth < 525 && "column-reverse", width: innerWidth < 525 && "90%" }}>
           <Button className='btn_retour'
             style={{
-              marginLeft: innerWidth > 500 && 10,
+              marginLeft: innerWidth > 525 && 10,
               borderRadius: 25,
-              width: innerWidth > 500 ? "250px" : "100%",
               border: "2px solid #04B7C9",
               fontSize: 18,
               fontWeight: "700",
+              width: innerWidth > 525 ? "250px" : "100%",
               height: 50,
               backgroundColor: "white",
               borderColor: "#04b7c9",
@@ -54,8 +54,8 @@ export default function ChoixClinique() {
           <Button className='btn_next'
             style={{
               borderRadius: 25,
-              marginBottom: innerWidth < 500 && 10,
-              width: innerWidth > 500 ? "250px" : "100%",
+              marginBottom: innerWidth < 525 && 10,
+              width: innerWidth > 525 ? "250px" : "100%",
               height: 50,
               fontSize: 18,
               fontWeight: "700",
