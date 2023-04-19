@@ -50,7 +50,7 @@ const Payment = () => {
                         </Grid>
                     </Grid>
                 </Grid> : <></>}
-                <Grid style={{ padding: 0, height: "fit-content" }} item md={8} xs={12}>
+                <Grid style={{ padding: 0, height: "fit-content",}} item md={8} xs={12}>
                     {(selectedCard === VISA || selectedCard === MASTER_CARD) ?
                         <CreditCard selectedCard={selectedCard} /> : !selectedCard ?
                             <>

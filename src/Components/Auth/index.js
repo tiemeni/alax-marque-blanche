@@ -62,7 +62,7 @@ const Auth = () => {
                     Se connecter
                 </Button>
             </Box>
-            <FormControl style={{ justifyContent: 'center', height: "auto", marginTop: "5%" }} fullWidth>
+            <FormControl style={{ justifyContent: 'center', height: "auto", marginTop: "5%", }} fullWidth>
                 {selected.id === 1 ?
                     <Register onGoNext={onGoNext} checkEmail={checkEmailValidity} checkPass={checkPassValidity} />
                     :

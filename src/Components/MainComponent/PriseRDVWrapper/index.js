@@ -76,6 +76,7 @@ export default function PriseRDVWrapper({ open }) {
         <Box width={"100%"}>
             <Box
                 display={"flex"}
+                overflowY={'scroll'}
                 flexDirection={'column'}
                 justifyContent={"center"}
                 height={parseInt(innerHeight) * 15 / 100}>
@@ -103,10 +104,8 @@ export default function PriseRDVWrapper({ open }) {
             </Box>
             <Grid
                 height={parseInt(innerHeight) * 70 / 100}
-                paddingLeft={7}
-                paddingRight={7}
                 class="box_centre" container spacing={0.5}>
-                <Grid xs={12} >
+                <Grid paddingRight={5} paddingLeft={5} xs={12} >
                     {RenderBody()}
                 </Grid>
             </Grid>

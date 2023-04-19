@@ -13,17 +13,14 @@ const Profil = () => {
                 <Typography sx={styles.pageTitle}>Profil</Typography>
             </Grid>
             <Grid item md={12} sx={styles.form} className='patient-form-profil'>
-
                 <Grid item xs={12} sx={styles.flexEnd}>
                     <Button sx={styles.save}>
                         <Typography>Enregistrer</Typography>
                     </Button>
                 </Grid>
-
                 <Grid item xs={12} mt={1}>
                     <Divider sx={styles.sectionTitle}>Informations personnelles</Divider>
                 </Grid>
-
                 <Grid item md={12} mt={1} sx={styles.flex} className='personal-info'>
                     <Grid item md={6} xs={12}>
                         <Grid item xs={12}>
@@ -36,7 +33,6 @@ const Profil = () => {
                                 <FormControlLabel value="Mme" control={<Radio />} label="Mme" />
                             </RadioGroup>
                         </Grid>
-
                         <Grid item xs={12} sx={styles.flex} mt={2}>
                             <TextField
                                 size='small'
@@ -59,7 +55,6 @@ const Profil = () => {
                                     ),
                                 }} />
                         </Grid>
-
                         <Grid item xs={12} mt={3}>
                             <TextField
                                 size='small'
@@ -73,16 +68,13 @@ const Profil = () => {
                                 }} />
                         </Grid>
                     </Grid>
-
                     <Grid className='patient-avatar' item md={6} sx={{ ...styles.flex, justifyContent: 'center' }} >
                         <Avatar sx={styles.avatar}>TH</Avatar>
                     </Grid>
                 </Grid>
-
                 <Grid item xs={12} mt={3} mb={3}>
                     <Divider sx={styles.sectionTitle}>Contacts</Divider>
                 </Grid>
-
                 <Grid item xs={12} sx={styles.flex} mt={3} className='contact-info'>
                     <Grid item md={6} xs={12} mb={2}>
                         <Grid item xs={12}>
@@ -98,7 +90,6 @@ const Profil = () => {
                                     ),
                                 }} />
                         </Grid>
-
                         <Grid item xs={12} mt={3}>
                             <TextField
                                 size='small'
@@ -112,7 +103,6 @@ const Profil = () => {
                                 }} />
                         </Grid>
                     </Grid>
-
                     <Grid item md={6} xs={12} mb={2}>
                         <Grid item xs={12}>
                             <TextField
@@ -127,7 +117,6 @@ const Profil = () => {
                                     ),
                                 }} />
                         </Grid>
-
                         <Grid item xs={12} mt={3}>
                             <TextField
                                 size='small'

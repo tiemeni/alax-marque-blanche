@@ -7,6 +7,7 @@ import PriseRDVWrapper from './PriseRDVWrapper';
 import ComptePatientWrapper from './ComptePatientWrapper';
 import { Box } from '@mui/material';
 import { useDimension } from '../../Hooks/dimensions';
+import Wrapper from './ComptePatientWrapper/Wrapper';
 
 
 export default function MainComponent() {
@@ -21,7 +22,7 @@ export default function MainComponent() {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    // width: 400,
     width: innerWidth > 500 ? '75%' : "100%",
     height: innerWidth > 500 ? 90.05 * parseInt(innerHeight) / 100 : parseInt(innerHeight) * 100 / 100,
     bgcolor: 'white',
@@ -44,7 +45,7 @@ export default function MainComponent() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          {1 ? <PriseRDVWrapper open={true} /> : <ComptePatientWrapper />}
+          {1 ? <PriseRDVWrapper open={true} /> : <Wrapper />}
         </Box>
       </Modal>
     </div>

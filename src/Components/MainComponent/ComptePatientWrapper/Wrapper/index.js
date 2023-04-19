@@ -13,14 +13,11 @@ const Wrapper = () => {
             <Grid item xs={2}>
                 <NavBar />
             </Grid>
-            
             <Grid item xs={10} sx={styles.container}>
                 <Grid item md={12}>
                     <Box sx={styles.close}></Box>
                 </Grid>
-
-                <Settings />
-
+                <ListeRdv />
                 <Button sx={styles.add}>
                     <AddIcon />
                 </Button>
