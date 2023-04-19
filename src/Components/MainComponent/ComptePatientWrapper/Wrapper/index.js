@@ -1,17 +1,29 @@
 import React from 'react';
 import NavBar from '../../../NavBar';
-import { Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import styles from './styles';
+import ListeRdv from '../ListeRdv';
+import Profil from '../Profil';
+import { ReactComponent as AddIcon } from '../../../../Assets/svgs/Union.svg';
+import Settings from '../Settings';
 
 const Wrapper = () => {
     return (
         <Grid container height={'100%'}>
-            <Grid item md={3}>
+            <Grid item xs={2}>
                 <NavBar />
             </Grid>
             
-            <Grid item md={9} sx={styles.container}>
-                {/* Les autres composants */}
+            <Grid item xs={10} sx={styles.container}>
+                <Grid item md={12}>
+                    <Box sx={styles.close}></Box>
+                </Grid>
+
+                <Settings />
+
+                <Button sx={styles.add}>
+                    <AddIcon />
+                </Button>
             </Grid>
         </Grid>
     )

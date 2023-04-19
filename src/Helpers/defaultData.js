@@ -8,7 +8,12 @@ import { ReactComponent as WalletIcon } from '../Assets/svgs/Wallet.svg';
 import { ReactComponent as ProfileIcon } from '../Assets/svgs/Profile.svg';
 import { ReactComponent as SettingsIcon } from '../Assets/svgs/Settings.svg';
 import { ReactComponent as LogoutIcon } from '../Assets/svgs/Logout.svg';
-import { ReactComponent as DocumentIcon } from '../Assets/svgs/Document.svg'
+import { ReactComponent as DocumentIcon } from '../Assets/svgs/Document.svg';
+import { ReactComponent as SpeakerIcon } from '../Assets/svgs/Megaphone.svg'
+import { ReactComponent as NotificationIcon } from '../Assets/svgs/Notification_1.svg'
+import { ReactComponent as MessageIcon } from '../Assets/svgs/Message_Align_Left.svg'
+import { ReactComponent as LeftIcon } from '../Assets/svgs/Left Right_1.svg'
+import { ReactComponent as WebsiteIcon } from '../Assets/svgs/Website.svg'
 
 export const mobilePayment = {
     title: 'Paiements mobiles',
@@ -138,5 +143,187 @@ export const navItems = [
         id: 6,
         icon: <LogoutIcon />,
         label: 'Déconnexion'
+    }
+]
+
+export const rdv = [
+    {
+        id: 1,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 2,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 3,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 4,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 5,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 6,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 7,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 8,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 9,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 10,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 11,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 12,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 13,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 14,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    },
+    {
+        id: 15,
+        motif: 'Première consultation',
+        praticien: 'Dr. Tiemeni Happi',
+        specialite: 'Ophtalmologie',
+        centre: 'Clinique FOUDA',
+        date: '17-04-2023',
+        heure: '14h45',
+        statut: 'Enregistré'
+    }
+]
+
+export const settings = [
+    {
+        id: 1,
+        icon: <WebsiteIcon />,
+        label: 'Choix de la langue',
+        lang: true
+    },
+    {
+        id: 2,
+        icon: <SpeakerIcon />,
+        label: 'Recevoir les rappels de rendez-vous'
+    },
+    {
+        id: 3,
+        icon: <MessageIcon />,
+        label: 'Recevoir les newletters'
+    },
+    {
+        id: 4,
+        icon: <LeftIcon />,
+        label: 'Partager mes informations entre mes centres'
+    },
+    {
+        id: 5,
+        icon: <NotificationIcon />,
+        label: 'Recevoir des notifications des tiers partenaires des centres'
     }
 ]
