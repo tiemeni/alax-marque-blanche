@@ -8,7 +8,7 @@ import './paymentCard.css';
 const PaymentCard = ({ paymentMethod }) => {
     const dispatcher = useDispatch()
     return (
-        <Grid className='payment-option-card' item md={6} xs={12}>
+        <Grid className='payment-option-card' item md={12} xs={12}>
             <Grid mb={1} className='payment-card' item xs={12}>
                 <Fade in={true}>
                     <img onClick={() => dispatcher(setWitchCardToOpen(paymentMethod.title))} className={`image ${paymentMethod.title === MASTER_CARD && 'master'}`} src={paymentMethod.logo} alt='Orange Money' />

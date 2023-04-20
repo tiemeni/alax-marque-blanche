@@ -235,7 +235,7 @@ const Register = ({ checkEmail }) => {
                 </Grid>
                 <Grid>J'accepte les <span className='cgu'>conditions générales</span></Grid>
             </Grid>
-            <Grid  container spacing={2}>
+            <Grid  container spacing={2} mt={2}>
                 <Grid item md={6} xs={12}>
                     <Button variant='outlined' onClick={() => {
                         dispatcher(changeStep({ step: STEP1, subStep: STEP2 }))

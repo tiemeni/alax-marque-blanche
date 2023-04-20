@@ -1,4 +1,4 @@
-import { Box, Grid, Step, StepLabel, Stepper } from '@mui/material'
+import { Box, Grid, Step, StepConnector, stepConnectorClasses, StepLabel, Stepper, styled } from '@mui/material'
 import React from 'react'
 import { useSelector } from 'react-redux';
 import Payment from '../../Payment';
@@ -72,6 +72,29 @@ export default function PriseRDVWrapper({ open }) {
         'Paiement',
         'Récapitulatif',
     ];
+
+    const QontoConnector = styled(StepConnector)(({ theme }) => ({
+        [`&.${stepConnectorClasses.alternativeLabel}`]: {
+            top: 10,
+            left: 'calc(-50% + 11px)',
+            right: 'calc(50% + 11px)',
+        },
+        [`&.${stepConnectorClasses.active}`]: {
+            [`& .${stepConnectorClasses.line}`]: {
+                borderColor: '#04B7C9',
+            },
+        },
+        [`&.${stepConnectorClasses.completed}`]: {
+            [`& .${stepConnectorClasses.line}`]: {
+                borderColor: '#04B7C9',
+            },
+        },
+        [`& .${stepConnectorClasses.line}`]: {
+            borderColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : '#eaeaf0',
+            borderTopWidth: 3,
+            borderRadius: 1,
+        },
+    }));
     return (
         <Box width={"100%"}>
             <Box
@@ -80,7 +103,7 @@ export default function PriseRDVWrapper({ open }) {
                 flexDirection={'column'}
                 justifyContent={"center"}
                 height={parseInt(innerHeight) * 15 / 100}>
-                {innerWidth > 680 ? <Stepper activeStep={0} alternativeLabel>
+                {innerWidth > 680 ? <Stepper connector={<QontoConnector />} activeStep={0} alternativeLabel>
                     {steps.map((label, i) => (
                         <Step active={transformStepIntoTab(actualStep).indexOf(i) !== -1} key={label}>
                             <StepLabel color='#04b7c9'>{label}</StepLabel>

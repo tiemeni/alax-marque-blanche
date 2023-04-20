@@ -10,11 +10,17 @@
   margin-bottom: 30px;
 }
 
-.container-title_text,
+.container-title_text{
+  font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    color: #010101;
+    font-family: 'Inter';
+}
 .container-menu-item.login,
 .container-menu-item.register {
   font-size: 16px;
-  color: var(--grey-color);
+ color: var(--grey-color); 
 }
 
 .container-menu {

@@ -5,16 +5,29 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import PriseRDVWrapper from './PriseRDVWrapper';
 import ComptePatientWrapper from './ComptePatientWrapper';
-import { Box } from '@mui/material';
+import { Box, Fab } from '@mui/material';
 import { useDimension } from '../../Hooks/dimensions';
 import Wrapper from './ComptePatientWrapper/Wrapper';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import QuestionMarkOutlinedIcon from '@mui/icons-material/QuestionMarkOutlined';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
+import colors from '../../Constants/colors';
+import { IS_MOBILE } from '../../Hooks/isMobile';
+import { useDispatch, useSelector } from 'react-redux';
+import { isComptePatient } from '../../REDUX/Common/actions';
+
+
 
 
 export default function MainComponent() {
   const [open, setOpen] = React.useState(false);
+  const dispatcher = useDispatch()
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const { innerWidth, innerHeight } = useDimension()
+  const { innerWidth, innerHeight } = useDimension();
+  const [isMobile] = React.useState(IS_MOBILE())
+  const isComptePatientActive = useSelector(state => state.CommonReducer.isComptePatientActive)
+
 
 
   const style = {
@@ -33,6 +46,10 @@ export default function MainComponent() {
     p: 0
   };
 
+  React.useEffect(() => {
+
+  }, [isComptePatientActive])
+
   return (
     <div>
       <Button onClick={handleOpen}>Start</Button>
@@ -44,8 +61,27 @@ export default function MainComponent() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={style}>
-          {1 ? <PriseRDVWrapper open={true} /> : <Wrapper />}
+        <Box>
+          <Box sx={style}>
+            {!isComptePatientActive ? <PriseRDVWrapper open={true} /> : <Wrapper />}
+            {(innerWidth > 500) && <div style={{ position: "absolute", right: 10, bottom: 10, }}>
+              <Fab onClick={() => dispatcher(isComptePatient())} sx={{ backgroundColor: colors.primaryColor }} aria-label="add">
+                {!isComptePatientActive ? <AccountCircleOutlinedIcon sx={{ color: "white" }} /> :
+                  <ArrowBackOutlinedIcon sx={{ color: "white" }} />}
+              </Fab>
+              <Fab sx={{ backgroundColor: colors.primaryColor, ml: 2 }} aria-label="add">
+                <QuestionMarkOutlinedIcon sx={{ color: "white", }} />
+              </Fab>
+            </div>}
+          </Box>
+          {/* {(innerWidth <= 500) && <div style={{ position: "absolute", right: 10, bottom: 10, }}>
+            <Fab sx={{ backgroundColor: colors.primaryColor }} aria-label="add">
+              <AccountCircleOutlinedIcon sx={{ color: "white" }} />
+            </Fab>
+            <Fab sx={{ backgroundColor: colors.primaryColor, ml: 2 }} aria-label="add">
+              <QuestionMarkOutlinedIcon sx={{ color: "white", }} />
+            </Fab>
+          </div>} */}
         </Box>
       </Modal>
     </div>

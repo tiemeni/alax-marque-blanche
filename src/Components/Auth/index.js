@@ -51,7 +51,7 @@ const Auth = () => {
     
 
     return (
-        <Container>
+        <Container >
             <Grid class="container-title">
                 <p className='container-title_text'>{getActuelStepById(steps, activeStep)?.outputs?.sixthTitle}</p>
             </Grid>

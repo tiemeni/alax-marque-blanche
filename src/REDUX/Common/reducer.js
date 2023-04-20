@@ -1,7 +1,8 @@
-import { RESET_APP, SELECT_CARD_TO_SHOW } from "./types"
+import { RESET_APP, SELECT_CARD_TO_SHOW, SET_FLOW } from "./types"
 
 const INITIAL_STATE = {
-    displayedCardTitle: null
+    displayedCardTitle: null,
+    isComptePatientActive: false
 }
 
 
@@ -11,6 +12,12 @@ export const CommonReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 displayedCardTitle: action.payload
+            }
+        case SET_FLOW:
+            let actualState = state.isComptePatientActive
+            return {
+                ...state,
+                isComptePatientActive: !actualState
             }
         case RESET_APP:
             return {
