@@ -81,6 +81,15 @@
   font-size: 14px !important;
 }
 
+.notifications-list {
+  overflow-y: scroll;
+  height: 25vh;
+}
+
+.notifications-list::-webkit-scrollbar {
+  display: none;
+}
+
 /* patient login */
 @media (max-width: 600px) {
   .left-panel {
@@ -105,5 +114,9 @@
   .nav-item-label,
   .patient-info {
     display: none;
+  }
+
+  .h-container {
+    flex-direction: column-reverse !important;
   }
 }

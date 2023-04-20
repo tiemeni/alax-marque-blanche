@@ -327,3 +327,18 @@ export const settings = [
         label: 'Recevoir des notifications des tiers partenaires des centres'
     }
 ]
+
+export const notifications = [
+    {
+        id: 1,
+        text: "Un rendez-vous vient d’être annulé",
+        message: "Cher(e) patient(e), Nous sommes désolés de vous informer que votre rendez-vous médical prévu avec le Dr [nom du médecin] a été annulé en raison de circonstances imprévues. Nous comprenons que cela peut être une source d'inconvénient pour vous et nous nous excusons sincèrement pour cela. ",
+        type: 'cancel'
+    },
+    {
+        id: 2,
+        text: "Alerte, rendez-vous à venir",
+        message: "Cher(e) patient(e), Nous vous rappelons que vous avez un rendez-vous médical avec le Dr [nom du médecin] dans [nombre de jours] jours, le [date et heure du rendez-vous]. Nous espérons que vous êtes prêt(e) pour votre rendez-vous et que vous avez préparé toutes les informations nécessaires.",
+        type: 'rappel'
+    }
+]
