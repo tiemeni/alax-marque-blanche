@@ -8,12 +8,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { auto } from "@popperjs/core";
 
-export default function BasicTable({ rows }) {
+export default function BasicTable({ rows, tableHeader }) {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} style={{ marginBottom: '30px' }}>
       <Table sx={{ minWidth: auto }} aria-label="simple table">
-        <TableHead name="Header" value="heading"></TableHead>
-        <TableBody>
+        <TableHead name="Header" value="heading">{tableHeader}</TableHead>
+        <TableBody style={{ borderTop: '2px solid darkgray' }}>
           {rows.map((row) => (
             <TableRow
               key={row.name}
