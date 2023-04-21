@@ -128,13 +128,18 @@ const Register = ({ checkEmail }) => {
                 <Grid item md={6} xs={12}>
                     <TextField
                         className='text-field-input'
+                        inputProps={{
+                            style: {
+                              height: "17px",
+                            },
+                          }}
                         name='name'
                         type='text'
                         value={formData.name}
                         onChange={handleChange}
                         variant='outlined'
                         placeholder='Nom'
-                        sx={customStyles.customFieldStyle}
+                        sx={{...customStyles.customFieldStyle, height: 40}}
                         fullWidth
                         // helperText={errors.nameError}
                         error={errors.nameError !== null}
@@ -144,6 +149,11 @@ const Register = ({ checkEmail }) => {
                     <TextField
                         type='text'
                         value={formData.surname}
+                        inputProps={{
+                            style: {
+                              height: "17px",
+                            },
+                          }}
                         name='surname'
                         onChange={handleChange}
                         className='text-field-input'
@@ -160,6 +170,11 @@ const Register = ({ checkEmail }) => {
                 <Grid item md={6} xs={12}>
                     <TextField
                         className='text-field-input'
+                        inputProps={{
+                            style: {
+                              height: "17px",
+                            },
+                          }}
                         type='date'
                         name='birthdate'
                         onChange={handleChange}
@@ -181,6 +196,11 @@ const Register = ({ checkEmail }) => {
                             {...inputProps}
                             type='tel'
                             // onChange={handleChange}
+                            inputProps={{
+                                style: {
+                                  height: "17px",
+                                },
+                              }}
                             name='phone'
                             className='text-field-input'
                             variant='outlined'
@@ -196,6 +216,11 @@ const Register = ({ checkEmail }) => {
                 <Grid item md={6} xs={12}>
                     <TextField
                         type='email'
+                        inputProps={{
+                            style: {
+                              height: "17px",
+                            },
+                          }}
                         value={formData.email}
                         onChange={handleChange}
                         name='email'
@@ -210,6 +235,11 @@ const Register = ({ checkEmail }) => {
                 </Grid>
                 <Grid item md={6} xs={12}>
                     <TextField
+                    inputProps={{
+                        style: {
+                          height: "17px",
+                        },
+                      }}
                         type='email'
                         onChange={handleChange}
                         name='confirmEmail'

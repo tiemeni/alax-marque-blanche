@@ -37,9 +37,7 @@
 .flex-container-center {
   display: flex;
   justify-content: center;
-  position: absolute;
   bottom: 55px;
-  left: 50%;
 }
 
 .login-text {

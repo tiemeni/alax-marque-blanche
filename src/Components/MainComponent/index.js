@@ -43,7 +43,7 @@ export default function MainComponent() {
     border: 'none',
     overflowY: "scroll",
     boxShadow: 24,
-    p: 0
+    p: 0,
   };
 
   React.useEffect(() => {
@@ -62,14 +62,14 @@ export default function MainComponent() {
         aria-describedby="modal-modal-description"
       >
         <Box>
-          <Box sx={style}>
+          <Box sx={{...style}}>
             {!isComptePatientActive ? <PriseRDVWrapper open={true} /> : <Wrapper />}
-            {(innerWidth > 500) && <div style={{ position: "absolute", right: 10, bottom: 10, }}>
-              <Fab onClick={() => dispatcher(isComptePatient())} sx={{ backgroundColor: colors.primaryColor }} aria-label="add">
+            {(innerWidth > 500) && <div style={{ position: "absolute", right: 10, bottom: 10, display: 'flex', flexDirection: "column-reverse" }}>
+              <Fab onClick={() => dispatcher(isComptePatient())} sx={{mt: 2, backgroundColor: colors.primaryColor, width: 40, height: 40 }} aria-label="add">
                 {!isComptePatientActive ? <AccountCircleOutlinedIcon sx={{ color: "white" }} /> :
                   <ArrowBackOutlinedIcon sx={{ color: "white" }} />}
               </Fab>
-              <Fab sx={{ backgroundColor: colors.primaryColor, ml: 2 }} aria-label="add">
+              <Fab sx={{ backgroundColor: colors.primaryColor, width: 40, height: 40 }} aria-label="add">
                 <QuestionMarkOutlinedIcon sx={{ color: "white", }} />
               </Fab>
             </div>}

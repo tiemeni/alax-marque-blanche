@@ -26,7 +26,7 @@ export default function ChoixDate() {
     dispatcher(editeStep({ key: STEP1, inputs: data }))
   }
   return (
-    <>
+    <div style={{padding: 0}}>
       <ItemListView
         onPostCreneau={onPostCreneau}
         preSelectedCreneau={getActuelStepById(steps, STEP1)?.inputs?.selectedCreneau}
@@ -82,6 +82,6 @@ export default function ChoixDate() {
             }}>SUIVANT</Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -60,6 +60,7 @@ const Motif = () => {
                 alignItems: "center"
             }}>
                 <Button
+                sx={{marginBottom: 2}}
                     className={!allFieldsSet([motif, ville, region]) ? "btn-submit-disabled" : 'btn-submit'}
                     variant='contained'
                     onClick={() => {

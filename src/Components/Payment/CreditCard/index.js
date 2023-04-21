@@ -183,7 +183,8 @@ const CreditCard = ({ selectedCard }) => {
                         />
                     </Grid>
                 </Grid>
-                <Grid className='flex-container-center'
+                <Grid 
+                className='flex-container-center'
                     pl={2}
                     pr={2}
                     item
