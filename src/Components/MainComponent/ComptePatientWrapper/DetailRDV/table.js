@@ -12,7 +12,11 @@ export default function BasicTable({ rows, tableHeader }) {
   return (
     <TableContainer component={Paper} style={{ marginBottom: '30px' }}>
       <Table sx={{ minWidth: auto }} aria-label="simple table">
-        <TableHead name="Header" value="heading">{tableHeader}</TableHead>
+        <TableHead name="Header" value="heading">
+          <TableRow>
+            <TableCell style={{width: '120px', padding: '5px'}}>{tableHeader}</TableCell>
+          </TableRow>
+        </TableHead>
         <TableBody style={{ borderTop: '2px solid darkgray' }}>
           {rows.map((row) => (
             <TableRow
