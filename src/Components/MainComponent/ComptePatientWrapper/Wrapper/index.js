@@ -6,6 +6,7 @@ import ListeRdv from '../ListeRdv';
 import Profil from '../Profil';
 import { ReactComponent as AddIcon } from '../../../../Assets/svgs/Union.svg';
 import Settings from '../Settings';
+import DetailRdv from '../DetailRDV';
 
 const Wrapper = () => {
     return (
@@ -17,7 +18,7 @@ const Wrapper = () => {
                 <Grid item md={12}>
                     <Box sx={styles.close}></Box>
                 </Grid>
-                <ListeRdv />
+                <DetailRdv />
                 <Button sx={styles.add}>
                     <AddIcon />
                 </Button>
