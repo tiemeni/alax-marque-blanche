@@ -18,7 +18,9 @@ const Wrapper = () => {
                 <Grid item md={12}>
                     <Box sx={styles.close}></Box>
                 </Grid>
-                <DetailRdv />
+                <Grid>
+                    <DetailRdv />
+                </Grid>
                 <Button sx={styles.add}>
                     <AddIcon />
                 </Button>
