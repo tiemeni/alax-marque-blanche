@@ -14,7 +14,7 @@ export default function BasicTable({ rows, tableHeader }) {
       <Table sx={{ minWidth: auto }} aria-label="simple table">
         <TableHead name="Header" value="heading">
           <TableRow>
-            <TableCell style={{width: '120px', padding: '5px'}}>{tableHeader}</TableCell>
+            <TableCell style={{width: '120px', padding: '5px', color: 'grey'}}>{tableHeader}</TableCell>
           </TableRow>
         </TableHead>
         <TableBody style={{ borderTop: '2px solid darkgray' }}>
@@ -23,7 +23,7 @@ export default function BasicTable({ rows, tableHeader }) {
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell component="th" scope="row">
+              <TableCell style={{ color: 'grey' }} component="th" scope="row">
                 {row.name}
               </TableCell>
               <TableCell align="left">{row.calories}</TableCell>

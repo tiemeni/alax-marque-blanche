@@ -27,7 +27,7 @@ export default function TypoText({ rowsText }) {
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell style={{ width: "50px" }} component="th" scope="row">
+              <TableCell style={{ width: "50px", color: 'grey' }} component="th" scope="row">
                 {row.name}
               </TableCell>
               <TableCell align="left">{row.calories}</TableCell>

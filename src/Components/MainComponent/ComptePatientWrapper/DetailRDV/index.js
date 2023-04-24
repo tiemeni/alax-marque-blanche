@@ -65,7 +65,7 @@ export default function DetailRdv() {
         >
           <Typography
             sx={{ fontSize: 10, marginRight: "30px" }}
-            color="text.secondary"
+            color="grey"
             gutterBottom
           >
             Lundi, 22 Février 2022
@@ -93,23 +93,13 @@ export default function DetailRdv() {
         </Typography>
 
         <Divider style={{ margin: "10px 0 10px" }} textAlign="left">
-          {/* <Chip label="Info Patient" /> */}
         </Divider>
 
         <TypoText rowsText={rowText} />
 
-        {/* <Divider style={{ margin: "10px 0 10px" }} textAlign="left">
-          <Chip label="Info Rendez-vous" />
-        </Divider> */}
-
         <BasicTable rows={rows1} tableHeader={'Info Rendez-vous'} />
 
-        {/* <Divider style={{ margin: "10px 0 10px" }} textAlign="left">
-          <Chip label="Détails de paiment" />
-        </Divider> */}
-
         <BasicTable rows={rows2} tableHeader={'Détails de paiment'} />
-        {/* <Divider style={{ margin: "10px 0 10px" }} textAlign="left"></Divider> */}
         <Box
           sx={{
             display: "flex",
@@ -121,7 +111,7 @@ export default function DetailRdv() {
           <Button size="small" startIcon={<ArrowBackIosIcon />}>
             Retour
           </Button>
-          <Button style={{color: 'light-gray'}} size="small" variant="outlined" startIcon={<PrintIcon />}>
+          <Button style={{color: 'grey', borderColor: 'grey'}} size="small" variant="outlined" startIcon={<PrintIcon />}>
             Imprimer
           </Button>
         </Box>
