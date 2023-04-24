@@ -43,7 +43,7 @@ const rowText = [
 ]
 export default function DetailRdv() {
   return (
-    <Card sx={{ minWidth: auto, marginTop: '40px', borderRadius: '10px' }}>
+    <Card sx={{ minWidth: auto, marginTop: '40px', borderRadius: '10px', overflow: 'auto', maxHeight: '90%' }}>
       <CardContent style={{ "padding-bottom": "5px" }}>
         <Typography
           sx={{ fontSize: 14, fontWeight: 700 }}
