@@ -7,4 +7,9 @@ export const STEP4 = "step-4"
 export const STEP5 = "step-5"
 export const STEP6 = "step-6"
 
-
+export const ACCUEIL = "Accueil"
+export const RDV = "Rendez-vous"
+export const PROFIL = "Profil"
+export const TRANSACTION = "Transactions"
+export const PARAMETRE = "Paramètres"
+export const DECONNEXION = "Déconnexion"

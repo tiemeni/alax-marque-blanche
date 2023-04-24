@@ -58,8 +58,8 @@ const Dashboard = () => {
                     <Grid item xs={12} sx={styles.rdvCard} mt={1}>
                         <Grid item xs={12} sx={{ ...styles.flex }}>
                             <Grid item xs={8}>
-                                <Typography sx={{ ...styles.size, ...styles.nom }}>Dr. Tiemeni Happi</Typography>
-                                <Typography sx={{ ...styles.size, ...styles.specialite }}>(Ophtalmologie)</Typography>
+                                <Typography sx={{ fontSize: 12, ...styles.nom }}>Dr. Tiemeni Happi</Typography>
+                                <Typography sx={{ fontSize: 12, ...styles.specialite }}>(Ophtalmologie)</Typography>
                             </Grid>
                             <Grid item xs={4}>
                                 <Avatar sx={{ float: 'right' }} />
@@ -67,14 +67,14 @@ const Dashboard = () => {
                         </Grid>
                         <Grid item xs={12} mt={1}>
                             <Grid item xs={12}>
-                                <Typography sx={{ ...styles.size }}>Clinique FOUDA</Typography>
+                                <Typography sx={{ fontSize: 12 }}>Clinique FOUDA</Typography>
                             </Grid>
                             <Grid item xs={12} sx={{ ...styles.flex, gap: 1 }} mt={0.5}>
                                 <Grid item xs={8}>
-                                    <Typography sx={{ ...styles.size }}>Ven, 23 Avril 2023</Typography>
+                                    <Typography sx={{ fontSize: 12 }}>Ven, 23 Avril 2023</Typography>
                                 </Grid>
                                 <Grid item xs={4}>
-                                    <Typography sx={{ ...styles.size }}>12:30</Typography>
+                                    <Typography sx={{ fontSize: 12 }}>12:30</Typography>
                                 </Grid>
                             </Grid>
                         </Grid>

@@ -3,20 +3,30 @@ import { Avatar, Grid, Typography } from '@mui/material';
 import styles from './styles';
 import { navItems } from '../../Helpers/defaultData';
 import colors from '../../Constants/colors';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeScreen } from '../../REDUX/Step/actions';
 
-const NavItem = ({ content, selected, handleChange }) => {
-    const boxColor = selected === content.id ? colors.primaryColor : '#fff';
-    const textColor = selected === content.id ? '#fff' : '#000';
+
+
+const NavItem = ({ content, setSelected }) => {
+    const stepAccount = useSelector(state => state.StepReducer.stepAccount);
+    const boxColor = stepAccount === content.step ? colors.primaryColor : '#fff';
+    const textColor = stepAccount === content.step ? '#fff' : '#000';
+    const dispatch = useDispatch();
+
+    const handleChange = () => {
+        dispatch(changeScreen(content.step));
+    }
 
     return (
         <Grid
             className='nav-item'
-            item 
+            item
             md={12}
             sx={styles.navItem}
             bgcolor={boxColor}
             color={textColor}
-            onClick={() => handleChange(content.id)}
+            onClick={handleChange}
             mt={content.id === 6 && 2}
         >
             {content.icon}
@@ -26,7 +36,6 @@ const NavItem = ({ content, selected, handleChange }) => {
 }
 
 const NavBar = () => {
-    const [selected, setSelected] = React.useState(1);
     return (
         <Grid container justifyContent={'center'}>
             <Grid className='patient-info' item>
@@ -43,9 +52,7 @@ const NavBar = () => {
                 {navItems.map((item) => (
                     <NavItem
                         key={item.id}
-                        content={item}
-                        selected={selected}
-                        handleChange={setSelected} />
+                        content={item} />
                 ))}
             </Grid>
         </Grid>

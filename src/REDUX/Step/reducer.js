@@ -1,19 +1,12 @@
 import { outputs } from "../../Constants/outputsLabelForFirstStep";
-import { STEP, STEP0 } from "../../Constants/steps";
-import {
-    ACTIVATE_STEP,
-    CHANGE_STEP,
-    CREATE_STEP,
-    EDITE_STEP,
-    MOVE_TO_NEXT_STEP,
-    MOVE_TO_PREVIEW_STEP
-} from "./types";
+import * as screens from "../../Constants/steps";
+import * as types from "./types";
 
 
 const INITIAL_STATE = {
     steps: {
-        [STEP0]: {
-            subStep: STEP0,
+        [screens.STEP0]: {
+            subStep: screens.STEP0,
             outputs: outputs,
             inputs: {
                 selectedMotif: null,
@@ -24,19 +17,20 @@ const INITIAL_STATE = {
             }
         }
     },
-    activeStepIndex: STEP0,
+    stepAccount: screens.ACCUEIL,
+    activeStepIndex: screens.STEP0,
 }
 
 export const StepReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case CREATE_STEP:
+        case types.CREATE_STEP:
             let actualSteps = state.steps
             actualSteps[action.payload?.key] = action.payload.step
             return {
                 ...state,
                 steps: { ...actualSteps }
             }
-        case EDITE_STEP:
+        case types.EDITE_STEP:
             let actualStepsToUpdate = state.steps
             actualStepsToUpdate[action.payload.key].inputs =
             {
@@ -47,19 +41,19 @@ export const StepReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 steps: { ...actualStepsToUpdate }
             }
-        case ACTIVATE_STEP:
+        case types.ACTIVATE_STEP:
             return {
                 ...state,
                 activeStepIndex: action.payload.key
             }
-        case MOVE_TO_NEXT_STEP:
+        case types.MOVE_TO_NEXT_STEP:
             let actualStepIndex = state.activeStepIndex
             actualStepIndex++
             return {
                 ...state,
                 actualStepIndex
             }
-        case MOVE_TO_PREVIEW_STEP:
+        case types.MOVE_TO_PREVIEW_STEP:
             let actualStepIndexToPreview = state.activeStepIndex
             if (actualStepIndexToPreview > 0) {
                 actualStepIndexToPreview--
@@ -68,7 +62,7 @@ export const StepReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 actualStepIndexToPreview
             }
-        case CHANGE_STEP:
+        case types.CHANGE_STEP:
             const { step, subStep } = action.payload;
             const allSteps = state.steps
             const concernedStep = allSteps[step]
@@ -79,6 +73,12 @@ export const StepReducer = (state = INITIAL_STATE, action) => {
                 steps: { ...allSteps },
                 activeStepIndex: step
             }
+        case types.CHANGE_SCREEN:
+            const {actualStep, nextStep} = action.payload;
+            return {
+                ...state,
+                stepAccount: action.payload
+            };
         default:
             return {
                 ...state,

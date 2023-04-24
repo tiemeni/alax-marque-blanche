@@ -17,14 +17,14 @@ const styles = {
         backgroundColor: '#fff',
         borderRadius: 5,
         padding: 2,
-        height: '40vh',
+        height: '15em',
     },
 
     notifications: {
         backgroundColor: '#fff',
         borderRadius: 5,
         padding: 2,
-        height: '35vh',
+        height: '15em',
     },
 
     flex: {
@@ -38,7 +38,7 @@ const styles = {
     },
 
     size: {
-        fontSize: 14,
+        fontSize: '0.9em',
     },
 
     details: {
@@ -70,7 +70,8 @@ const styles = {
     rdvCard: {
         border: '1px solid ' + colors.inputBorder,
         borderRadius: 5,
-        padding: 1.5,
+        padding: 1,
+        height: '17vh'
     },
 
     nom: {

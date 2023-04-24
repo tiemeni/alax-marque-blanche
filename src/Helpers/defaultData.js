@@ -14,6 +14,7 @@ import { ReactComponent as NotificationIcon } from '../Assets/svgs/Notification_
 import { ReactComponent as MessageIcon } from '../Assets/svgs/Message_Align_Left.svg'
 import { ReactComponent as LeftIcon } from '../Assets/svgs/Left Right_1.svg'
 import { ReactComponent as WebsiteIcon } from '../Assets/svgs/Website.svg'
+import * as screens from '../Constants/steps';
 
 export const mobilePayment = {
     title: 'Paiements mobiles',
@@ -117,32 +118,38 @@ export const navItems = [
     {
         id: 1,
         icon: <HomeIcon />,
-        label: 'Accueil'
+        label: 'Accueil',
+        step: screens.ACCUEIL
     },
     {
         id: 2,
         icon: <DocumentIcon />,
-        label: 'Rendez-vous'
+        label: 'Rendez-vous',
+        step: screens.RDV
     },
     {
         id: 3,
         icon: <WalletIcon />,
-        label: 'Transactions'
+        label: 'Transactions',
+        step: screens.TRANSACTION
     },
     {
         id: 4,
         icon: <ProfileIcon />,
-        label: 'Profil'
+        label: 'Profil',
+        step: screens.PROFIL
     },
     {
         id: 5,
         icon: <SettingsIcon />,
-        label: 'Paramètres'
+        label: 'Paramètres',
+        step: screens.PARAMETRE
     },
     {
         id: 6,
         icon: <LogoutIcon />,
-        label: 'Déconnexion'
+        label: 'Déconnexion',
+        step: screens.DECONNEXION
     }
 ]
 
