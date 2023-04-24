@@ -14,6 +14,7 @@ import { ReactComponent as NotificationIcon } from '../Assets/svgs/Notification_
 import { ReactComponent as MessageIcon } from '../Assets/svgs/Message_Align_Left.svg'
 import { ReactComponent as LeftIcon } from '../Assets/svgs/Left Right_1.svg'
 import { ReactComponent as WebsiteIcon } from '../Assets/svgs/Website.svg'
+import * as screens from '../Constants/steps';
 
 export const mobilePayment = {
     title: 'Paiements mobiles',
@@ -117,32 +118,38 @@ export const navItems = [
     {
         id: 1,
         icon: <HomeIcon />,
-        label: 'Accueil'
+        label: 'Accueil',
+        step: screens.ACCUEIL
     },
     {
         id: 2,
         icon: <DocumentIcon />,
-        label: 'Rendez-vous'
+        label: 'Rendez-vous',
+        step: screens.RDV
     },
     {
         id: 3,
         icon: <WalletIcon />,
-        label: 'Transactions'
+        label: 'Transactions',
+        step: screens.TRANSACTION
     },
     {
         id: 4,
         icon: <ProfileIcon />,
-        label: 'Profil'
+        label: 'Profil',
+        step: screens.PROFIL
     },
     {
         id: 5,
         icon: <SettingsIcon />,
-        label: 'Paramètres'
+        label: 'Paramètres',
+        step: screens.PARAMETRE
     },
     {
         id: 6,
         icon: <LogoutIcon />,
-        label: 'Déconnexion'
+        label: 'Déconnexion',
+        step: screens.DECONNEXION
     }
 ]
 
@@ -325,5 +332,20 @@ export const settings = [
         id: 5,
         icon: <NotificationIcon />,
         label: 'Recevoir des notifications des tiers partenaires des centres'
+    }
+]
+
+export const notifications = [
+    {
+        id: 1,
+        text: "Un rendez-vous vient d’être annulé",
+        message: "Cher(e) patient(e), Nous sommes désolés de vous informer que votre rendez-vous médical prévu avec le Dr [nom du médecin] a été annulé en raison de circonstances imprévues. Nous comprenons que cela peut être une source d'inconvénient pour vous et nous nous excusons sincèrement pour cela. ",
+        type: 'cancel'
+    },
+    {
+        id: 2,
+        text: "Alerte, rendez-vous à venir",
+        message: "Cher(e) patient(e), Nous vous rappelons que vous avez un rendez-vous médical avec le Dr [nom du médecin] dans [nombre de jours] jours, le [date et heure du rendez-vous]. Nous espérons que vous êtes prêt(e) pour votre rendez-vous et que vous avez préparé toutes les informations nécessaires.",
+        type: 'rappel'
     }
 ]

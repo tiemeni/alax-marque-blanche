@@ -7,7 +7,8 @@ const colors = {
     gris: '#D9D9D9',
     grey: '#9A9A9A',
     avatarBg: 'rgba(248, 248, 248, 0.95)',
-    succes: '#04C96A'
+    succes: '#04C96A',
+    danger: '#FD0505'
 }
 
 export default colors;

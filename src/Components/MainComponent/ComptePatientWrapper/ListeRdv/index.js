@@ -68,7 +68,7 @@ const ListeRdv = () => {
             </Grid>
 
             <Grid item mt={2} md={12}>
-                <TableContainer component={Paper} sx={{ maxHeight: 340 }}>
+                <TableContainer component={Paper} sx={{ maxHeight: '55vh' }}>
                     <Table stickyHeader aria-label="sticky table">
                         <TableHead>
                             <TableRow>

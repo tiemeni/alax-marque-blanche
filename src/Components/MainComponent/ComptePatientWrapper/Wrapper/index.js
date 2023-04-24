@@ -7,8 +7,34 @@ import Profil from '../Profil';
 import { ReactComponent as AddIcon } from '../../../../Assets/svgs/Union.svg';
 import Settings from '../Settings';
 import DetailRdv from '../DetailRDV';
+import Dashboard from '../Dashboard';
+import { useSelector } from 'react-redux';
+import * as screens from '../../../../Constants/steps';
 
 const Wrapper = () => {
+    const stepAccount = useSelector(state => state.StepReducer.stepAccount);
+
+    const children = () => {
+        let result;
+        switch (stepAccount) {
+            case screens.ACCUEIL:
+                result = <Dashboard />;
+                break;
+            case screens.RDV:
+                result = <ListeRdv />;
+                break;
+            case screens.PROFIL:
+                result = <Profil />;
+                break;
+            case screens.PARAMETRE:
+                result = <Settings />;
+                break;
+            default:
+                return null
+        }
+        return result;
+    }
+
     return (
         <Grid container height={'100%'}>
             <Grid item xs={2}>
@@ -18,9 +44,7 @@ const Wrapper = () => {
                 <Grid item md={12}>
                     <Box sx={styles.close}></Box>
                 </Grid>
-                <Grid>
-                    <DetailRdv />
-                </Grid>
+                {children()}
                 <Button sx={styles.add}>
                     <AddIcon />
                 </Button>
