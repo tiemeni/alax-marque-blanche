@@ -10,23 +10,41 @@ import { auto } from "@popperjs/core";
 
 export default function BasicTable({ rows, tableHeader }) {
   return (
-    <TableContainer component={Paper} style={{ marginBottom: '30px' }}>
+    <TableContainer component={Paper} style={{ marginBottom: "30px" }}>
       <Table sx={{ minWidth: auto }} aria-label="simple table">
         <TableHead name="Header" value="heading">
           <TableRow>
-            <TableCell style={{width: '120px', padding: '5px', color: 'grey'}}>{tableHeader}</TableCell>
+            <TableCell
+              style={{ width: "120px", padding: "5px", color: "grey" }}
+            >
+              {tableHeader}
+            </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody style={{ borderTop: '2px solid darkgray' }}>
+        <TableBody style={{ borderTop: "2px solid darkgray" }}>
           {rows.map((row) => (
             <TableRow
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell style={{ color: 'grey' }} component="th" scope="row">
+              <TableCell
+                sx={{
+                  fontSize: 14,
+                  color: "grey",
+                }}
+                component="th"
+                scope="row"
+              >
                 {row.name}
               </TableCell>
-              <TableCell align="left">{row.calories}</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 14,
+                }}
+                align="left"
+              >
+                {row.calories}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

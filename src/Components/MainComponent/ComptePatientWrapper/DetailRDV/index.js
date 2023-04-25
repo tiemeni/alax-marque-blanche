@@ -46,7 +46,7 @@ export default function DetailRdv() {
     <Card sx={{ minWidth: auto, marginTop: '40px', borderRadius: '10px', overflow: 'auto', maxHeight: '90%' }}>
       <CardContent style={{ "padding-bottom": "5px" }}>
         <Typography
-          sx={{ fontSize: 14, fontWeight: 700 }}
+          sx={{ fontSize: 16, fontWeight: 700 }}
           variant="h1"
           color="text.primary"
           gutterBottom
@@ -64,7 +64,7 @@ export default function DetailRdv() {
           }}
         >
           <Typography
-            sx={{ fontSize: 10, marginRight: "30px" }}
+            sx={{ fontSize: 12, marginRight: "30px" }}
             color="grey"
             gutterBottom
           >
@@ -83,7 +83,7 @@ export default function DetailRdv() {
               sx={{ color: "green", fontSize: 6, paddingRight: "8px" }}
             />
             <Typography
-              sx={{ fontSize: 10, color: "green" }}
+              sx={{ fontSize: 12, color: "green" }}
               color="text.secondary"
               gutterBottom
             >

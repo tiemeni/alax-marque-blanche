@@ -9,7 +9,7 @@ import { auto } from "@popperjs/core";
 
 export default function TypoText({ rowsText }) {
   return (
-    <TableContainer style={{ width: "fit-content", marginBottom: '30px' }} >
+    <TableContainer style={{ width: "fit-content", marginBottom: "30px" }}>
       <Table
         sx={{
           minWidth: auto,
@@ -27,10 +27,29 @@ export default function TypoText({ rowsText }) {
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
-              <TableCell style={{ width: "50px", color: 'grey' }} component="th" scope="row">
+              <TableCell
+                sx={{
+                  fontSize: 14,
+                  width: "50px",
+                  color: "grey",
+                  padding: '7px 16px',
+                  lineHeight: '17px',
+                }}
+                component="th"
+                scope="row"
+              >
                 {row.name}
               </TableCell>
-              <TableCell align="left">{row.calories}</TableCell>
+              <TableCell
+                sx={{
+                  fontSize: 14,
+                  padding: '7px 16px',
+                  lineHeight: '17px',
+                }}
+                align="left"
+              >
+                {row.calories}
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
