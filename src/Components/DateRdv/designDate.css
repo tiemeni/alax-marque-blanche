@@ -1,0 +1,70 @@
+.boxClinique
+{
+   margin-bottom: 15px;
+   overflow-y: visible;
+   
+    
+}
+
+.boxlist
+{
+    /*background-color: #ddd;*/
+    overflow-y: visible blue;
+}
+
+.texteClinique
+{
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    
+}
+
+.list :hover
+{
+    /*background-color: yellow;*/
+}
+
+
+.box_btn_retour
+{
+    margin-top: 35px;
+    margin-bottom: 50px;
+    width: 50%;
+   
+}
+
+.box_btn_next
+{
+    margin-top: 35px;
+    margin-bottom: 50px;
+    width: 50%;
+   
+}
+
+.btn_retour
+{
+    border-radius: 50px;
+    border: 1px    solid #04B7C9;
+    background-color: #fff;
+    color: #04B7C9;
+    padding: 10px;
+    width: 40%;
+    /*margin-left: 40%;*/
+    height: 40px;
+    font-size: 120%;
+}
+
+.btn_next
+{
+    border-radius: 50px;
+    border: 0px #04B7C9;
+    background-color: #04B7C9;
+    color: #fff;
+    padding: 10px;
+    width: 40%;
+    float: right;
+    /*margin-left: 40%;*/
+    height: 40px;
+    font-size: 120%;
+}

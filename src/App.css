@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Open+Sans&display=swap');
+::-webkit-scrollbar {
+  width: 0.2em !important;
+}
+
+.App {
+  text-align: center;
+}
+
+*{
+  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.css-4ff9q7.Mui-active {
+  color: #04b7c9 !important;
+}
+
+.css-1u4zpwo-MuiSvgIcon-root-MuiStepIcon-root.Mui-active {
+  color: #04b7c9 !important;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 8px !important; /* Radius de l'input adresse e-mail*/
+}
+
+.css-1d3z3hw-MuiOutlinedInput-notchedOutline {
+  border-radius: 8px !important; /* Radius de l'input mot de passe*/
+}
+
+.css-pwcg7p-MuiCollapse-root {
+  width: 100%;
+}
+
+.css-1eozgxv-MuiPaper-root-MuiTableContainer-root {
+  box-shadow: none !important;
+}
+
+.css-1ex1afd-MuiTableCell-root {
+  padding: 10px !important;
+}
+
+/* navBar */
+.nav-item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-item-label,
+.patient-info {
+  font-size: 14px !important;
+}
+
+.notifications-list {
+  overflow-y: scroll;
+  height: 25vh;
+}
+
+.notifications-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* patient login */
+@media (max-width: 600px) {
+  .left-panel {
+    display: none !important;
+  }
+
+  .patient-avatar {
+    display: none !important;
+  }
+
+  .personal-info,
+  .contact-info {
+    display: block !important;
+  }
+
+  .patient-form-profil::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav-item-label,
+  .patient-info {
+    display: none;
+  }
+
+  .h-container {
+    flex-direction: column-reverse !important;
+  }
+}
+
+@media (max-width: 414px) {
+  .itemTrans {
+    max-height: 100% ;
+  }
+}
+
+.css-1oqqzyl-MuiContainer-root {
+  width: 100%;
+ /* margin-left: auto;*/
+  box-sizing: border-box;
+  margin-right: auto;
+  display: block;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.css-16qrp99-MuiGrid-root{
+  margin-left: -8px !important;
+
+}
